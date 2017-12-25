@@ -1,0 +1,120 @@
+/*
+ XNLocalizable.strings
+ ChatDemo-UI1.0
+ 
+ Created by NTalker-zhou on 16/6/6.
+ Copyright © 2016年 NTalker. All rights reserved.
+ */
+
+//NTalkerChatViewController(主聊窗)
+"chatTitle" = "在线客服";//聊窗标题
+"inputingTitle" = "正在输入...";//客服正在输入
+"netWorkStatus" = "当前网络不可用，请检查网络设置！";//无网提示
+"recordBtnTitleNomal" = "按住 说话";//录音按钮标题 默认状态下
+"recordBtnTitleHlight" = "松开 结束";//录音按钮标题 高亮状态下
+"sure" = "确定";
+"deviceUnused" = "设备不可用";
+"tipTitle" = "提　示";//提示标题
+"openCameraAuthority" = "请在设备的\"设置-隐私-相机\"中允许访问相机。";//相机权限提示
+"cantRecord" = "无法录音";//无法录音提示
+"openMicrophoneAuthority" = "请在“设置-隐私-麦克风”选项中允许访问您的麦克风";
+//小视频相关
+"noPermissions" = "没有权限";
+"openPermissions" = "请在设置>隐私>里打开照相机和麦克风的权限";
+"ok" = "好";
+"pressToRecord" = "按住录";
+"cancel" = "取消";
+"recordTooShortTip" = "录制时间太短";
+
+"muchMoreTextTip" = "发送的内容过长";
+"noTextTip" = "发送信息不能为空";
+//客服非在线提醒
+"lostNetTip" = "连接超时，建议您检查网络环境或返回重新请求";
+"customerServiceLeaved" = "您好！客服不在线，请留言！";
+"onlineUpFront" = "您好！客服忙碌中,您排在第";
+"onlineUpBehind" = "位请稍候或留言!";
+"KFLeavedNoLeaveMessage" = "您好！客服不在线";
+"KFBusyNoLeaveMsgFront" = "您好！客服忙碌中,您排在第";
+"KFBusyNoLeaveMsgBehind" = "位请稍候";
+//强输时提醒
+"customerServiceLeavedTip" = "亲！客服不在线，请留言！";
+"customerServiceBusyTip" = "亲！客服忙碌中，请稍候！";
+"requestingTip" = "正在请求客服...";
+"netWorkStatusTip" = "亲，请检查网络设置";
+//访客排队中，提醒
+"isGiveUp" = "您好！是否放弃排队？";
+"yes" = "是";
+"no" = "否";
+//转人工
+"TurnManual" = "转人工";
+//功能键盘
+"pictureLabel" = "图片";
+"cameraLabel" = "相机";
+"evalueLabel" = "评价";
+"videoLabel" = "视频";
+"orderLabel" = "订单";
+"haveEvaluedLabel" = "已评价";
+//表情
+"send" = "发送";
+"historyTip" = "以上是历史消息";
+"clickLeveMsg" = "留言";
+//录音图片上提示
+"talkerTooShort" = "说话时间太短";
+"recordEnding" = "松开手指，取消发送";
+"talkerEndToVolume" = "手指上滑，取消发送";
+
+//NTalkerLeaveMsgViewController(留言)
+"leaveMessageTitle" = "留言";
+//placeHold
+"leaveMsg" = "留言...";
+"leaveMsgName" = "姓名";
+"leaveMsgPhoneNum" = "电话";
+"leaveMsgEmail" = "邮箱";
+"submit" = "提交";
+"Required" = "必填";
+"Notice" = "公告";
+//机器人
+"systypeClickText" = "留言";//点击留言
+//提示语
+"limitMsgTipText" = "留言内容不能超过400个字符";
+"limitNameTipText" = "姓名内容过长";
+"submitLeaveFail" = "留言提交失败";
+"submitLeaveSuccess" = "留言提交成功";
+"unsubmitByNet" = "亲，无网络，留言暂时无法提交";
+"noleaveMsgTip" = "请填写留言内容，谢谢！";
+"noLeaveNameTip" = "请填写您的姓名，谢谢！";
+"noContactInfoTip" = "请填写手机号或邮箱！";
+"phoneNumErrorTip" = "请填写正确的手机号，谢谢!";
+"EmailErrorTip" = "请填写正确的邮箱，谢谢！";
+"phoneOrEmailErrorTip" = "请填写有效的电话号码或邮箱";
+
+//评价
+"evalue0" = "非常满意";
+"evalue1" = "满意";
+"evalue2" = "一般";
+"evalue3" = "不满意";
+"evalue4" = "非常不满意";
+"evalueTitle" = "感谢您的支持,请进行评价";
+"solveStatus" = "问题解决状态";
+"solve0" = "已解决";
+"solve1" = "跟进中";
+"solve2" = "未解决";
+"evalueAdvise" = "建议与反馈";
+"cancelTitle" = "取消";
+"advisePlaceHold" = "此刻的想法";
+"limitEvalueTip" = "评价内容不能超过200个字符";
+"noNetWorkSubmitEvalueTip" = "亲！无网络，评价暂时不可提交";
+"submitEvalueResult" = "评价提交成功!";
+
+//cell
+"copyLink" = "拷贝链接";
+//本地未读消息
+"imageMsg" = "图片消息";
+"voiceMsg" = "语音消息";
+"videoMsg" = "视频消息";
+"fuMadiaMsg" = "富媒体消息";
+//保存照片到相册
+"successSaveToLibrary" = "成功保存图片到相册";
+"savePictureFailed" = "未能成功保存图片,请检查相册权限设置";
+
+

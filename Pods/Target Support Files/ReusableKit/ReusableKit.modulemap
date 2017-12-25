@@ -1,0 +1,6 @@
+framework module ReusableKit {
+  umbrella header "ReusableKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

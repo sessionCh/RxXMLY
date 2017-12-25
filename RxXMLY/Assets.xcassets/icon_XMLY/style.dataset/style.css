@@ -1,0 +1,394 @@
+@charset "UTF-8";
+html {
+  color: #000;
+  background: #fff;
+  overflow-y: scroll;
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none; }
+  html * {
+    outline: none;
+    -webkit-text-size-adjust: none;
+    -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  font-family: sans-serif; }
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+  margin: 0;
+  padding: 0; }
+
+input, select, textarea {
+  font-size: 100%; }
+
+/* 去掉各 Table  cell 的边距并让其边重合 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* 去除默认边框 */
+fieldset, img {
+  border: 0; }
+
+/* 去掉 firefox 下此元素的边框 */
+abbr, acronym {
+  border: 0;
+  font-variant: normal; }
+
+/* 一致的 del 样式 */
+del {
+  text-decoration: line-through; }
+
+address, caption, cite, code, dfn, em, th, var {
+  font-style: normal;
+  font-weight: 500; }
+
+/* 去掉列表前的标识, li 会继承 */
+ol, ul {
+  list-style: none; }
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption, th {
+  text-align: left; }
+
+/* 来自 yahoo, 让标题都自定义, 适应多个系统应用 */
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: 500; }
+
+/* 鼠标悬停 */
+a:hover {
+  text-decoration: underline; }
+
+/* 默认不显示下划线，保持页面简洁 */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  margin: 0;
+  padding: 0; }
+
+input, select, textarea {
+  font-size: 100%; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+fieldset, img {
+  border: 0; }
+
+abbr, acronym {
+  border: 0;
+  font-variant: normal; }
+
+del {
+  text-decoration: line-through; }
+
+address, caption, cite, code, dfn, em, th, var {
+  font-style: normal;
+  font-weight: 500; }
+
+ol, ul {
+  list-style: none; }
+
+caption, th {
+  text-align: left; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: 500; }
+
+q:before, q:after {
+  content: ''; }
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+a:hover {
+  text-decoration: underline; }
+
+ins, a {
+  text-decoration: none; }
+
+.mgt-20 {
+  margin-top: 0.53333rem; }
+
+.mgt-15 {
+  margin-top: 0.4rem; }
+
+.mgb-15 {
+  margin-bottom: 0.4rem; }
+
+.mgb-20 {
+  margin-bottom: 0.53333rem; }
+
+.mgb-10 {
+  margin-bottom: 0.26667rem; }
+
+.em {
+  font-weight: bold; }
+
+.clear:after {
+  content: '';
+  display: block;
+  clear: both; }
+
+.clear {
+  zoom: 1; }
+
+.fr {
+  float: right; }
+
+.fl {
+  float: left; }
+
+.ellipsis {
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.c09 {
+  color: #FF744D; }
+
+.j-card {
+  position: relative;
+  padding: 0.48rem;
+  margin-top: 0.29333rem;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-size: 16px;
+  background-color: #fff; }
+  [data-dpr="2"] .j-card {
+    font-size: 32px; }
+  [data-dpr="3"] .j-card {
+    font-size: 48px; }
+  .j-card:first-of-type {
+    margin-top: 0; }
+  .j-card img {
+    width: 100%;
+    display: inline-block; }
+    .j-card img.placeHolder {
+      position: relative;
+      background-color: #cccccc; }
+      .j-card img.placeHolder::after {
+        content: 'XimalayaFM';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        color: #969696; }
+  .j-card .title {
+    margin-bottom: 0.4rem;
+    text-align: center; }
+    .j-card .title .txt {
+      position: relative;
+      line-height: 0.58667rem;
+      padding: 0 0.26667rem;
+      background: #fff;
+      color: black;
+      z-index: 1; }
+      .j-card .title .txt::before {
+        content: '';
+        z-index: -1;
+        left: -0.8rem;
+        right: -0.8rem;
+        top: 50%;
+        position: absolute;
+        height: 1px;
+        background: #e5e5e5; }
+  .j-card .sub-title {
+    margin: -0.4rem 0 0.4rem;
+    font-size: 14px;
+    text-align: center;
+    line-height: 0.58667rem;
+    font-weight: lighter;
+    color: #666; }
+    [data-dpr="2"] .j-card .sub-title {
+      font-size: 28px; }
+    [data-dpr="3"] .j-card .sub-title {
+      font-size: 42px; }
+  .j-card .join-group {
+    padding: 0.4rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    background-color: #f7f7f7; }
+    .j-card .join-group .head-pic {
+      width: 1.73333rem;
+      height: 1.73333rem;
+      margin-right: 0.26667rem;
+      border-radius: 50%;
+      background-size: 100%;
+      overflow: hidden; }
+    .j-card .join-group .tags {
+      margin: 0.21333rem 0; }
+    .j-card .join-group .tag {
+      margin-right: 0.18667rem;
+      padding: 0.06667rem 0.13333rem;
+      font-size: 9px;
+      font-weight: lighter;
+      text-align: center;
+      border-radius: 0.05333rem;
+      color: white; }
+      [data-dpr="2"] .j-card .join-group .tag {
+        font-size: 18px; }
+      [data-dpr="3"] .j-card .join-group .tag {
+        font-size: 27px; }
+    .j-card .join-group .tag-pay {
+      background-color: #FFCF3E; }
+      .j-card .join-group .tag-pay::before {
+        content: '付费专享'; }
+    .j-card .join-group .tag-num {
+      background-color: #5DCD90; }
+    .j-card .join-group .intro {
+      width: 3.54667rem;
+      font-size: 13px;
+      line-height: 0.34667rem;
+      color: #999; }
+      [data-dpr="2"] .j-card .join-group .intro {
+        font-size: 26px; }
+      [data-dpr="3"] .j-card .join-group .intro {
+        font-size: 39px; }
+  .j-card .group-title {
+    width: 5.46667rem;
+    line-height: 0.48rem;
+    height: 0.48rem;
+    font-size: 15px;
+    color: black; }
+    [data-dpr="2"] .j-card .group-title {
+      font-size: 30px; }
+    [data-dpr="3"] .j-card .group-title {
+      font-size: 45px; }
+  .j-card.comment-box .title {
+    margin: 0 auto; }
+  .j-card.comment-box .star-grade {
+    display: inline-block;
+    width: 60px;
+    height: 11px;
+    background-image: url("./star-off@3x.png");
+    background-position: left center;
+    background-size: auto 100%;
+    background-repeat: repeat-x; }
+    [data-dpr="2"] .j-card.comment-box .star-grade {
+      width: 120px;
+      height: 22px;
+      background-image: url("./star-off@2x.png"); }
+    [data-dpr="3"] .j-card.comment-box .star-grade {
+      width: 180px;
+      height: 33px;
+      background-image: url("./star-off@3x.png"); }
+  .j-card.comment-box .star-graded {
+    display: block;
+    height: 100%;
+    width: 80%;
+    background-image: url("./star-on@3x.png");
+    background-position: left center;
+    background-size: auto 100%;
+    background-repeat: repeat-x; }
+    [data-dpr="2"] .j-card.comment-box .star-graded {
+      background-image: url("./star-on@2x.png"); }
+    [data-dpr="3"] .j-card.comment-box .star-graded {
+      background-image: url("./star-on@3x.png"); }
+  .j-card.comment-box .star-bar {
+    font-size: 14px;
+    font-weight: lighter; }
+    [data-dpr="2"] .j-card.comment-box .star-bar {
+      font-size: 28px; }
+    [data-dpr="3"] .j-card.comment-box .star-bar {
+      font-size: 42px; }
+  .j-card.comment-box .user {
+    font-size: 12px;
+    font-weight: lighter; }
+    [data-dpr="2"] .j-card.comment-box .user {
+      font-size: 24px; }
+    [data-dpr="3"] .j-card.comment-box .user {
+      font-size: 36px; }
+    .j-card.comment-box .user .nickname {
+      line-height: 0.45333rem;
+      color: #666; }
+  .j-card.comment-box .userPic {
+    display: inline-block;
+    width: 0.58667rem;
+    height: 0.58667rem;
+    margin-left: 0.21333rem;
+    border-radius: 50%;
+    vertical-align: middle;
+    background-size: cover;
+    background-position: center center; }
+  .j-card .title-1 {
+    font-weight: bold;
+    line-height: 0.74667rem; }
+  .j-card .p1 {
+    line-height: 0.85333rem;
+    margin-bottom: 0.64rem;
+    color: #666;
+    font-weight: lighter; }
+    .j-card .p1:last-of-type {
+      margin-bottom: 0; }
+  .j-card .comment-item {
+    padding: 0.13333rem 0;
+    border-bottom: 1px solid #e5e5e5; }
+    .j-card .comment-item:last-of-type {
+      border: none; }
+  .j-card .comment-num {
+    text-align: center;
+    font-size: 12px;
+    color: #999; }
+    [data-dpr="2"] .j-card .comment-num {
+      font-size: 24px; }
+    [data-dpr="3"] .j-card .comment-num {
+      font-size: 36px; }
+    .j-card .comment-num::after {
+      content: '';
+      display: inline-block;
+      margin-left: 0.16rem;
+      width: 0.10667rem;
+      height: 0.21333rem;
+      background-image: url("./arrow_ic@3x.png");
+      background-size: cover; }
+  .j-card .comment-content {
+    line-height: 1.5;
+    font-weight: lighter;
+    margin-bottom: 0.24rem; }
+  .j-card .load-more {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center; }
+    .j-card .load-more .mask {
+      height: 1.66667rem;
+      margin-bottom: -1px;
+      background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.98) 100%); }
+    .j-card .load-more .load-txt {
+      padding: 1.09333rem 0 0.48rem;
+      line-height: 0.45333rem;
+      font-size: 12px;
+      background: #fff;
+      vertical-align: middle; }
+      [data-dpr="2"] .j-card .load-more .load-txt {
+        font-size: 24px; }
+      [data-dpr="3"] .j-card .load-more .load-txt {
+        font-size: 36px; }
+      .j-card .load-more .load-txt::after {
+        content: '';
+        display: inline-block;
+        width: 0.21333rem;
+        height: 0.10667rem;
+        margin-left: 0.16rem;
+        margin-top: -0.05333rem;
+        vertical-align: middle;
+        background-image: url("./unfolded_arrow@3x.png");
+        background-size: cover;
+        background-position: center center; }
+
+body, html {
+  background: #f7f7f7; }

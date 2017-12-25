@@ -1,0 +1,18 @@
+{   "alert":"消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容",
+    "badge":1,
+    "sound":"提示音",
+        "extra":
+        {
+            "n_type":1,
+            "msg_type":1,
+            "title":"标题",
+            "message":"消息内容",
+            "url":"消息跳转的url地址",
+            "track_id":12312,
+            "album_id":123123,
+            "uid":12312,
+            "recSrc":"cf1",
+            "recTrack":"n",
+            "msgId":"time_type_id"
+        }
+}
