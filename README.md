@@ -1,6 +1,5 @@
 # RxSwift实现高仿喜马拉雅的函数响应式编程
 
-
 ### RxSwift 简介
 
 [ReactiveX](http://reactivex.io/)（简写: Rx） 是一个可以帮助我们简化异步编程的框架。
@@ -23,7 +22,7 @@
 
 ### RxSwift 项目实战
 
-###### 源码下载
+#### 源码下载
 
 [RxSwift实现高仿喜马拉雅的函数响应式编程](https://github.com/sessionCh/RxXMLY)
 
@@ -33,7 +32,7 @@
 - 2.项目运行中，如果数据获取失败，一般是链接失效，需要自己重新去抓取相关的链接
 - 3.项目仅供学习参考用，如有问题，欢迎指正。
 
-###### 效果截图
+#### 效果截图
 
 ![高仿喜马拉雅截图1-1](http://ovy8j7ypb.bkt.clouddn.com/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%851-1.png)
 ![高仿喜马拉雅截图1-2](http://ovy8j7ypb.bkt.clouddn.com/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%851-2.png)
