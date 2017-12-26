@@ -69,6 +69,7 @@ extension HCMineNavBar: HCMineAnchorsable, HCNavUniversalable {
             HCLog(model.description)
         }
         
+        // 布局
         message.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.left.equalToSuperview()

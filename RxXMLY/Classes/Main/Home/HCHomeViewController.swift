@@ -83,7 +83,9 @@ extension HCHomeViewController: HCNavTitleable {
         myTitleView = self.titleView(titleView: homeNavBar)
     }
     
+    // MARK:- 分页控制器
     private func initPageController() {
+        
         addChildViewController(pageVC)
         view.addSubview(pageVC.view)
         pageVC.delegate = self
