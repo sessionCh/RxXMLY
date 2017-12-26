@@ -1,15 +1,5 @@
 # RxSwift实现高仿喜马拉雅的函数响应式编程
 
----
-title: RxSwift 函数响应式编程
-date: 2017-12-25 17:35:27
-tags:
-  - iOS 开发
-  - RxSwift 开发 
-  - 函数响应式编程
-categories: RxSwift
----
-
 ### RxSwift 简介
 
 [ReactiveX](http://reactivex.io/)（简写: Rx） 是一个可以帮助我们简化异步编程的框架。
