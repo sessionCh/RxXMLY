@@ -45,6 +45,7 @@
 		1B2C67121FE2B9EC003172BE /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2C67111FE2B9EC003172BE /* UIImage+Color.swift */; };
 		1B2C67141FE2BCE0003172BE /* HCNavMessageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2C67131FE2BCE0003172BE /* HCNavMessageable.swift */; };
 		1B2C67171FE2BF5F003172BE /* HCBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2C67161FE2BF5F003172BE /* HCBaseViewController.swift */; };
+		1B3341F31FF255DB008EAF43 /* String+GetSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3341F21FF255DB008EAF43 /* String+GetSize.swift */; };
 		1B3525EC1FE6BCF000EC9270 /* HCActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3525EB1FE6BCF000EC9270 /* HCActivityModel.swift */; };
 		1B4474B91FE263F200A31004 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B4474B81FE263F200A31004 /* LaunchScreen.storyboard */; };
 		1B5C3DDF1FE24B2300587750 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5C3DDE1FE24B2300587750 /* AppDelegate.swift */; };
@@ -72,6 +73,7 @@
 		1BD4C66F1FE67EFD00CFBF5C /* HCSquareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD4C66D1FE67EFD00CFBF5C /* HCSquareCell.swift */; };
 		1BD4C6701FE67EFD00CFBF5C /* HCSquareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BD4C66E1FE67EFD00CFBF5C /* HCSquareCell.xib */; };
 		1BD4C6761FE694E800CFBF5C /* HCSquareFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD4C6751FE694E800CFBF5C /* HCSquareFlowLayout.swift */; };
+		1BE113221FF238BC0018B541 /* HCLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE113211FF238BC0018B541 /* HCLoginViewController.swift */; };
 		1BEB29451FE2C2E0001F7C1B /* HCNavHistoryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB29441FE2C2E0001F7C1B /* HCNavHistoryable.swift */; };
 		1BEB29471FE2C49C001F7C1B /* HCNavDownloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB29461FE2C49C001F7C1B /* HCNavDownloadable.swift */; };
 		1BEB29491FE2C7F8001F7C1B /* HCNavSearchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB29481FE2C7F7001F7C1B /* HCNavSearchable.swift */; };
@@ -135,6 +137,7 @@
 		1B2C67111FE2B9EC003172BE /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		1B2C67131FE2BCE0003172BE /* HCNavMessageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCNavMessageable.swift; sourceTree = "<group>"; };
 		1B2C67161FE2BF5F003172BE /* HCBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBaseViewController.swift; sourceTree = "<group>"; };
+		1B3341F21FF255DB008EAF43 /* String+GetSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+GetSize.swift"; sourceTree = "<group>"; };
 		1B3525EB1FE6BCF000EC9270 /* HCActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCActivityModel.swift; sourceTree = "<group>"; };
 		1B4474B81FE263F200A31004 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B5C3DDB1FE24B2300587750 /* RxXMLY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxXMLY.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,6 +171,7 @@
 		1BD4C66D1FE67EFD00CFBF5C /* HCSquareCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCSquareCell.swift; sourceTree = "<group>"; };
 		1BD4C66E1FE67EFD00CFBF5C /* HCSquareCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCSquareCell.xib; sourceTree = "<group>"; };
 		1BD4C6751FE694E800CFBF5C /* HCSquareFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCSquareFlowLayout.swift; sourceTree = "<group>"; };
+		1BE113211FF238BC0018B541 /* HCLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLoginViewController.swift; sourceTree = "<group>"; };
 		1BEB29441FE2C2E0001F7C1B /* HCNavHistoryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCNavHistoryable.swift; sourceTree = "<group>"; };
 		1BEB29461FE2C49C001F7C1B /* HCNavDownloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCNavDownloadable.swift; sourceTree = "<group>"; };
 		1BEB29481FE2C7F7001F7C1B /* HCNavSearchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCNavSearchable.swift; sourceTree = "<group>"; };
@@ -501,6 +505,7 @@
 		1B5C3E0F1FE24EBD00587750 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1B3341F21FF255DB008EAF43 /* String+GetSize.swift */,
 				1B2C66FC1FE26F57003172BE /* UIColor+HexColor.swift */,
 				1B2C66FE1FE270AB003172BE /* UIView+Frame.swift */,
 				1B2C67111FE2B9EC003172BE /* UIImage+Color.swift */,
@@ -534,6 +539,7 @@
 		1B6641CD1FE4699F00DCFFE6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1BE1131E1FF2386C0018B541 /* Login */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -590,6 +596,30 @@
 				1BD4C66A1FE668E500CFBF5C /* HCNibloadable.swift */,
 			);
 			path = HCNibloadable;
+			sourceTree = "<group>";
+		};
+		1BE1131E1FF2386C0018B541 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				1BE1131F1FF2386C0018B541 /* Model */,
+				1BE113201FF2386C0018B541 /* View */,
+				1BE113211FF238BC0018B541 /* HCLoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		1BE1131F1FF2386C0018B541 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1BE113201FF2386C0018B541 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B27CCBCC61291E0C263DCE36 /* Frameworks */ = {
@@ -882,6 +912,8 @@
 				1B2C67081FE27910003172BE /* HCNavBackable.swift in Sources */,
 				1B79F2931FE3BD7400FF3EC3 /* HCSearchControllerable.swift in Sources */,
 				1BEB29451FE2C2E0001F7C1B /* HCNavHistoryable.swift in Sources */,
+				1B3341F31FF255DB008EAF43 /* String+GetSize.swift in Sources */,
+				1BE113221FF238BC0018B541 /* HCLoginViewController.swift in Sources */,
 				1B3525EC1FE6BCF000EC9270 /* HCActivityModel.swift in Sources */,
 				1BD4C6671FE660F700CFBF5C /* HCRecommendFooterView.swift in Sources */,
 				1BD4C6761FE694E800CFBF5C /* HCSquareFlowLayout.swift in Sources */,

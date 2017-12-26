@@ -25,10 +25,8 @@ class HCBaseNavigationController: UINavigationController, HCNavBackable {
         ]
         
         // 设置返回按钮的样式
-        navigationBar.tintColor = kThemeDimGrayColor     // 设置返回标识器的颜色
+        navigationBar.tintColor = kThemeBlackColor     // 设置返回标识器的颜色
         let barItem = UIBarButtonItem.appearance()
-        barItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor : UIColor.white], for: .normal)  // 返回按钮文字样式
+        barItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor : kThemeBlackColor], for: .normal)  // 返回按钮文字样式
     }
-
-    
 }

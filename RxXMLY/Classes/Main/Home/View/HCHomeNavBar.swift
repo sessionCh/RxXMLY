@@ -65,6 +65,7 @@ extension HCHomeNavBar: HCHomeSearchBarable, HCNavUniversalable {
         // 下载
         let download = self.universal(model: HCNavBarItemMetric.download) { (model) in
             
+            self.itemClicked!(model)
             HCLog(model.description)
         }
         

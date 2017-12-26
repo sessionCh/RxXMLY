@@ -26,8 +26,6 @@ fileprivate struct Metric {
 class HCHomeViewController: HCBaseViewController {
     
     private var myTitleView: UIView?
-    private var previousX: CGFloat = 0.0
-    private var currentX: CGFloat = 0.0
 
     private let titles: [String] = ["分类", "推荐", "精品", "直播", "广播"]
     private let pageVC = TYTabPagerController().then {
@@ -76,6 +74,10 @@ extension HCHomeViewController: HCNavTitleable {
             switch type {
             case .homeSearchBar:
                 self?.jump2SearchResult()
+                break
+                
+            case .download:
+                self?.jump2Download()
                 break
             default: break
             }
@@ -131,7 +133,14 @@ extension HCHomeViewController {
     // MARK:- 搜索结果
     func jump2SearchResult() {
         
-        let searchResult = HCBaseNavigationController(rootViewController: HCSearchController())
-        self.present(searchResult, animated: false, completion: nil)
+        let VC = HCBaseNavigationController(rootViewController: HCSearchController())
+        self.present(VC, animated: false, completion: nil)
+    }
+    
+    // MARK:- 下载
+    func jump2Download() {
+        
+        let VC = HCBaseNavigationController(rootViewController: HCLoginViewController())
+        self.present(VC, animated: true, completion: nil)
     }
 }

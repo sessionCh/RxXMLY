@@ -72,12 +72,19 @@ struct HCNavBarItemMetric {
                                                  position: .center,
                                                  description: "搜索页面",
                                                  imageNamed: "")
+    
+    // 登录页面-注册
+    static let loginRegister = HCNavBarItemModel(type: .title(index: 0, title: "注册"),
+                                          position: .right,
+                                          title: "注册",
+                                          description: "登录页面-注册")
 }
 
 protocol HCNavUniversalable {
     
 }
 
+// MARK:- 添加到视图的组件，需要自己主动设置位置
 extension HCNavUniversalable where Self : UIView {
     
     // MARK:- 导航栏 通用组件
@@ -90,12 +97,12 @@ extension HCNavUniversalable where Self : UIView {
         let btn = UIButton().then {
             // 设置属性
             $0.contentMode = .scaleAspectFit
+            $0.setTitle(model.title, for: .normal)
             $0.setBackgroundImage(UIImage(named: model.imageNamed), for: .normal)
             // 处理点击事件
             $0.rx.tapGesture().when(.recognized)
                 .subscribe({ _ in
-            
-                    HCLog(model.description)
+                    onNext(model)
                 }).disposed(by: rx.disposeBag)
         }
         
@@ -119,13 +126,23 @@ extension HCNavUniversalable where Self : UIView {
     }
 }
 
+// MARK:- 添加到控制器的组件，指定位置即可
 extension HCNavUniversalable where Self : UIViewController {
     
     // MARK:- 导航栏 通用组件
     func universal(model: HCNavBarItemModel, onNext: @escaping (_ model: HCNavBarItemModel)->Void) {
 
-        let item = UIBarButtonItem(image: UIImage(named: model.imageNamed), style: .plain, target: nil, action: nil)
-        item.rx.tap.do(onNext: {            
+        var item: UIBarButtonItem
+        
+        if model.title != nil {
+            // 标题
+            item = UIBarButtonItem(title: model.title, style: .plain, target: nil, action: nil)
+        } else {
+            // 图标
+            item = UIBarButtonItem(image: UIImage(named: model.imageNamed), style: .plain, target: nil, action: nil)
+        }
+        
+        item.rx.tap.do(onNext: {
             onNext(model)
         }).subscribe().disposed(by: rx.disposeBag)
         
@@ -183,6 +200,7 @@ struct HCNavBarItemModel {
     
     enum HCNavBarItemType {
         case back
+        case title(index: Int, title: String)
         case message
         case history
         case download
@@ -195,13 +213,24 @@ struct HCNavBarItemModel {
     
     var type: HCNavBarItemType
     var position: HCNavBarItemPosition
+    var title: String?
     var description: String
     var imageNamed: String
     
+    init(type: HCNavBarItemType, position: HCNavBarItemPosition, title: String, description: String) {
+        
+        self.type = type
+        self.position = position
+        self.title = title
+        self.description = description
+        self.imageNamed = ""
+    }
+
     init(type: HCNavBarItemType, position: HCNavBarItemPosition, description: String, imageNamed: String) {
         
         self.type = type
         self.position = position
+        self.title = nil
         self.description = description
         self.imageNamed = imageNamed
     }
