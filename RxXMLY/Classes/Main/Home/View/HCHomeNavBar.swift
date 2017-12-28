@@ -10,9 +10,7 @@ import UIKit
 
 // MARK:- 常量
 fileprivate struct Metric {
-    
-    static let margin: CGFloat = 10.0
-    
+        
     static let homeBarWidth: CGFloat = kScreenW
     static let homeBarHeight: CGFloat = 44.0
 }
@@ -52,26 +50,24 @@ extension HCHomeNavBar: HCHomeSearchBarable, HCNavUniversalable {
         
         // 消息按钮
         let message = self.universal(model: HCNavBarItemMetric.message) { (model) in
-            
+            self.itemClicked!(model)
             HCLog(model.description)
         }
         
         // 历史记录
         let history = self.universal(model: HCNavBarItemMetric.history) { (model) in
-            
+            self.itemClicked!(model)
             HCLog(model.description)
         }
         
         // 下载
         let download = self.universal(model: HCNavBarItemMetric.download) { (model) in
-            
             self.itemClicked!(model)
             HCLog(model.description)
         }
         
         // 搜索栏
         let searchBar = self.searchBar(model: HCNavBarItemMetric.homeSearchBar) { (model) in
-            
             self.itemClicked!(model)
             HCLog(model.description)
         }
@@ -84,17 +80,17 @@ extension HCHomeNavBar: HCHomeSearchBarable, HCNavUniversalable {
         
         searchBar.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.left.equalTo(message.snp.right).offset(Metric.margin)
+            make.left.equalTo(message.snp.right).offset(MetricGlobal.margin)
         }
         
         history.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.left.equalTo(searchBar.snp.right).offset(Metric.margin)
+            make.left.equalTo(searchBar.snp.right).offset(MetricGlobal.margin)
         }
         
         download.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.left.equalTo(history.snp.right).offset(Metric.margin)
+            make.left.equalTo(history.snp.right).offset(MetricGlobal.margin)
             make.right.equalToSuperview()
         }
     }

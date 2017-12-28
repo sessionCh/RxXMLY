@@ -34,7 +34,8 @@ target 'RxXMLY' do
     pod 'Then'
     pod 'ReusableKit'
     pod 'SwiftyColor'
-    
+    pod 'MLeaksFinder'              # 检测内存泄漏
+
     # SDK
     
 end

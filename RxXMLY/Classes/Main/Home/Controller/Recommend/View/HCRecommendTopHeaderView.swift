@@ -65,7 +65,7 @@ extension HCRecommendTopHeaderView {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.collectionViewLayout = HCSquareFlowLayout()
         collectionView.register(Reusable.squareCell)
-        centerBottomView.backgroundColor = kThemeGainsboroSmokeColor
+        centerBottomView.backgroundColor = kThemeGainsboroColor
 
         // 立即前往
 //        self.bottomBtn.layer.masksToBounds = true

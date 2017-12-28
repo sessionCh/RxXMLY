@@ -17,13 +17,11 @@ import SnapKit
 // MARK:- 常量
 fileprivate struct Metric {
     
-    static let margin: CGFloat = 10.0
-
     static let title: String = "养生 | 健身 | 艾灸 | 国家宝藏 | 72小时情感急症室"
     static let fontSize: CGFloat = 13.0
     
     static let iconWidth: CGFloat = 20.0
-    static let searchBarWidth: CGFloat = kScreenW - margin * 16
+    static let searchBarWidth: CGFloat = kScreenW - MetricGlobal.margin * 16
     static let searchBarHeight: CGFloat = 30.0
 }
 
@@ -41,7 +39,7 @@ extension HCHomeSearchBarable where Self : UIView {
             $0.backgroundColor = .clear
         }
         let backView = UIView().then {
-            $0.backgroundColor = kThemeGainsboroSmokeColor
+            $0.backgroundColor = kThemeGainsboroColor
             $0.layer.cornerRadius = Metric.searchBarHeight / 2
             // 处理点击事件
             $0.rx.tapGesture().when(.recognized)
@@ -79,14 +77,14 @@ extension HCHomeSearchBarable where Self : UIView {
         
         icon.snp.makeConstraints { (make) in
             make.width.equalTo(Metric.iconWidth)
-            make.left.equalToSuperview().offset(Metric.margin)
+            make.left.equalToSuperview().offset(MetricGlobal.margin)
             make.centerY.equalToSuperview()
         }
         
         lab.snp.makeConstraints { (make) in
-            make.left.equalTo(icon.snp.right).offset(Metric.margin / 2)
+            make.left.equalTo(icon.snp.right).offset(MetricGlobal.margin / 2)
             make.centerY.equalTo(icon)
-            make.right.lessThanOrEqualToSuperview().offset(-Metric.margin)
+            make.right.lessThanOrEqualToSuperview().offset(-MetricGlobal.margin)
         }
         
         return view

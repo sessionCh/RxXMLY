@@ -10,9 +10,7 @@ import UIKit
 
 // MARK:- 常量
 fileprivate struct Metric {
-    
-    static let margin: CGFloat = 10.0
-    
+        
     static let homeBarWidth: CGFloat = kScreenW
     static let homeBarHeight: CGFloat = 44.0
 }

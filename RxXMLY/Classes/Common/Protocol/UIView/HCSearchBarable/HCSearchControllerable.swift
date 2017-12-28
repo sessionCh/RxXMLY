@@ -17,13 +17,11 @@ import SnapKit
 // MARK:- 常量
 fileprivate struct Metric {
     
-    static let margin: CGFloat = 10.0
-
     static let title: String = "搜索专辑、主播、广播、声音、大吉大利，晚上吃鸡"
     static let labFontSize: CGFloat = 13.0
     static let btnFontSize: CGFloat = 15.0
     
-    static let searchBarWidth: CGFloat = kScreenW - margin * 2
+    static let searchBarWidth: CGFloat = kScreenW - MetricGlobal.margin * 2
     static let searchBarHeight: CGFloat = 30.0
 
     static let searchIconWidth: CGFloat = 30.0
@@ -45,7 +43,7 @@ extension HCSearchControllerable where Self : UIView {
             $0.backgroundColor = .clear
         }
         let backView = UIView().then {
-            $0.backgroundColor = kThemeGainsboroSmokeColor
+            $0.backgroundColor = kThemeGainsboroColor
             $0.layer.cornerRadius = Metric.searchBarHeight / 2
         }
         let icon = UIImageView().then {
@@ -113,7 +111,7 @@ extension HCSearchControllerable where Self : UIView {
         
         backView.snp.makeConstraints { (make) in
             make.left.top.bottom.equalToSuperview()
-            make.right.equalTo(cancel.snp.left).offset(-Metric.margin / 2)
+            make.right.equalTo(cancel.snp.left).offset(-MetricGlobal.margin / 2)
         }
 
         cancel.snp.makeConstraints { (make) in
@@ -124,12 +122,12 @@ extension HCSearchControllerable where Self : UIView {
         
         icon.snp.makeConstraints { (make) in
             make.width.equalTo(Metric.searchIconWidth)
-            make.left.equalToSuperview().offset(Metric.margin / 2)
+            make.left.equalToSuperview().offset(MetricGlobal.margin / 2)
             make.centerY.equalToSuperview()
         }
         
         searchField.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(Metric.margin / 4)
+            make.top.equalToSuperview().offset(MetricGlobal.margin / 4)
             make.left.equalTo(icon.snp.right)
             make.centerY.equalTo(icon)
             make.right.lessThanOrEqualTo(record.snp.left)
@@ -138,7 +136,7 @@ extension HCSearchControllerable where Self : UIView {
         record.snp.makeConstraints { (make) in
             make.centerY.equalTo(icon)
             make.width.equalTo(Metric.recordIconWidth)
-            make.right.equalToSuperview().offset(-Metric.margin / 2)
+            make.right.equalToSuperview().offset(-MetricGlobal.margin / 2)
         }
         
         return view

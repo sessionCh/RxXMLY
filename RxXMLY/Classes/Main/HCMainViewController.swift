@@ -14,6 +14,8 @@ class HCMainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.delegate = self
+        
         // 初始化子控制器
         self.initSubViewControllers()
         
@@ -26,9 +28,10 @@ class HCMainViewController: UITabBarController {
     }
 }
 
-// MARK:- 初始化模块
+// MARK:- 初始化
 extension HCMainViewController {
     
+    // MARK:- 初始化控制器
     private func initSubViewControllers() {
         
         let classNameArr = ["Home", "Hear", "Find", "Mine"]
@@ -68,3 +71,20 @@ extension HCMainViewController {
     }
 }
 
+// MARK:- 代理
+extension HCMainViewController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        
+        if tabBarController.selectedIndex == 3 {
+
+            self.jump2Login()
+        }
+    }
+    
+    func jump2Login() {
+        
+        let VC = HCBaseNavigationController(rootViewController: HCLoginViewController())
+        self.present(VC, animated: true, completion: nil)
+    }
+}

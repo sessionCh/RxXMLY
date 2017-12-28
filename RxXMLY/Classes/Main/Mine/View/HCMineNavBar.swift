@@ -10,9 +10,7 @@ import UIKit
 
 // MARK:- 常量
 fileprivate struct Metric {
-    
-    static let margin: CGFloat = 10.0
-    
+        
     static let homeBarWidth: CGFloat = kScreenW
     static let homeBarHeight: CGFloat = 44.0
 }
@@ -77,7 +75,7 @@ extension HCMineNavBar: HCMineAnchorsable, HCNavUniversalable {
         
         setting.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.left.equalTo(message.snp.right).offset(Metric.margin)
+            make.left.equalTo(message.snp.right).offset(MetricGlobal.margin)
         }
         
         mineAnchors.snp.makeConstraints { (make) in

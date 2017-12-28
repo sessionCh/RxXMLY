@@ -12,10 +12,22 @@ class HCBaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        HCLog("init: \(type(of: self))")
 
         self.view.backgroundColor = .white
     }
-
+    
+    deinit {
+        HCLog("deinit: \(type(of: self))")
+    }
 }
 
+// MARK:- 事件
+extension HCBaseViewController {
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // 注销 键盘
+        view.endEditing(true)
+    }
+}
 

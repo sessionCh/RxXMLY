@@ -20,7 +20,11 @@ let kStatusbarH: CGFloat = is_iPhoneX ? 44.0 : 20.0
 let iPhoneXBottomH: CGFloat = 34.0
 let iPhoneXTopH: CGFloat = 24.0
 
-
+// MARK:- 常量
+struct MetricGlobal {
+    
+    static let margin: CGFloat = 10.0
+}
 
 // MARK:- 颜色方法
 func kRGBA (r:CGFloat, g:CGFloat, b:CGFloat, a:CGFloat) -> UIColor {
@@ -32,7 +36,7 @@ func kRGBA (r:CGFloat, g:CGFloat, b:CGFloat, a:CGFloat) -> UIColor {
 
 let kThemeWhiteColor = UIColor.hexColor(0xFFFFFF)
 let kThemeWhiteSmokeColor = UIColor.hexColor(0xF5F5F5)
-let kThemeGainsboroSmokeColor = UIColor.hexColor(0xF3F4F5)
+let kThemeGainsboroColor = UIColor.hexColor(0xF3F4F5)  // 亮灰色
 let kThemeSnowColor = UIColor.hexColor(0xFFFAFA)
 let kThemeLightGreyColor = UIColor.hexColor(0xA9A9A9)
 let kThemeTomatoColor = UIColor.hexColor(0xF7583B)

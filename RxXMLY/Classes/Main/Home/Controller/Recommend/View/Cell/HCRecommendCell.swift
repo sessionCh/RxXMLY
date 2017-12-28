@@ -29,7 +29,7 @@ class HCRecommendCell: UICollectionViewCell {
     
     static func itemMargin() -> CGFloat {
         
-        return Metric.margin
+        return MetricGlobal.margin
     }
     
     static func itemSize() -> CGSize {

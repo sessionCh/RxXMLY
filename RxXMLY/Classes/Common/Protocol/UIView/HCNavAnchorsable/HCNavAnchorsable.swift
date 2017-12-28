@@ -19,7 +19,6 @@ fileprivate struct Metric {
     
     static let title: String = "主播工作台"
     static let fontSize: CGFloat = 15.0
-    static let margin: CGFloat = 10.0
 }
 
 protocol HCMineAnchorsable {
@@ -58,13 +57,13 @@ extension HCMineAnchorsable where Self : UIView {
         
         // 添加约束
         icon.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(Metric.margin)
+            make.top.equalToSuperview().offset(MetricGlobal.margin)
             make.right.equalToSuperview()
             make.centerY.equalToSuperview()
         }
         
         lab.snp.makeConstraints { (make) in
-            make.right.equalTo(icon.snp.left).offset(-Metric.margin / 2)
+            make.right.equalTo(icon.snp.left).offset(-MetricGlobal.margin / 2)
             make.centerY.equalTo(icon)
             make.left.equalToSuperview()
         }

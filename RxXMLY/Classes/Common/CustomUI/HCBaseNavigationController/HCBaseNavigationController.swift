@@ -12,6 +12,8 @@ class HCBaseNavigationController: UINavigationController, HCNavBackable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        HCLog("init: \(type(of: self))")
 
         // 设置导航栏样式
         navigationBar.setBackgroundImage(UIImage.color(kThemeWhiteColor), for: UIBarPosition.any, barMetrics: .default)
@@ -28,5 +30,9 @@ class HCBaseNavigationController: UINavigationController, HCNavBackable {
         navigationBar.tintColor = kThemeBlackColor     // 设置返回标识器的颜色
         let barItem = UIBarButtonItem.appearance()
         barItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor : kThemeBlackColor], for: .normal)  // 返回按钮文字样式
+    }
+    
+    deinit {
+        HCLog("deinit: \(type(of: self))")
     }
 }

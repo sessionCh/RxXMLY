@@ -23,8 +23,8 @@ class HCRecommendFooterView: UICollectionReusableView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        topLine.backgroundColor = kThemeGainsboroSmokeColor
-        bottomView.backgroundColor = kThemeGainsboroSmokeColor
+        topLine.backgroundColor = kThemeGainsboroColor
+        bottomView.backgroundColor = kThemeGainsboroColor
     }
     
     static func footerSize() -> CGSize {

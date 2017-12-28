@@ -74,6 +74,9 @@
 		1BD4C6701FE67EFD00CFBF5C /* HCSquareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BD4C66E1FE67EFD00CFBF5C /* HCSquareCell.xib */; };
 		1BD4C6761FE694E800CFBF5C /* HCSquareFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD4C6751FE694E800CFBF5C /* HCSquareFlowLayout.swift */; };
 		1BE113221FF238BC0018B541 /* HCLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE113211FF238BC0018B541 /* HCLoginViewController.swift */; };
+		1BE4E7561FF3865E008705CD /* HCAccountLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4E7551FF3865E008705CD /* HCAccountLoginViewController.swift */; };
+		1BE4E7581FF38684008705CD /* HCThridLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4E7571FF38684008705CD /* HCThridLoginViewController.swift */; };
+		1BE4E7641FF38F7C008705CD /* HCAccountLoginable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4E7631FF38F7C008705CD /* HCAccountLoginable.swift */; };
 		1BEB29451FE2C2E0001F7C1B /* HCNavHistoryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB29441FE2C2E0001F7C1B /* HCNavHistoryable.swift */; };
 		1BEB29471FE2C49C001F7C1B /* HCNavDownloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB29461FE2C49C001F7C1B /* HCNavDownloadable.swift */; };
 		1BEB29491FE2C7F8001F7C1B /* HCNavSearchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB29481FE2C7F7001F7C1B /* HCNavSearchable.swift */; };
@@ -172,6 +175,9 @@
 		1BD4C66E1FE67EFD00CFBF5C /* HCSquareCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCSquareCell.xib; sourceTree = "<group>"; };
 		1BD4C6751FE694E800CFBF5C /* HCSquareFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCSquareFlowLayout.swift; sourceTree = "<group>"; };
 		1BE113211FF238BC0018B541 /* HCLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLoginViewController.swift; sourceTree = "<group>"; };
+		1BE4E7551FF3865E008705CD /* HCAccountLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCAccountLoginViewController.swift; sourceTree = "<group>"; };
+		1BE4E7571FF38684008705CD /* HCThridLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCThridLoginViewController.swift; sourceTree = "<group>"; };
+		1BE4E7631FF38F7C008705CD /* HCAccountLoginable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCAccountLoginable.swift; sourceTree = "<group>"; };
 		1BEB29441FE2C2E0001F7C1B /* HCNavHistoryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCNavHistoryable.swift; sourceTree = "<group>"; };
 		1BEB29461FE2C49C001F7C1B /* HCNavDownloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCNavDownloadable.swift; sourceTree = "<group>"; };
 		1BEB29481FE2C7F7001F7C1B /* HCNavSearchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCNavSearchable.swift; sourceTree = "<group>"; };
@@ -326,9 +332,9 @@
 			children = (
 				1B2C66F51FE26C8B003172BE /* Home */,
 				1B2C66F41FE26C8B003172BE /* Hear */,
+				1B2C66F71FE26C8B003172BE /* Play */,
 				1B2C66F31FE26C8B003172BE /* Find */,
 				1B2C66F61FE26C8B003172BE /* Mine */,
-				1B2C66F71FE26C8B003172BE /* Play */,
 				1B2C66F81FE26CF8003172BE /* HCMainViewController.swift */,
 			);
 			path = Main;
@@ -601,6 +607,7 @@
 		1BE1131E1FF2386C0018B541 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				1BE4E7621FF38F44008705CD /* Controller */,
 				1BE1131F1FF2386C0018B541 /* Model */,
 				1BE113201FF2386C0018B541 /* View */,
 				1BE113211FF238BC0018B541 /* HCLoginViewController.swift */,
@@ -618,8 +625,18 @@
 		1BE113201FF2386C0018B541 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1BE4E7631FF38F7C008705CD /* HCAccountLoginable.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1BE4E7621FF38F44008705CD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1BE4E7551FF3865E008705CD /* HCAccountLoginViewController.swift */,
+				1BE4E7571FF38684008705CD /* HCThridLoginViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B27CCBCC61291E0C263DCE36 /* Frameworks */ = {
@@ -790,8 +807,10 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-RxXMLY/Pods-RxXMLY-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/FBRetainCycleDetector/FBRetainCycleDetector.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/MLeaksFinder/MLeaksFinder.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/NSObject+Rx/NSObject_Rx.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
@@ -814,8 +833,10 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBRetainCycleDetector.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MLeaksFinder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSObject_Rx.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
@@ -911,6 +932,7 @@
 				1B841BF21FE6C5CF00B07CBF /* HCRecommendSingleCell.swift in Sources */,
 				1B2C67081FE27910003172BE /* HCNavBackable.swift in Sources */,
 				1B79F2931FE3BD7400FF3EC3 /* HCSearchControllerable.swift in Sources */,
+				1BE4E7641FF38F7C008705CD /* HCAccountLoginable.swift in Sources */,
 				1BEB29451FE2C2E0001F7C1B /* HCNavHistoryable.swift in Sources */,
 				1B3341F31FF255DB008EAF43 /* String+GetSize.swift in Sources */,
 				1BE113221FF238BC0018B541 /* HCLoginViewController.swift in Sources */,
@@ -934,10 +956,12 @@
 				1B2C67141FE2BCE0003172BE /* HCNavMessageable.swift in Sources */,
 				1B5C3DDF1FE24B2300587750 /* AppDelegate.swift in Sources */,
 				1BA035D11FE642B700E9892E /* HCRecommendHeaderView.swift in Sources */,
+				1BE4E7561FF3865E008705CD /* HCAccountLoginViewController.swift in Sources */,
 				1B0C3F031FE52F23006BD58F /* HCRecommendViewModel.swift in Sources */,
 				1BD4C66F1FE67EFD00CFBF5C /* HCSquareCell.swift in Sources */,
 				1B0C3F101FE53A74006BD58F /* HCViewModelType.swift in Sources */,
 				1B2C670C1FE27B64003172BE /* HCMineViewController.swift in Sources */,
+				1BE4E7581FF38684008705CD /* HCThridLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

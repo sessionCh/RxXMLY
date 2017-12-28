@@ -31,13 +31,13 @@ class HCRecommendSingleCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.leftImgView.layer.masksToBounds = true
-        self.leftImgView.layer.borderColor = kThemeGainsboroSmokeColor.cgColor
+        self.leftImgView.layer.borderColor = kThemeGainsboroColor.cgColor
         self.leftImgView.layer.borderWidth = 0.6
     }
     
     static func itemMargin() -> CGFloat {
         
-        return Metric.margin
+        return MetricGlobal.margin
     }
     
     static func itemSize() -> CGSize {

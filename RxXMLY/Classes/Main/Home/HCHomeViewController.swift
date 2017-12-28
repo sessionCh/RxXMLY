@@ -29,11 +29,11 @@ class HCHomeViewController: HCBaseViewController {
 
     private let titles: [String] = ["分类", "推荐", "精品", "直播", "广播"]
     private let pageVC = TYTabPagerController().then {
-        $0.pagerController.scrollView?.backgroundColor = kThemeGainsboroSmokeColor
+        $0.pagerController.scrollView?.backgroundColor = kThemeGainsboroColor
         $0.tabBar.layout.cellWidth = kScreenW * 0.2
         $0.tabBar.layout.progressColor = kThemeTomatoColor
         $0.tabBar.layout.selectedTextColor = kThemeTomatoColor
-        $0.tabBar.backgroundColor = kThemeGainsboroSmokeColor
+        $0.tabBar.backgroundColor = kThemeGainsboroColor
         $0.tabBar.layout.cellSpacing = 0
         $0.tabBar.layout.cellEdging = 0
         $0.tabBar.layout.normalTextFont = Metric.pagerBarFontSize
@@ -76,8 +76,9 @@ extension HCHomeViewController: HCNavTitleable {
                 self?.jump2SearchResult()
                 break
                 
-            case .download:
-                self?.jump2Download()
+            case .download, .message, .history:
+                
+                self?.jump2Login()
                 break
             default: break
             }
@@ -138,7 +139,7 @@ extension HCHomeViewController {
     }
     
     // MARK:- 下载
-    func jump2Download() {
+    func jump2Login() {
         
         let VC = HCBaseNavigationController(rootViewController: HCLoginViewController())
         self.present(VC, animated: true, completion: nil)

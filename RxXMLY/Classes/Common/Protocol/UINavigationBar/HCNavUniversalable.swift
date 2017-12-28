@@ -14,7 +14,6 @@ import NSObject_Rx
 // MARK:- 常量
 fileprivate struct Metric {
     
-    static let margin: CGFloat = 10.0
     static let itemSize: CGFloat = 30.0
 }
 
@@ -137,6 +136,7 @@ extension HCNavUniversalable where Self : UIViewController {
         if model.title != nil {
             // 标题
             item = UIBarButtonItem(title: model.title, style: .plain, target: nil, action: nil)
+            
         } else {
             // 图标
             item = UIBarButtonItem(image: UIImage(named: model.imageNamed), style: .plain, target: nil, action: nil)
