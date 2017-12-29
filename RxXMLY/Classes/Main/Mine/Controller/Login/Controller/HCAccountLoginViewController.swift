@@ -29,45 +29,67 @@ class HCAccountLoginViewController: HCBaseViewController {
 extension HCAccountLoginViewController: HCAccountLoginable {
     
     // MARK:- 初始化 登录 输入框
-    func initTextField() {
+    private func initTextField() {
+
+        // 创建 容器组件
+        let scrollView = UIScrollView().then {
+            $0.showsHorizontalScrollIndicator = false
+            $0.showsVerticalScrollIndicator = false
+        }
 
         // 创建 协议组件
-        let accountField = initAccountField {
-            
-        }
+        let accountField = initAccountField { }
+        let passwordField = initPasswordField { }
+        let loginBtnView = initLoginBtnView { event in HCLog(event.title) }
+        let otherLoginView = initOtherLoginView { event in HCLog(event.title) }
 
-        let passwordField = initPasswordField {
-            
-        }
+        // 添加
+        view.addSubview(scrollView)
+        scrollView.addSubview(accountField)
+        scrollView.addSubview(passwordField)
+        scrollView.addSubview(loginBtnView)
+        scrollView.addSubview(otherLoginView)
         
-        let loginBtnView = initLoginBtnView { type in
-            
-            if type == .login {
-                HCLog("登录")
-            } else if type == .forget {
-                HCLog("忘记密码")
-            }
+        // 布局
+        scrollView.snp.makeConstraints { (make) in
+            make.left.top.bottom.equalToSuperview()
+            make.width.equalTo(kScreenW)
         }
 
-        // 布局
         accountField.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(MetricGlobal.margin * 4)
-            make.right.equalToSuperview().offset(-MetricGlobal.margin * 4)
+            if kScreenW <= 320 {
+                make.left.equalToSuperview().offset(MetricGlobal.margin * 2)
+            } else {
+                make.left.equalToSuperview().offset(MetricGlobal.margin * 3)
+            }
+            make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(MetricGlobal.margin * 2)
             make.height.equalTo(Metric.fieldHeight)
         }
-        
+
         passwordField.snp.makeConstraints { (make) in
             make.left.equalTo(accountField.snp.left)
             make.right.equalTo(accountField.snp.right)
             make.top.equalTo(accountField.snp.bottom).offset(MetricGlobal.margin * 2)
             make.height.equalTo(Metric.fieldHeight)
         }
-        
+
         loginBtnView.snp.makeConstraints { (make) in
             make.left.equalTo(accountField.snp.left)
             make.right.equalTo(accountField.snp.right)
             make.top.equalTo(passwordField.snp.bottom).offset(MetricGlobal.margin * 2)
+        }
+        
+        otherLoginView.snp.makeConstraints { (make) in
+            
+            if kScreenW <= 320 {
+                make.left.equalTo(accountField.snp.left).offset(-MetricGlobal.margin * 1)
+            } else {
+                make.left.equalTo(accountField.snp.left).offset(-MetricGlobal.margin * 2)
+            }
+            make.centerX.equalToSuperview()
+            make.top.equalTo(loginBtnView.snp.bottom)
+            make.bottom.equalToSuperview()
         }
     }
 }

@@ -43,7 +43,10 @@ extension HCSearchController: HCNavTitleable {
     func initTitleView() {
         
         let searchBar = HCSearchNavBar()
-        searchBar.itemClicked = { [] (model) in
+        searchBar.itemClicked = { [weak self] (model) in
+            
+            guard let `self` = self else { return }
+            
             if case let HCNavBarItemModel.HCNavBarItemType.searchBar(index, desc) = model.type {
                 HCLog(model.description + " 控件: \(desc)")
                 if index == 3 {

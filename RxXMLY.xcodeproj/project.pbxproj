@@ -62,6 +62,8 @@
 		1B79F2951FE3BE9300FF3EC3 /* HCSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B79F2941FE3BE9300FF3EC3 /* HCSearchController.swift */; };
 		1B841BF21FE6C5CF00B07CBF /* HCRecommendSingleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B841BF01FE6C5CF00B07CBF /* HCRecommendSingleCell.swift */; };
 		1B841BF31FE6C5CF00B07CBF /* HCRecommendSingleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B841BF11FE6C5CF00B07CBF /* HCRecommendSingleCell.xib */; };
+		1B8A18FA1FF5EB360046EF52 /* HCOtherLoginModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8A18F91FF5EB360046EF52 /* HCOtherLoginModeView.swift */; };
+		1B8A18FC1FF5EB450046EF52 /* HCOtherLoginModeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B8A18FB1FF5EB450046EF52 /* HCOtherLoginModeView.xib */; };
 		1BA035CF1FE6348600E9892E /* HCHomeRecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA035CE1FE6348600E9892E /* HCHomeRecommendModel.swift */; };
 		1BA035D11FE642B700E9892E /* HCRecommendHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA035D01FE642B700E9892E /* HCRecommendHeaderView.swift */; };
 		1BA035D31FE642C200E9892E /* HCRecommendHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA035D21FE642C200E9892E /* HCRecommendHeaderView.xib */; };
@@ -163,6 +165,8 @@
 		1B79F2941FE3BE9300FF3EC3 /* HCSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCSearchController.swift; sourceTree = "<group>"; };
 		1B841BF01FE6C5CF00B07CBF /* HCRecommendSingleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCRecommendSingleCell.swift; sourceTree = "<group>"; };
 		1B841BF11FE6C5CF00B07CBF /* HCRecommendSingleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCRecommendSingleCell.xib; sourceTree = "<group>"; };
+		1B8A18F91FF5EB360046EF52 /* HCOtherLoginModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCOtherLoginModeView.swift; sourceTree = "<group>"; };
+		1B8A18FB1FF5EB450046EF52 /* HCOtherLoginModeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCOtherLoginModeView.xib; sourceTree = "<group>"; };
 		1BA035CE1FE6348600E9892E /* HCHomeRecommendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCHomeRecommendModel.swift; sourceTree = "<group>"; };
 		1BA035D01FE642B700E9892E /* HCRecommendHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCRecommendHeaderView.swift; sourceTree = "<group>"; };
 		1BA035D21FE642C200E9892E /* HCRecommendHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCRecommendHeaderView.xib; sourceTree = "<group>"; };
@@ -626,6 +630,8 @@
 			isa = PBXGroup;
 			children = (
 				1BE4E7631FF38F7C008705CD /* HCAccountLoginable.swift */,
+				1B8A18F91FF5EB360046EF52 /* HCOtherLoginModeView.swift */,
+				1B8A18FB1FF5EB450046EF52 /* HCOtherLoginModeView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -774,6 +780,7 @@
 				1B5C3DE61FE24B2300587750 /* Assets.xcassets in Resources */,
 				1B5C3DE41FE24B2300587750 /* Main.storyboard in Resources */,
 				1BD4C6701FE67EFD00CFBF5C /* HCSquareCell.xib in Resources */,
+				1B8A18FC1FF5EB450046EF52 /* HCOtherLoginModeView.xib in Resources */,
 				1BA035D31FE642C200E9892E /* HCRecommendHeaderView.xib in Resources */,
 				1B0C3F1D1FE55A39006BD58F /* HCScrollBarCell.xib in Resources */,
 				1B0C3F161FE5551F006BD58F /* HCRecommendTopHeaderView.xib in Resources */,
@@ -807,10 +814,9 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-RxXMLY/Pods-RxXMLY-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
-				"${BUILT_PRODUCTS_DIR}/FBRetainCycleDetector/FBRetainCycleDetector.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/MLeaksFinder/MLeaksFinder.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/NSObject+Rx/NSObject_Rx.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
@@ -833,10 +839,9 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBRetainCycleDetector.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MLeaksFinder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSObject_Rx.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
@@ -906,6 +911,7 @@
 				1B0C3EFA1FE52474006BD58F /* HCFocusModel.swift in Sources */,
 				1B2C670A1FE27B4C003172BE /* HCHomeViewController.swift in Sources */,
 				1B0C3F121FE54060006BD58F /* RxAlamofire+ObjectMapper.swift in Sources */,
+				1B8A18FA1FF5EB360046EF52 /* HCOtherLoginModeView.swift in Sources */,
 				1BEB29491FE2C7F8001F7C1B /* HCNavSearchable.swift in Sources */,
 				1B0C3F0B1FE53227006BD58F /* HCKeywardsModel.swift in Sources */,
 				1B0C3F1C1FE55A39006BD58F /* HCScrollBarCell.swift in Sources */,

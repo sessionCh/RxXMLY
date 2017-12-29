@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import NSObject_Rx
 
 class HCBaseViewController: UIViewController {
 
@@ -14,7 +17,7 @@ class HCBaseViewController: UIViewController {
         super.viewDidLoad()
         HCLog("init: \(type(of: self))")
 
-        self.view.backgroundColor = .white
+        view.backgroundColor = .white
     }
     
     deinit {
@@ -22,10 +25,11 @@ class HCBaseViewController: UIViewController {
     }
 }
 
-// MARK:- 事件
+// MARK:- 事件 (部分页面失效)
 extension HCBaseViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         // 注销 键盘
         view.endEditing(true)
     }

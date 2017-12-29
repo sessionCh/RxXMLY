@@ -21,7 +21,7 @@ class HCFindViewController: HCBaseViewController {
 extension HCFindViewController: HCNavUniversalable {
     
     // MARK:- 协议组件
-    func initEnableMudule() {
+    private func initEnableMudule() {
         
         // 消息 搜索
         let models = [HCNavBarItemMetric.message,

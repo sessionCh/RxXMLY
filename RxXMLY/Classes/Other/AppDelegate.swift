@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITableView.appearance().estimatedSectionFooterHeight = 0
         UITableView.appearance().estimatedSectionHeaderHeight = 0
         
+        IQKeyboardManager.sharedManager().enable = true
+
         let rootVc = HCMainViewController()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = rootVc

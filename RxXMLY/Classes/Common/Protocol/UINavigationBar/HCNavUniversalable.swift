@@ -169,6 +169,7 @@ extension HCNavUniversalable where Self : UIViewController {
                 navigationItem.rightBarButtonItems = items
             }
             break
+            
         default :
             break
         }

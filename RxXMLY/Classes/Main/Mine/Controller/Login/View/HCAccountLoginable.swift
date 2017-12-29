@@ -12,11 +12,27 @@ import RxSwift
 import RxCocoa
 import NSObject_Rx
 
-// MARK:- 事件类型
-enum AccountLoginType {
+// MARK:- 事件
+struct AccountLoginEvent {
     
-    case login
-    case forget
+    // MARK:- 事件类型
+    enum AccountLoginType {
+        
+        case login
+        case forget
+        case weixin
+        case weibo
+        case qq
+    }
+
+    var type: AccountLoginType
+    var title: String?
+    
+    init(type: AccountLoginType, title: String?) {
+     
+        self.type = type
+        self.title = title
+    }
 }
 
 fileprivate struct Metric {
@@ -44,42 +60,29 @@ protocol HCAccountLoginable {
 // MARK:- 自定义组件
 extension HCAccountLoginable where Self : HCAccountLoginViewController {
 
-    // MARK:- 账号输入框
-    func initAccountField(onNext: @escaping ()->Void) -> UITextField {
-     
-        let field = UITextField().then {
-            $0.layer.masksToBounds = true
-            $0.layer.borderColor = kThemeGainsboroColor.cgColor
-            $0.layer.borderWidth = Metric.borderWidth
-            $0.layer.cornerRadius = Metric.cornerRadius
-            $0.borderStyle = .none
-            $0.leftViewMode = .always
-            $0.leftView = self.accountLeftView()
-            $0.placeholder = Metric.accountPlaceholder
-        }
-        view.addSubview(field)
-        return field
+    // MARK:- 其他登录方式
+    func initOtherLoginView(onNext: @escaping (_ event: AccountLoginEvent)->Void) -> UIView {
+        
+        // 创建
+        let otherLoginView = HCOtherLoginModeView.loadFromNib()
+        
+        otherLoginView.weixinBtn.rx.tap.do(onNext: {
+            onNext(AccountLoginEvent.init(type: .weixin, title: "微信登陆"))
+        }).subscribe().disposed(by: rx.disposeBag)
+        
+        otherLoginView.weiboBtn.rx.tap.do(onNext: {
+            onNext(AccountLoginEvent.init(type: .weibo, title: "微博登陆"))
+        }).subscribe().disposed(by: rx.disposeBag)
+        
+        otherLoginView.qqBtn.rx.tap.do(onNext: {
+            onNext(AccountLoginEvent.init(type: .qq, title: "QQ登陆"))
+        }).subscribe().disposed(by: rx.disposeBag)
+        
+        return otherLoginView
     }
     
-    // MARK:- 密码输入框
-    func initPasswordField(onNext: @escaping ()->Void) -> UITextField {
-        
-        let field = UITextField().then {
-            $0.layer.masksToBounds = true
-            $0.layer.borderColor = kThemeGainsboroColor.cgColor
-            $0.layer.borderWidth = Metric.borderWidth
-            $0.layer.cornerRadius = Metric.cornerRadius
-            $0.borderStyle = .none
-            $0.leftViewMode = .always
-            $0.leftView = self.passwordLeftView()
-            $0.placeholder = Metric.passswordPlaceholder
-        }
-        view.addSubview(field)
-        return field
-    }
-
     // MARK:- 登录按钮部分
-    func initLoginBtnView(onNext: @escaping (_ type: AccountLoginType)->Void) -> UIView {
+    func initLoginBtnView(onNext: @escaping (_ event: AccountLoginEvent)->Void) -> UIView {
         
         // 创建
         let btnView = UIView().then {
@@ -94,7 +97,7 @@ extension HCAccountLoginable where Self : HCAccountLoginViewController {
             $0.setTitleColor(kThemeWhiteColor, for: .normal)
             $0.setTitle(Metric.loginBtnTitle, for: .normal)
             $0.rx.tap.do(onNext: {
-                onNext(.login)
+                onNext(AccountLoginEvent.init(type: .login, title: "登陆按钮"))
             }).subscribe().disposed(by: rx.disposeBag)
         }
         
@@ -103,14 +106,13 @@ extension HCAccountLoginable where Self : HCAccountLoginViewController {
             $0.setTitle(Metric.forgetBtnTitle, for: .normal)
             $0.titleLabel?.font = Metric.forgetFontSize
             $0.rx.tap.do(onNext: {
-                onNext(.forget)
+                onNext(AccountLoginEvent.init(type: .forget, title: "忘记密码"))
             }).subscribe().disposed(by: rx.disposeBag)
         }
         
         // 添加
         btnView.addSubview(loginBtn)
         btnView.addSubview(forgetBtn)
-        view.addSubview(btnView)
         
         // 布局
         loginBtn.snp.makeConstraints { (make) in
@@ -131,6 +133,40 @@ extension HCAccountLoginable where Self : HCAccountLoginViewController {
         return btnView
     }
     
+    // MARK:- 账号输入框
+    func initAccountField(onNext: @escaping ()->Void) -> UITextField {
+     
+        let field = UITextField().then {
+            $0.layer.masksToBounds = true
+            $0.layer.borderColor = kThemeGainsboroColor.cgColor
+            $0.layer.borderWidth = Metric.borderWidth
+            $0.layer.cornerRadius = Metric.cornerRadius
+            $0.borderStyle = .none
+            $0.leftViewMode = .always
+            $0.leftView = self.accountLeftView()
+            $0.placeholder = Metric.accountPlaceholder
+        }
+        
+        return field
+    }
+    
+    // MARK:- 密码输入框
+    func initPasswordField(onNext: @escaping ()->Void) -> UITextField {
+        
+        let field = UITextField().then {
+            $0.layer.masksToBounds = true
+            $0.layer.borderColor = kThemeGainsboroColor.cgColor
+            $0.layer.borderWidth = Metric.borderWidth
+            $0.layer.cornerRadius = Metric.cornerRadius
+            $0.borderStyle = .none
+            $0.leftViewMode = .always
+            $0.leftView = self.passwordLeftView()
+            $0.placeholder = Metric.passswordPlaceholder
+        }
+        
+        return field
+    }
+
     // MARK:- 账号输入框 左视图
     private func accountLeftView() -> UIView {
         

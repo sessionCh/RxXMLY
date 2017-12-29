@@ -14,7 +14,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FBRetainCycleDetector.xcscheme</key>
+		<key>IQKeyboardManagerSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -25,11 +25,6 @@
 			<false/>
 		</dict>
 		<key>MJRefresh.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>MLeaksFinder.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

@@ -61,7 +61,9 @@ extension HCMineNavBar: HCMineAnchorsable, HCNavUniversalable {
         }
         
         // 主播工作台
-        let mineAnchors = self.mineAnchors(model: HCNavBarItemMetric.mineAnchors) { (model) in
+        let mineAnchors = self.mineAnchors(model: HCNavBarItemMetric.mineAnchors) { [weak self] (model) in
+            
+            guard let `self` = self else { return }
             
             self.itemClicked!(model)
             HCLog(model.description)

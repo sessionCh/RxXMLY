@@ -31,10 +31,11 @@ target 'RxXMLY' do
     # Logging
     
     # Misc.
+    pod 'IQKeyboardManagerSwift'
     pod 'Then'
     pod 'ReusableKit'
     pod 'SwiftyColor'
-    pod 'MLeaksFinder'              # 检测内存泄漏
+#    pod 'MLeaksFinder'              # 检测内存泄漏
 
     # SDK
     

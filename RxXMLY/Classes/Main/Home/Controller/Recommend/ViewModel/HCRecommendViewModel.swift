@@ -55,7 +55,7 @@ extension HCRecommendViewModel: HCViewModelType {
         
         let output = HCRecommendOutput(sections: temp_sections)
         
-        output.requestCommand.subscribe(onNext: {[weak self] (isPull) in
+        output.requestCommand.subscribe(onNext: { [weak self] (isPull) in
             guard let `self` = self else { return }
             
             var url: String = kUrlGetRecommendList
