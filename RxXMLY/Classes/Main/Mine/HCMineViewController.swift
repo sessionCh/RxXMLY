@@ -40,10 +40,10 @@ class HCMineViewController: HCBaseViewController {
 extension HCMineViewController: HCNavTitleable {
     
     // MARK:- 标题组件
-    func initTitleView() {
+    private func initTitleView() {
         
         let mineNavBar = HCMineNavBar()
-        mineNavBar.itemClicked = { [] (model) in }
+        mineNavBar.itemClicked = { (model) in }
         myTitleView = self.titleView(titleView: mineNavBar)
     }
 }

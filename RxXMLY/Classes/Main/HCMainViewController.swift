@@ -59,7 +59,7 @@ extension HCMainViewController {
         self.viewControllers = tabArr
     }
     
-    func getProjectName() -> String {
+    private func getProjectName() -> String {
         guard let infoDict = Bundle.main.infoDictionary else {
             return "."
         }

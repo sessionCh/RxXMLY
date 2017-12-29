@@ -70,15 +70,17 @@ extension HCHomeViewController: HCNavTitleable {
         let homeNavBar = HCHomeNavBar()
         homeNavBar.itemClicked = { [weak self] (model) in
             
+            guard let `self` = self else { return }
+
             let type = model.type
             switch type {
             case .homeSearchBar:
-                self?.jump2SearchResult()
+                self.jump2SearchResult()
                 break
                 
             case .download, .message, .history:
                 
-                self?.jump2Login()
+                self.jump2Login()
                 break
             default: break
             }

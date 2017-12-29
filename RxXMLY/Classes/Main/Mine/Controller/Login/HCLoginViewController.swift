@@ -54,30 +54,26 @@ class HCLoginViewController: HCBaseViewController {
         
         initPageController()
     }
-    
-    deinit {
-        
-        HCLog("deinit: \(type(of: self))")
-    }
 }
 
 // MARK:- 初始化协议
 extension HCLoginViewController: HCNavBackable, HCNavUniversalable {
     
     // MARK:- 协议组件
-    func initEnableMudule() {
+    private func initEnableMudule() {
         
         // 登录页面 返回、注册
         let models = [HCNavBarItemMetric.back,
                       HCNavBarItemMetric.loginRegister]
-        self.universals(modelArr: models) { (model) in
+        self.universals(modelArr: models) { [weak self] (model) in
             
+            guard let `self` = self else { return }
+
             HCLog(model.description)
             
             let type = model.type
             switch type {
             case .back:
-                self.dismiss(animated: false, completion: nil)
                 self.navigationController?.dismiss(animated: true, completion: nil)
                 break
             default: break
@@ -105,7 +101,7 @@ extension HCLoginViewController: HCNavBackable, HCNavUniversalable {
         addChildViewController(pageVC)
         view.addSubview(pageVC.view)
         pageVC.didMove(toParentViewController: self)
-        
+
         pageVC.view.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(kNavibarH)
             make.left.right.bottom.equalToSuperview()
@@ -113,7 +109,7 @@ extension HCLoginViewController: HCNavBackable, HCNavUniversalable {
         pageVC.delegate = self
         pageVC.dataSource = self
         pageVC.reloadData()
-        
+
         // 设置起始页
         pageVC.pagerController.scrollToController(at: 0, animate: false)
     }
@@ -129,11 +125,11 @@ extension HCLoginViewController: TYTabPagerControllerDelegate, TYTabPagerControl
     func tabPagerController(_ tabPagerController: TYTabPagerController, controllerFor index: Int, prefetching: Bool) -> UIViewController {
         
         if index == 0 {
-            
+
             return HCAccountLoginViewController()
         }
         else if index == 1 {
-            
+
             return HCThridLoginViewController()
         }
 
@@ -146,4 +142,5 @@ extension HCLoginViewController: TYTabPagerControllerDelegate, TYTabPagerControl
         return titles[index]
     }
 }
+
 

@@ -29,7 +29,7 @@ class HCAccountLoginViewController: HCBaseViewController {
 extension HCAccountLoginViewController: HCAccountLoginable {
     
     // MARK:- 初始化 登录 输入框
-    func initTextField() {
+    private func initTextField() {
 
         // 创建 协议组件
         let accountField = initAccountField {
@@ -56,14 +56,14 @@ extension HCAccountLoginViewController: HCAccountLoginable {
             make.top.equalToSuperview().offset(MetricGlobal.margin * 2)
             make.height.equalTo(Metric.fieldHeight)
         }
-        
+
         passwordField.snp.makeConstraints { (make) in
             make.left.equalTo(accountField.snp.left)
             make.right.equalTo(accountField.snp.right)
             make.top.equalTo(accountField.snp.bottom).offset(MetricGlobal.margin * 2)
             make.height.equalTo(Metric.fieldHeight)
         }
-        
+
         loginBtnView.snp.makeConstraints { (make) in
             make.left.equalTo(accountField.snp.left)
             make.right.equalTo(accountField.snp.right)
