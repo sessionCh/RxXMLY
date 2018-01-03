@@ -65,6 +65,9 @@
 		1B841BF31FE6C5CF00B07CBF /* HCRecommendSingleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B841BF11FE6C5CF00B07CBF /* HCRecommendSingleCell.xib */; };
 		1B8A18FA1FF5EB360046EF52 /* HCOtherLoginModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8A18F91FF5EB360046EF52 /* HCOtherLoginModeView.swift */; };
 		1B8A18FC1FF5EB450046EF52 /* HCOtherLoginModeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B8A18FB1FF5EB450046EF52 /* HCOtherLoginModeView.xib */; };
+		1B8C545E1FFC81E100987481 /* HCAccountLoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8C545D1FFC81E100987481 /* HCAccountLoginResult.swift */; };
+		1B8C54611FFC870900987481 /* HCAccountLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8C54601FFC870900987481 /* HCAccountLoginViewModel.swift */; };
+		1B8C54641FFC88A900987481 /* HCAccountLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8C54631FFC88A900987481 /* HCAccountLoginService.swift */; };
 		1BA035CF1FE6348600E9892E /* HCHomeRecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA035CE1FE6348600E9892E /* HCHomeRecommendModel.swift */; };
 		1BA035D11FE642B700E9892E /* HCRecommendHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA035D01FE642B700E9892E /* HCRecommendHeaderView.swift */; };
 		1BA035D31FE642C200E9892E /* HCRecommendHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA035D21FE642C200E9892E /* HCRecommendHeaderView.xib */; };
@@ -169,6 +172,9 @@
 		1B841BF11FE6C5CF00B07CBF /* HCRecommendSingleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCRecommendSingleCell.xib; sourceTree = "<group>"; };
 		1B8A18F91FF5EB360046EF52 /* HCOtherLoginModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCOtherLoginModeView.swift; sourceTree = "<group>"; };
 		1B8A18FB1FF5EB450046EF52 /* HCOtherLoginModeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCOtherLoginModeView.xib; sourceTree = "<group>"; };
+		1B8C545D1FFC81E100987481 /* HCAccountLoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCAccountLoginResult.swift; sourceTree = "<group>"; };
+		1B8C54601FFC870900987481 /* HCAccountLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCAccountLoginViewModel.swift; sourceTree = "<group>"; };
+		1B8C54631FFC88A900987481 /* HCAccountLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCAccountLoginService.swift; sourceTree = "<group>"; };
 		1BA035CE1FE6348600E9892E /* HCHomeRecommendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCHomeRecommendModel.swift; sourceTree = "<group>"; };
 		1BA035D01FE642B700E9892E /* HCRecommendHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCRecommendHeaderView.swift; sourceTree = "<group>"; };
 		1BA035D21FE642C200E9892E /* HCRecommendHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCRecommendHeaderView.xib; sourceTree = "<group>"; };
@@ -494,6 +500,7 @@
 		1B5C3E0D1FE24EBD00587750 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1BE53B671FFE18DF00D7042B /* Service */,
 				1B653DF01FF6492800F2425D /* Tools */,
 				1B5C3E0E1FE24EBD00587750 /* CustomUI */,
 				1B5C3E0F1FE24EBD00587750 /* Extension */,
@@ -611,9 +618,18 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		1B8C54621FFC889700987481 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1B8C54631FFC88A900987481 /* HCAccountLoginService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		1BD3B7501FF7490A0002800C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1B8C54601FFC870900987481 /* HCAccountLoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -629,6 +645,7 @@
 		1BE1131E1FF2386C0018B541 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				1B8C54621FFC889700987481 /* Service */,
 				1BE4E7621FF38F44008705CD /* Controller */,
 				1BD3B7501FF7490A0002800C /* ViewModel */,
 				1BE1131F1FF2386C0018B541 /* Model */,
@@ -641,6 +658,7 @@
 		1BE1131F1FF2386C0018B541 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1B8C545D1FFC81E100987481 /* HCAccountLoginResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -662,6 +680,13 @@
 				1BE4E7571FF38684008705CD /* HCThridLoginViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		1BE53B671FFE18DF00D7042B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		B27CCBCC61291E0C263DCE36 /* Frameworks */ = {
@@ -939,9 +964,11 @@
 				1BEB29471FE2C49C001F7C1B /* HCNavDownloadable.swift in Sources */,
 				1B0C3F181FE558D4006BD58F /* HCScrollBarView.swift in Sources */,
 				1B2C67101FE27B7A003172BE /* HCFindViewController.swift in Sources */,
+				1B8C545E1FFC81E100987481 /* HCAccountLoginResult.swift in Sources */,
 				1B2C67011FE27107003172BE /* RequestUrl.swift in Sources */,
 				1B0C3EFC1FE52543006BD58F /* HCSquareModel.swift in Sources */,
 				1B79F2951FE3BE9300FF3EC3 /* HCSearchController.swift in Sources */,
+				1B8C54611FFC870900987481 /* HCAccountLoginViewModel.swift in Sources */,
 				1B78FA571FE37B6400ACE9B1 /* HCHomeSearchBarable.swift in Sources */,
 				1B0C3F241FE57DD7006BD58F /* HCRecommendFlowLayout.swift in Sources */,
 				1B78FA551FE3763300ACE9B1 /* HCSearchResultController.swift in Sources */,
@@ -954,6 +981,7 @@
 				1B1F9EAF1FE4F4C80025D675 /* HCNavTitleable.swift in Sources */,
 				1B6641D41FE4723900DCFFE6 /* HCNavAnchorsable.swift in Sources */,
 				1B0C3F201FE55F52006BD58F /* HCRecommendCell.swift in Sources */,
+				1B8C54641FFC88A900987481 /* HCAccountLoginService.swift in Sources */,
 				1B841BF21FE6C5CF00B07CBF /* HCRecommendSingleCell.swift in Sources */,
 				1B2C67081FE27910003172BE /* HCNavBackable.swift in Sources */,
 				1B79F2931FE3BD7400FF3EC3 /* HCSearchControllerable.swift in Sources */,

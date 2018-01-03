@@ -83,7 +83,7 @@ extension HCAccountLoginable where Self : HCAccountLoginViewController {
     }
     
     // MARK:- 登录按钮部分
-    func initLoginBtnView(onNext: @escaping (_ event: AccountLoginEvent)->Void) -> UIView {
+    func initLoginBtnView(onNext: @escaping (_ event: AccountLoginEvent)->Void) -> (UIView, UIButton) {
         
         // 创建
         let btnView = UIView().then {
@@ -132,7 +132,7 @@ extension HCAccountLoginable where Self : HCAccountLoginViewController {
             make.bottom.equalToSuperview().offset(-MetricGlobal.margin)
         }
         
-        return btnView
+        return (btnView, loginBtn)
     }
     
     // MARK:- 账号输入框
@@ -156,12 +156,12 @@ extension HCAccountLoginable where Self : HCAccountLoginViewController {
             return InputValidator.isValidEmail(email: input)
         }
 
-        fieldObservable.map { (valid: Bool) -> UIColor in
-            let color = valid ? kThemeGainsboroColor : kThemeOrangeRedColor
-            return color
-        }.subscribe(onNext: { (color) in
-            field.layer.borderColor = color.cgColor
-        }).disposed(by: rx.disposeBag)
+//        fieldObservable.map { (valid: Bool) -> UIColor in
+//            let color = valid ? kThemeGainsboroColor : kThemeOrangeRedColor
+//            return color
+//        }.subscribe(onNext: { (color) in
+//            field.layer.borderColor = color.cgColor
+//        }).disposed(by: rx.disposeBag)
         
         return field
     }
@@ -181,19 +181,19 @@ extension HCAccountLoginable where Self : HCAccountLoginViewController {
             $0.placeholder = Metric.passswordPlaceholder
         }
         
-        // 输入内容 校验
-        let fieldObservable = field.rx.text.skip(1).throttle(0.75, scheduler: MainScheduler.instance).map { (input: String?) -> Bool in
-            guard let input  = input else { return false }
-            HCLog("\(input)")
-            return InputValidator.isValidPassword(password: input)
-        }
+//        // 输入内容 校验
+//        let fieldObservable = field.rx.text.skip(1).throttle(0.75, scheduler: MainScheduler.instance).map { (input: String?) -> Bool in
+//            guard let input  = input else { return false }
+//            HCLog("\(input)")
+//            return InputValidator.isvalidationPassword(password: input)
+//        }
         
-        fieldObservable.map { (valid: Bool) -> UIColor in
-            let color = valid ? kThemeGainsboroColor : kThemeOrangeRedColor
-            return color
-            }.subscribe(onNext: { (color) in
-                field.layer.borderColor = color.cgColor
-            }).disposed(by: rx.disposeBag)
+//        fieldObservable.map { (valid: Bool) -> UIColor in
+//            let color = valid ? kThemeGainsboroColor : kThemeOrangeRedColor
+//            return color
+//            }.subscribe(onNext: { (color) in
+//                field.layer.borderColor = color.cgColor
+//            }).disposed(by: rx.disposeBag)
 
         return field
     }

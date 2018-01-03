@@ -23,7 +23,7 @@ class InputValidator: NSObject {
         return false
     }
     
-    class func isValidPassword(password: String) -> Bool {
+    class func isvalidationPassword(password: String) -> Bool {
         return password.characters.count >= 8
     }
 }
