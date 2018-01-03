@@ -12,6 +12,5 @@ class HCSearchResultController: HCBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 }

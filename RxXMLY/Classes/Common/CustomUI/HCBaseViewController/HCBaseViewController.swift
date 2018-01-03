@@ -26,7 +26,7 @@ class HCBaseViewController: UIViewController {
 }
 
 // MARK:- 事件 (部分页面失效)
-extension HCBaseViewController {
+extension HCBaseNavigationController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)

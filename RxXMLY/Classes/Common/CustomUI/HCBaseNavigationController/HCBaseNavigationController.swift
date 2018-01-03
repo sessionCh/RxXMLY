@@ -36,3 +36,14 @@ class HCBaseNavigationController: UINavigationController, HCNavBackable {
         HCLog("deinit: \(type(of: self))")
     }
 }
+
+// MARK:- 事件 (部分页面失效)
+extension HCBaseViewController {
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        // 注销 键盘
+        view.endEditing(true)
+    }
+}
+

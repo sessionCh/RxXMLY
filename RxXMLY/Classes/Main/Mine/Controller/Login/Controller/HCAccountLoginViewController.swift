@@ -8,6 +8,9 @@
 
 import UIKit
 import Then
+import RxSwift
+import RxCocoa
+import NSObject_Rx
 
 // MARK:- 常量
 fileprivate struct Metric {
@@ -20,7 +23,10 @@ class HCAccountLoginViewController: HCBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = kThemeWhiteColor
-        
+        view.rx.tapGesture().do(onNext: { [weak self] _ in
+            self?.view.endEditing(true)
+        }).subscribe().disposed(by: rx.disposeBag)
+
         initTextField()
     }
 }
@@ -42,7 +48,7 @@ extension HCAccountLoginViewController: HCAccountLoginable {
         let passwordField = initPasswordField { }
         let loginBtnView = initLoginBtnView { event in HCLog(event.title) }
         let otherLoginView = initOtherLoginView { event in HCLog(event.title) }
-
+        
         // 添加
         view.addSubview(scrollView)
         scrollView.addSubview(accountField)
