@@ -17,7 +17,7 @@ fileprivate struct Metric {
 
 class HCSearchController: HCBaseViewController {
     
-    var myTitleView: UIView?
+    private var titleView: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class HCSearchController: HCBaseViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        myTitleView?.snp.makeConstraints { (make) in
+        titleView?.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview().offset(-0.5) // 修正偏差
             make.left.equalToSuperview().offset(Metric.searchBarLeft)
             make.right.equalToSuperview().offset(-Metric.searchBarRight)
@@ -42,18 +42,18 @@ extension HCSearchController: HCNavTitleable {
     // MARK:- 标题组件
     func initTitleView() {
         
-        let searchBar = HCSearchNavBar()
+        let searchBar = HCSearchNavigationBar()
         searchBar.itemClicked = { [weak self] (model) in
             
             guard let `self` = self else { return }
             
-            if case let HCNavBarItemModel.HCNavBarItemType.searchBar(index, desc) = model.type {
+            if case let HCNavigationBarItemModel.HCNavigationBarItemType.searchBar(index, desc) = model.type {
                 HCLog(model.description + " 控件: \(desc)")
                 if index == 3 {
                     self.dismiss(animated: false, completion: nil)
                 }
             }
         }
-        myTitleView = self.titleView(titleView: searchBar)
+        titleView = self.titleView(titleView: searchBar)
     }
 }

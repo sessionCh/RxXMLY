@@ -52,7 +52,6 @@ extension HCMainViewController {
             let item: UITabBarItem = UITabBarItem(title: nil, image: UIImage(named: "tabbar_icon_"+lowStr+"_normal"), selectedImage: UIImage(named: "tabbar_icon_"+lowStr+"_pressed"))
             item.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: -8, right: 0)
             vc.tabBarItem = item
-            vc.view.backgroundColor = UIColor.white
             let navVc = HCBaseNavigationController(rootViewController: vc)
             tabArr.append(navVc)
         }
@@ -78,7 +77,7 @@ extension HCMainViewController: UITabBarControllerDelegate {
         
         if tabBarController.selectedIndex == 3 {
 
-            self.jump2Login()
+//            self.jump2Login()
         }
     }
     

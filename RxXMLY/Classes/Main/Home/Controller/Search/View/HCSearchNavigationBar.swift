@@ -1,5 +1,5 @@
 //
-//  HCSearchNavBar.swift
+//  HCSearchNavigationBar.swift
 //  RxXMLY
 //
 //  Created by sessionCh on 2017/12/16.
@@ -15,9 +15,9 @@ fileprivate struct Metric {
     static let homeBarHeight: CGFloat = 44.0
 }
 
-class HCSearchNavBar: UIView {
+class HCSearchNavigationBar: UIView {
     
-    typealias AddBlock = (_ model: HCNavBarItemModel)->Void;
+    typealias AddBlock = (_ model: HCNavigationBarItemModel)->Void;
     var itemClicked: AddBlock? = { (_) in
         return
     }
@@ -25,7 +25,7 @@ class HCSearchNavBar: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        initSearchNavBar()
+        initSearchNavigationBar()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -43,13 +43,13 @@ class HCSearchNavBar: UIView {
     }
 }
 
-extension HCSearchNavBar: HCSearchControllerable {
+extension HCSearchNavigationBar: HCSearchControllerable {
     
     // MARK:- 初始化 首页 导航栏组件
-    func initSearchNavBar() {
+    func initSearchNavigationBar() {
         
         // 搜索栏
-        let searchBar = self.searchBar(model: HCNavBarItemMetric.homeSearchBar) { (model) in
+        let searchBar = self.searchBar(model: HCNavigationBarItemMetric.homeSearchBar) { (model) in
             
             self.itemClicked!(model)
         }

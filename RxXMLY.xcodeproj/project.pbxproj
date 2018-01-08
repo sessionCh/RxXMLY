@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B085D382003A1410091694D /* HCMineHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B085D372003A1410091694D /* HCMineHeaderView.swift */; };
+		1B085D3A2003A1660091694D /* HCMineHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B085D392003A1660091694D /* HCMineHeaderView.xib */; };
+		1B085D422003AA2F0091694D /* WRCustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B085D3C2003AA2F0091694D /* WRCustomNavigationBar.swift */; };
+		1B085D432003AA2F0091694D /* WRCycleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B085D3E2003AA2F0091694D /* WRCycleCell.swift */; };
+		1B085D442003AA2F0091694D /* WRCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B085D3F2003AA2F0091694D /* WRCycleScrollView.swift */; };
+		1B085D452003AA2F0091694D /* WRProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B085D402003AA2F0091694D /* WRProxy.swift */; };
+		1B085D462003AA2F0091694D /* WRNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B085D412003AA2F0091694D /* WRNavigationBar.swift */; };
 		1B0C3EEB1FE51EEA006BD58F /* JsonTemplate.txt in Sources */ = {isa = PBXBuildFile; fileRef = 1B0C3EEA1FE51EEA006BD58F /* JsonTemplate.txt */; };
 		1B0C3EED1FE5204C006BD58F /* HCRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0C3EEC1FE5204C006BD58F /* HCRecommendViewController.swift */; };
 		1B0C3EF01FE52137006BD58F /* HCRefreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0C3EEF1FE52136006BD58F /* HCRefreshable.swift */; };
@@ -26,10 +33,7 @@
 		1B0C3F201FE55F52006BD58F /* HCRecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0C3F1E1FE55F52006BD58F /* HCRecommendCell.swift */; };
 		1B0C3F211FE55F52006BD58F /* HCRecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B0C3F1F1FE55F52006BD58F /* HCRecommendCell.xib */; };
 		1B0C3F241FE57DD7006BD58F /* HCRecommendFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0C3F231FE57DD7006BD58F /* HCRecommendFlowLayout.swift */; };
-		1B1F9EAD1FE4F0730025D675 /* HCHomeNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1F9EAC1FE4F0730025D675 /* HCHomeNavBar.swift */; };
 		1B1F9EAF1FE4F4C80025D675 /* HCNavTitleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1F9EAE1FE4F4C80025D675 /* HCNavTitleable.swift */; };
-		1B1F9EB11FE4F5D50025D675 /* HCMineNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1F9EB01FE4F5D50025D675 /* HCMineNavBar.swift */; };
-		1B1F9EB31FE4F8B80025D675 /* HCSearchNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1F9EB21FE4F8B80025D675 /* HCSearchNavBar.swift */; };
 		1B2A47181FE91D5F0090B1CA /* HCRefreshGifHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2A47171FE91D5F0090B1CA /* HCRefreshGifHeader.swift */; };
 		1B2C66F91FE26CF8003172BE /* HCMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2C66F81FE26CF8003172BE /* HCMainViewController.swift */; };
 		1B2C66FB1FE26EAB003172BE /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2C66FA1FE26EAB003172BE /* Common.swift */; };
@@ -47,6 +51,7 @@
 		1B2C67171FE2BF5F003172BE /* HCBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2C67161FE2BF5F003172BE /* HCBaseViewController.swift */; };
 		1B3341F31FF255DB008EAF43 /* String+GetSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3341F21FF255DB008EAF43 /* String+GetSize.swift */; };
 		1B3525EC1FE6BCF000EC9270 /* HCActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3525EB1FE6BCF000EC9270 /* HCActivityModel.swift */; };
+		1B359F23200375DE00ADFE9A /* HCMineFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B359F22200375DE00ADFE9A /* HCMineFactory.swift */; };
 		1B4474B91FE263F200A31004 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B4474B81FE263F200A31004 /* LaunchScreen.storyboard */; };
 		1B5C3DDF1FE24B2300587750 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5C3DDE1FE24B2300587750 /* AppDelegate.swift */; };
 		1B5C3DE11FE24B2300587750 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5C3DE01FE24B2300587750 /* ViewController.swift */; };
@@ -79,6 +84,9 @@
 		1BD4C66F1FE67EFD00CFBF5C /* HCSquareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD4C66D1FE67EFD00CFBF5C /* HCSquareCell.swift */; };
 		1BD4C6701FE67EFD00CFBF5C /* HCSquareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BD4C66E1FE67EFD00CFBF5C /* HCSquareCell.xib */; };
 		1BD4C6761FE694E800CFBF5C /* HCSquareFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD4C6751FE694E800CFBF5C /* HCSquareFlowLayout.swift */; };
+		1BD6536A2003185500B4BD26 /* HCCellStyleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD653692003185500B4BD26 /* HCCellStyleable.swift */; };
+		1BD653732003400500B4BD26 /* HCSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD653722003400500B4BD26 /* HCSettingCell.swift */; };
+		1BD65376200365E800B4BD26 /* HCMineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD65375200365E800B4BD26 /* HCMineViewModel.swift */; };
 		1BE113221FF238BC0018B541 /* HCLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE113211FF238BC0018B541 /* HCLoginViewController.swift */; };
 		1BE4E7561FF3865E008705CD /* HCAccountLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4E7551FF3865E008705CD /* HCAccountLoginViewController.swift */; };
 		1BE4E7581FF38684008705CD /* HCThridLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4E7571FF38684008705CD /* HCThridLoginViewController.swift */; };
@@ -87,6 +95,9 @@
 		1BEB29471FE2C49C001F7C1B /* HCNavDownloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB29461FE2C49C001F7C1B /* HCNavDownloadable.swift */; };
 		1BEB29491FE2C7F8001F7C1B /* HCNavSearchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB29481FE2C7F7001F7C1B /* HCNavSearchable.swift */; };
 		1BEB294B1FE2CA6D001F7C1B /* HCNavSettingable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB294A1FE2CA6D001F7C1B /* HCNavSettingable.swift */; };
+		1BEE5BAF20039DBC001B42D2 /* HCMineNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEE5BAE20039DBC001B42D2 /* HCMineNavigationBar.swift */; };
+		1BEE5BB120039DD5001B42D2 /* HCSearchNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEE5BB020039DD4001B42D2 /* HCSearchNavigationBar.swift */; };
+		1BEE5BB320039DDD001B42D2 /* HCHomeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEE5BB220039DDD001B42D2 /* HCHomeNavigationBar.swift */; };
 		B2F72457C5F0BC8D8490F5B6 /* Pods_RxXMLY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE2E262A5D6978D0DB21709 /* Pods_RxXMLY.framework */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +119,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B085D372003A1410091694D /* HCMineHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCMineHeaderView.swift; sourceTree = "<group>"; };
+		1B085D392003A1660091694D /* HCMineHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCMineHeaderView.xib; sourceTree = "<group>"; };
+		1B085D3C2003AA2F0091694D /* WRCustomNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WRCustomNavigationBar.swift; sourceTree = "<group>"; };
+		1B085D3E2003AA2F0091694D /* WRCycleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WRCycleCell.swift; sourceTree = "<group>"; };
+		1B085D3F2003AA2F0091694D /* WRCycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WRCycleScrollView.swift; sourceTree = "<group>"; };
+		1B085D402003AA2F0091694D /* WRProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WRProxy.swift; sourceTree = "<group>"; };
+		1B085D412003AA2F0091694D /* WRNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WRNavigationBar.swift; sourceTree = "<group>"; };
 		1B0C3EEA1FE51EEA006BD58F /* JsonTemplate.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = JsonTemplate.txt; sourceTree = "<group>"; };
 		1B0C3EEC1FE5204C006BD58F /* HCRecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCRecommendViewController.swift; sourceTree = "<group>"; };
 		1B0C3EEF1FE52136006BD58F /* HCRefreshable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCRefreshable.swift; sourceTree = "<group>"; };
@@ -127,10 +145,7 @@
 		1B0C3F1E1FE55F52006BD58F /* HCRecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCRecommendCell.swift; sourceTree = "<group>"; };
 		1B0C3F1F1FE55F52006BD58F /* HCRecommendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCRecommendCell.xib; sourceTree = "<group>"; };
 		1B0C3F231FE57DD7006BD58F /* HCRecommendFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCRecommendFlowLayout.swift; sourceTree = "<group>"; };
-		1B1F9EAC1FE4F0730025D675 /* HCHomeNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCHomeNavBar.swift; sourceTree = "<group>"; };
 		1B1F9EAE1FE4F4C80025D675 /* HCNavTitleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCNavTitleable.swift; sourceTree = "<group>"; };
-		1B1F9EB01FE4F5D50025D675 /* HCMineNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCMineNavBar.swift; sourceTree = "<group>"; };
-		1B1F9EB21FE4F8B80025D675 /* HCSearchNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCSearchNavBar.swift; sourceTree = "<group>"; };
 		1B2A47171FE91D5F0090B1CA /* HCRefreshGifHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCRefreshGifHeader.swift; sourceTree = "<group>"; };
 		1B2C66F81FE26CF8003172BE /* HCMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCMainViewController.swift; sourceTree = "<group>"; };
 		1B2C66FA1FE26EAB003172BE /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -148,6 +163,7 @@
 		1B2C67161FE2BF5F003172BE /* HCBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBaseViewController.swift; sourceTree = "<group>"; };
 		1B3341F21FF255DB008EAF43 /* String+GetSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+GetSize.swift"; sourceTree = "<group>"; };
 		1B3525EB1FE6BCF000EC9270 /* HCActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCActivityModel.swift; sourceTree = "<group>"; };
+		1B359F22200375DE00ADFE9A /* HCMineFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCMineFactory.swift; sourceTree = "<group>"; };
 		1B4474B81FE263F200A31004 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B5C3DDB1FE24B2300587750 /* RxXMLY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxXMLY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B5C3DDE1FE24B2300587750 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +202,9 @@
 		1BD4C66D1FE67EFD00CFBF5C /* HCSquareCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCSquareCell.swift; sourceTree = "<group>"; };
 		1BD4C66E1FE67EFD00CFBF5C /* HCSquareCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCSquareCell.xib; sourceTree = "<group>"; };
 		1BD4C6751FE694E800CFBF5C /* HCSquareFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCSquareFlowLayout.swift; sourceTree = "<group>"; };
+		1BD653692003185500B4BD26 /* HCCellStyleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCCellStyleable.swift; sourceTree = "<group>"; };
+		1BD653722003400500B4BD26 /* HCSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCSettingCell.swift; sourceTree = "<group>"; };
+		1BD65375200365E800B4BD26 /* HCMineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCMineViewModel.swift; sourceTree = "<group>"; };
 		1BE113211FF238BC0018B541 /* HCLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLoginViewController.swift; sourceTree = "<group>"; };
 		1BE4E7551FF3865E008705CD /* HCAccountLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCAccountLoginViewController.swift; sourceTree = "<group>"; };
 		1BE4E7571FF38684008705CD /* HCThridLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCThridLoginViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +213,9 @@
 		1BEB29461FE2C49C001F7C1B /* HCNavDownloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCNavDownloadable.swift; sourceTree = "<group>"; };
 		1BEB29481FE2C7F7001F7C1B /* HCNavSearchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCNavSearchable.swift; sourceTree = "<group>"; };
 		1BEB294A1FE2CA6D001F7C1B /* HCNavSettingable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCNavSettingable.swift; sourceTree = "<group>"; };
+		1BEE5BAE20039DBC001B42D2 /* HCMineNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCMineNavigationBar.swift; sourceTree = "<group>"; };
+		1BEE5BB020039DD4001B42D2 /* HCSearchNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCSearchNavigationBar.swift; sourceTree = "<group>"; };
+		1BEE5BB220039DDD001B42D2 /* HCHomeNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCHomeNavigationBar.swift; sourceTree = "<group>"; };
 		48D511ECCED911C27E2B5425 /* Pods-RxXMLY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxXMLY.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxXMLY/Pods-RxXMLY.release.xcconfig"; sourceTree = "<group>"; };
 		5E1F373F4FDFF1ED18A88E2B /* Pods-RxXMLY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxXMLY.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxXMLY/Pods-RxXMLY.debug.xcconfig"; sourceTree = "<group>"; };
 		A3BF366E11AA172CAA4B35D6 /* Pods_RxXMLYTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxXMLYTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,6 +249,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B085D3B2003AA2F0091694D /* WRNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				1B085D3C2003AA2F0091694D /* WRCustomNavigationBar.swift */,
+				1B085D3D2003AA2F0091694D /* WRCycleScrollView */,
+				1B085D412003AA2F0091694D /* WRNavigationBar.swift */,
+			);
+			path = WRNavigationBar;
+			sourceTree = "<group>";
+		};
+		1B085D3D2003AA2F0091694D /* WRCycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				1B085D3E2003AA2F0091694D /* WRCycleCell.swift */,
+				1B085D3F2003AA2F0091694D /* WRCycleScrollView.swift */,
+				1B085D402003AA2F0091694D /* WRProxy.swift */,
+			);
+			path = WRCycleScrollView;
+			sourceTree = "<group>";
+		};
+		1B085D472003AAC90091694D /* Thrid */ = {
+			isa = PBXGroup;
+			children = (
+				1B085D3B2003AA2F0091694D /* WRNavigationBar */,
+			);
+			path = Thrid;
+			sourceTree = "<group>";
+		};
 		1B0C3EEE1FE52136006BD58F /* MJRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,7 +325,7 @@
 		1B0C3EF61FE5236B006BD58F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1B1F9EB21FE4F8B80025D675 /* HCSearchNavBar.swift */,
+				1BEE5BB020039DD4001B42D2 /* HCSearchNavigationBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -382,8 +432,11 @@
 			isa = PBXGroup;
 			children = (
 				1B6641CD1FE4699F00DCFFE6 /* Controller */,
+				1BD65374200365DB00B4BD26 /* ViewModel */,
 				1B6641CE1FE4699F00DCFFE6 /* View */,
+				1B359F21200375C900ADFE9A /* Model */,
 				1B2C670B1FE27B64003172BE /* HCMineViewController.swift */,
+				1B359F22200375DE00ADFE9A /* HCMineFactory.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -434,6 +487,13 @@
 				1B2C67161FE2BF5F003172BE /* HCBaseViewController.swift */,
 			);
 			path = HCBaseViewController;
+			sourceTree = "<group>";
+		};
+		1B359F21200375C900ADFE9A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		1B5C3DD21FE24B2300587750 = {
@@ -500,6 +560,7 @@
 		1B5C3E0D1FE24EBD00587750 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1B085D472003AAC90091694D /* Thrid */,
 				1BE53B671FFE18DF00D7042B /* Service */,
 				1B653DF01FF6492800F2425D /* Tools */,
 				1B5C3E0E1FE24EBD00587750 /* CustomUI */,
@@ -538,6 +599,7 @@
 		1B5C3E101FE24EBD00587750 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				1BD653682003184300B4BD26 /* HCCellStyleable */,
 				1B0C3F0E1FE53A65006BD58F /* ViewModel */,
 				1B0C3EEE1FE52136006BD58F /* MJRefresh */,
 				1B2C67041FE2785D003172BE /* UINavigationBar */,
@@ -575,7 +637,10 @@
 		1B6641CE1FE4699F00DCFFE6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1B1F9EB01FE4F5D50025D675 /* HCMineNavBar.swift */,
+				1BEE5BAE20039DBC001B42D2 /* HCMineNavigationBar.swift */,
+				1B085D372003A1410091694D /* HCMineHeaderView.swift */,
+				1B085D392003A1660091694D /* HCMineHeaderView.xib */,
+				1BD653722003400500B4BD26 /* HCSettingCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -591,7 +656,7 @@
 		1B78FA521FE375FB00ACE9B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1B1F9EAC1FE4F0730025D675 /* HCHomeNavBar.swift */,
+				1BEE5BB220039DDD001B42D2 /* HCHomeNavigationBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -640,6 +705,22 @@
 				1BD4C66A1FE668E500CFBF5C /* HCNibloadable.swift */,
 			);
 			path = HCNibloadable;
+			sourceTree = "<group>";
+		};
+		1BD653682003184300B4BD26 /* HCCellStyleable */ = {
+			isa = PBXGroup;
+			children = (
+				1BD653692003185500B4BD26 /* HCCellStyleable.swift */,
+			);
+			path = HCCellStyleable;
+			sourceTree = "<group>";
+		};
+		1BD65374200365DB00B4BD26 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1BD65375200365E800B4BD26 /* HCMineViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		1BE1131E1FF2386C0018B541 /* Login */ = {
@@ -827,6 +908,7 @@
 				1B8A18FC1FF5EB450046EF52 /* HCOtherLoginModeView.xib in Resources */,
 				1BA035D31FE642C200E9892E /* HCRecommendHeaderView.xib in Resources */,
 				1B0C3F1D1FE55A39006BD58F /* HCScrollBarCell.xib in Resources */,
+				1B085D3A2003A1660091694D /* HCMineHeaderView.xib in Resources */,
 				1B0C3F161FE5551F006BD58F /* HCRecommendTopHeaderView.xib in Resources */,
 				1B841BF31FE6C5CF00B07CBF /* HCRecommendSingleCell.xib in Resources */,
 			);
@@ -959,10 +1041,13 @@
 				1BEB29491FE2C7F8001F7C1B /* HCNavSearchable.swift in Sources */,
 				1B0C3F0B1FE53227006BD58F /* HCKeywardsModel.swift in Sources */,
 				1B0C3F1C1FE55A39006BD58F /* HCScrollBarCell.swift in Sources */,
+				1BD6536A2003185500B4BD26 /* HCCellStyleable.swift in Sources */,
+				1B085D452003AA2F0091694D /* WRProxy.swift in Sources */,
 				1B2C66FB1FE26EAB003172BE /* Common.swift in Sources */,
 				1B0C3EEB1FE51EEA006BD58F /* JsonTemplate.txt in Sources */,
 				1BEB29471FE2C49C001F7C1B /* HCNavDownloadable.swift in Sources */,
 				1B0C3F181FE558D4006BD58F /* HCScrollBarView.swift in Sources */,
+				1BD653732003400500B4BD26 /* HCSettingCell.swift in Sources */,
 				1B2C67101FE27B7A003172BE /* HCFindViewController.swift in Sources */,
 				1B8C545E1FFC81E100987481 /* HCAccountLoginResult.swift in Sources */,
 				1B2C67011FE27107003172BE /* RequestUrl.swift in Sources */,
@@ -970,25 +1055,29 @@
 				1B79F2951FE3BE9300FF3EC3 /* HCSearchController.swift in Sources */,
 				1B8C54611FFC870900987481 /* HCAccountLoginViewModel.swift in Sources */,
 				1B78FA571FE37B6400ACE9B1 /* HCHomeSearchBarable.swift in Sources */,
+				1B085D462003AA2F0091694D /* WRNavigationBar.swift in Sources */,
 				1B0C3F241FE57DD7006BD58F /* HCRecommendFlowLayout.swift in Sources */,
 				1B78FA551FE3763300ACE9B1 /* HCSearchResultController.swift in Sources */,
 				1B2C670E1FE27B71003172BE /* HCHearViewController.swift in Sources */,
 				1B0C3F141FE55505006BD58F /* HCRecommendTopHeaderView.swift in Sources */,
-				1B1F9EB31FE4F8B80025D675 /* HCSearchNavBar.swift in Sources */,
 				1B0C3EED1FE5204C006BD58F /* HCRecommendViewController.swift in Sources */,
 				1BA035CF1FE6348600E9892E /* HCHomeRecommendModel.swift in Sources */,
 				1B2C67121FE2B9EC003172BE /* UIImage+Color.swift in Sources */,
 				1B1F9EAF1FE4F4C80025D675 /* HCNavTitleable.swift in Sources */,
 				1B6641D41FE4723900DCFFE6 /* HCNavAnchorsable.swift in Sources */,
 				1B0C3F201FE55F52006BD58F /* HCRecommendCell.swift in Sources */,
+				1B085D382003A1410091694D /* HCMineHeaderView.swift in Sources */,
 				1B8C54641FFC88A900987481 /* HCAccountLoginService.swift in Sources */,
 				1B841BF21FE6C5CF00B07CBF /* HCRecommendSingleCell.swift in Sources */,
+				1B085D442003AA2F0091694D /* WRCycleScrollView.swift in Sources */,
 				1B2C67081FE27910003172BE /* HCNavBackable.swift in Sources */,
 				1B79F2931FE3BD7400FF3EC3 /* HCSearchControllerable.swift in Sources */,
+				1BEE5BAF20039DBC001B42D2 /* HCMineNavigationBar.swift in Sources */,
 				1BE4E7641FF38F7C008705CD /* HCAccountLoginable.swift in Sources */,
 				1BEB29451FE2C2E0001F7C1B /* HCNavHistoryable.swift in Sources */,
 				1B3341F31FF255DB008EAF43 /* String+GetSize.swift in Sources */,
 				1BE113221FF238BC0018B541 /* HCLoginViewController.swift in Sources */,
+				1BEE5BB120039DD5001B42D2 /* HCSearchNavigationBar.swift in Sources */,
 				1B653DF21FF6493400F2425D /* InputValidator.swift in Sources */,
 				1B3525EC1FE6BCF000EC9270 /* HCActivityModel.swift in Sources */,
 				1BD4C6671FE660F700CFBF5C /* HCRecommendFooterView.swift in Sources */,
@@ -996,25 +1085,28 @@
 				1B2C67061FE2788B003172BE /* HCBaseNavigationController.swift in Sources */,
 				1B0C3F0D1FE53577006BD58F /* HCRecommendModel.swift in Sources */,
 				1B2C66F91FE26CF8003172BE /* HCMainViewController.swift in Sources */,
+				1B085D432003AA2F0091694D /* WRCycleCell.swift in Sources */,
 				1B2C66FF1FE270AB003172BE /* UIView+Frame.swift in Sources */,
 				1BD029071FE2F71800461204 /* HCNavUniversalable.swift in Sources */,
 				1B2C67171FE2BF5F003172BE /* HCBaseViewController.swift in Sources */,
 				1BA3F8261FE3A8BE00A06CEB /* UIView+Corner.swift in Sources */,
-				1B1F9EB11FE4F5D50025D675 /* HCMineNavBar.swift in Sources */,
-				1B1F9EAD1FE4F0730025D675 /* HCHomeNavBar.swift in Sources */,
 				1B0C3EF01FE52137006BD58F /* HCRefreshable.swift in Sources */,
+				1B085D422003AA2F0091694D /* WRCustomNavigationBar.swift in Sources */,
 				1B5C3DE11FE24B2300587750 /* ViewController.swift in Sources */,
 				1BEB294B1FE2CA6D001F7C1B /* HCNavSettingable.swift in Sources */,
 				1B78C9D91FE7B61F00876F89 /* HCRecommendCellTypeModel.swift in Sources */,
+				1B359F23200375DE00ADFE9A /* HCMineFactory.swift in Sources */,
 				1B2C66FD1FE26F57003172BE /* UIColor+HexColor.swift in Sources */,
 				1B2C67141FE2BCE0003172BE /* HCNavMessageable.swift in Sources */,
 				1B5C3DDF1FE24B2300587750 /* AppDelegate.swift in Sources */,
 				1BA035D11FE642B700E9892E /* HCRecommendHeaderView.swift in Sources */,
 				1BE4E7561FF3865E008705CD /* HCAccountLoginViewController.swift in Sources */,
+				1BEE5BB320039DDD001B42D2 /* HCHomeNavigationBar.swift in Sources */,
 				1B0C3F031FE52F23006BD58F /* HCRecommendViewModel.swift in Sources */,
 				1BD4C66F1FE67EFD00CFBF5C /* HCSquareCell.swift in Sources */,
 				1B0C3F101FE53A74006BD58F /* HCViewModelType.swift in Sources */,
 				1B2C670C1FE27B64003172BE /* HCMineViewController.swift in Sources */,
+				1BD65376200365E800B4BD26 /* HCMineViewModel.swift in Sources */,
 				1BE4E7581FF38684008705CD /* HCThridLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -28,7 +28,7 @@ protocol HCMineAnchorsable {
 extension HCMineAnchorsable where Self : UIView {
     
     // MARK:- 自定义组件
-    func mineAnchors(model: HCNavBarItemModel, onNext: @escaping (_ model: HCNavBarItemModel)->Void) -> UIView {
+    func mineAnchors(model: HCNavigationBarItemModel, onNext: @escaping (_ model: HCNavigationBarItemModel)->Void) -> UIView {
         
         // 创建组件
         let view = UIView().then {

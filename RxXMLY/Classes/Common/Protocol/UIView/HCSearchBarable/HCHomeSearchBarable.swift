@@ -32,7 +32,7 @@ protocol HCHomeSearchBarable {
 extension HCHomeSearchBarable where Self : UIView {
     
     // MARK:- 自定义组件
-    func searchBar(model: HCNavBarItemModel, onNext: @escaping (_ model: HCNavBarItemModel)->Void) -> UIView {
+    func searchBar(model: HCNavigationBarItemModel, onNext: @escaping (_ model: HCNavigationBarItemModel)->Void) -> UIView {
         
         // 创建组件
         let view = UIView().then {
@@ -52,7 +52,7 @@ extension HCHomeSearchBarable where Self : UIView {
             $0.image = UIImage(named: "search_btn_norm")
         }
         let lab = UILabel().then {
-            $0.textColor = kThemeLightGreyColor
+            $0.textColor = kThemeGreyColor
             $0.font = UIFont.systemFont(ofSize: Metric.fontSize)
             $0.text = Metric.title
         }
@@ -89,5 +89,4 @@ extension HCHomeSearchBarable where Self : UIView {
         
         return view
     }
-
 }

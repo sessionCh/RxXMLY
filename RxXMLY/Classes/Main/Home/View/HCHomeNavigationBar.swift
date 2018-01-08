@@ -1,5 +1,5 @@
 //
-//  HCMineNavBar.swift
+//  HCHomeNavigationBar.swift
 //  RxXMLY
 //
 //  Created by sessionCh on 2017/12/16.
@@ -15,9 +15,9 @@ fileprivate struct Metric {
     static let homeBarHeight: CGFloat = 44.0
 }
 
-class HCMineNavBar: UIView {
+class HCHomeNavigationBar: UIView {
     
-    typealias AddBlock = (_ model: HCNavBarItemModel)->Void;
+    typealias AddBlock = (_ model: HCNavigationBarItemModel)->Void;
     var itemClicked: AddBlock? = { (_) in
         return
     }
@@ -25,7 +25,7 @@ class HCMineNavBar: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        initMineNavBar()
+        initHomeNavigationBar()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -43,28 +43,31 @@ class HCMineNavBar: UIView {
     }
 }
 
-extension HCMineNavBar: HCMineAnchorsable, HCNavUniversalable {
+extension HCHomeNavigationBar: HCHomeSearchBarable, HCNavUniversalable {
     
-    // MARK:- 初始化 我的 导航栏组件
-    func initMineNavBar() {
+    // MARK:- 初始化 首页 导航栏组件
+    func initHomeNavigationBar() {
         
         // 消息按钮
-        let message = self.universal(model: HCNavBarItemMetric.meMessage) { (model) in
-            
+        let message = self.universal(model: HCNavigationBarItemMetric.message) { (model) in
+            self.itemClicked!(model)
             HCLog(model.description)
         }
         
-        // 设置
-        let setting = self.universal(model: HCNavBarItemMetric.setting) { (model) in
-            
+        // 历史记录
+        let history = self.universal(model: HCNavigationBarItemMetric.history) { (model) in
+            self.itemClicked!(model)
             HCLog(model.description)
         }
         
-        // 主播工作台
-        let mineAnchors = self.mineAnchors(model: HCNavBarItemMetric.mineAnchors) { [weak self] (model) in
-            
-            guard let `self` = self else { return }
-            
+        // 下载
+        let download = self.universal(model: HCNavigationBarItemMetric.download) { (model) in
+            self.itemClicked!(model)
+            HCLog(model.description)
+        }
+        
+        // 搜索栏
+        let searchBar = self.searchBar(model: HCNavigationBarItemMetric.homeSearchBar) { (model) in
             self.itemClicked!(model)
             HCLog(model.description)
         }
@@ -75,15 +78,22 @@ extension HCMineNavBar: HCMineAnchorsable, HCNavUniversalable {
             make.left.equalToSuperview()
         }
         
-        setting.snp.makeConstraints { (make) in
+        searchBar.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.left.equalTo(message.snp.right).offset(MetricGlobal.margin)
         }
         
-        mineAnchors.snp.makeConstraints { (make) in
+        history.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
+            make.left.equalTo(searchBar.snp.right).offset(MetricGlobal.margin)
+        }
+        
+        download.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.left.equalTo(history.snp.right).offset(MetricGlobal.margin)
             make.right.equalToSuperview()
         }
     }
 }
+
 

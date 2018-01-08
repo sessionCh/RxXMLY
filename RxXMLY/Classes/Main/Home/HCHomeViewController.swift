@@ -25,7 +25,7 @@ fileprivate struct Metric {
 
 class HCHomeViewController: HCBaseViewController {
     
-    private var myTitleView: UIView?
+    private var titleView: UIView?
 
     private let titles: [String] = ["分类", "推荐", "精品", "直播", "广播"]
     private let pageVC = TYTabPagerController().then {
@@ -53,7 +53,7 @@ class HCHomeViewController: HCBaseViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        myTitleView?.snp.makeConstraints { (make) in
+        titleView?.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview().offset(-0.5) // 修正偏差
             make.left.equalToSuperview().offset(Metric.searchBarLeft)
             make.right.equalToSuperview().offset(-Metric.searchBarRight)
@@ -67,8 +67,8 @@ extension HCHomeViewController: HCNavTitleable {
     // MARK:- 标题组件
     private func initTitleView() {
         
-        let homeNavBar = HCHomeNavBar()
-        homeNavBar.itemClicked = { [weak self] (model) in
+        let homeNavigationBar = HCHomeNavigationBar()
+        homeNavigationBar.itemClicked = { [weak self] (model) in
             
             guard let `self` = self else { return }
 
@@ -85,7 +85,7 @@ extension HCHomeViewController: HCNavTitleable {
             default: break
             }
         }
-        myTitleView = self.titleView(titleView: homeNavBar)
+        titleView = self.titleView(titleView: homeNavigationBar)
     }
     
     // MARK:- 分页控制器

@@ -39,6 +39,7 @@ class HCAccountLoginService {
     // 登录
     func login(account: String, password: String) -> Observable<HCAccountLoginResult> {
         
+        // 请求网络
         if account.characters.count > 10 {
             return Observable.just(HCAccountLoginResult.ok(message: "登录成功"))
         } else {

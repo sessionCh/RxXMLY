@@ -17,18 +17,16 @@ class HCRecommendViewController: UIViewController, HCRefreshable {
     
     var refreshHeader: MJRefreshHeader!
     
-    // viewModel
+    // ViewModel
     private var viewModel = HCRecommendViewModel()
     private var vmOutput: HCRecommendViewModel.HCRecommendOutput?
     
     // View
     private var collectionView: UICollectionView!
     
+    // DataSuorce
     var dataSource : RxCollectionViewSectionedReloadDataSource<HCRecommendSection>!
     
-    // ell类型
-    var cellTypeList: [HCRecommendCellTypeModel]?
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,12 +44,12 @@ extension HCRecommendViewController {
         
         let layout = HCRecommendFlowLayout()
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
-        self.collectionView = collectionView
         collectionView.backgroundColor = UIColor.white
         collectionView.showsVerticalScrollIndicator = false
-        
+
         view.addSubview(collectionView)
-        
+        self.collectionView = collectionView
+
         collectionView.snp.makeConstraints { (make) in
             make.left.top.right.bottom.equalToSuperview()
         }
@@ -69,7 +67,7 @@ extension HCRecommendViewController {
     
     func bindUI() {
         
-        dataSource = RxCollectionViewSectionedReloadDataSource<HCRecommendSection>(configureCell: { (ds, cv, indexPath, item) in
+        dataSource = RxCollectionViewSectionedReloadDataSource<HCRecommendSection>(configureCell: { (ds, cv, indexPath, item) -> UICollectionViewCell in
             
             if indexPath.section == 0 || indexPath.section == 1 || indexPath.section == 8 {
                 
@@ -120,7 +118,6 @@ extension HCRecommendViewController {
             
             return cell
 
-            
         }, configureSupplementaryView: { (ds, cv, kind, indexPath) in
             
             let dsSection = ds[indexPath.section]

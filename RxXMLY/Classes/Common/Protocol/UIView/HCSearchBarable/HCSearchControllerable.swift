@@ -36,7 +36,7 @@ protocol HCSearchControllerable {
 extension HCSearchControllerable where Self : UIView {
     
     // MARK:- 自定义组件
-    func searchBar(model: HCNavBarItemModel, onNext: @escaping (_ model: HCNavBarItemModel)->Void) -> UIView {
+    func searchBar(model: HCNavigationBarItemModel, onNext: @escaping (_ model: HCNavigationBarItemModel)->Void) -> UIView {
         
         // 创建组件
         let view = UIView().then {
@@ -82,7 +82,7 @@ extension HCSearchControllerable where Self : UIView {
             // 设置属性
             $0.setTitle("取消", for: .normal)
             $0.setTitleColor(kThemeDimGrayColor, for: .normal)
-            $0.setTitleColor(kThemeLightGreyColor, for: .highlighted)
+            $0.setTitleColor(kThemeGreyColor, for: .highlighted)
             $0.titleLabel?.font = UIFont.systemFont(ofSize: Metric.btnFontSize)
             // 处理点击事件
             $0.rx.tap.do(onNext: {
