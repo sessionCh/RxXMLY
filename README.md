@@ -27,7 +27,7 @@
 
 #### 动画演示
 
-![喜马拉雅演示动画](http://ovy8j7ypb.bkt.clouddn.com/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85-%E6%BC%94%E7%A4%BA%E5%8A%A8%E7%94%BBiPhone%206.gif)
+![喜马拉雅演示动画](http://ovy8j7ypb.bkt.clouddn.com/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85-%E6%BC%94%E7%A4%BA%E5%8A%A8%E7%94%BBiPhone%20X.gif)
 
 #### 源码下载
 
