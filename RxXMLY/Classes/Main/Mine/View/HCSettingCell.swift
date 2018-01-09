@@ -161,6 +161,9 @@ public struct HCSettingCellModel {
     
     var isHiddenBottomLine: Bool? = false
     
+    init() {
+    }
+    
     init(leftIcon: String?, title: String?, description: String?, dotIcon: String?, rightIcon: String?) {
         
         self.leftIcon = leftIcon

@@ -28,16 +28,21 @@ protocol HCMineAnchorsable {
 extension HCMineAnchorsable where Self : UIView {
     
     // MARK:- 自定义组件
-    func mineAnchors(model: HCNavigationBarItemModel, onNext: @escaping (_ model: HCNavigationBarItemModel)->Void) -> UIView {
+    func mineAnchors(model: HCNavigationBarItemModel, onNext: @escaping (_ model: HCNavigationBarItemModel)->Void) -> (UIView, UIView) {
         
         // 创建组件
         let view = UIView().then {
-            $0.backgroundColor = UIColor.clear
+            // 圆角
+            $0.backgroundColor = .clear
             // 处理点击事件
             $0.rx.tapGesture().when(.recognized)
                 .subscribe({ _ in
                     onNext(model)
                 }).disposed(by: rx.disposeBag)
+        }
+        let backgroundView = UIView().then {
+            // 圆角
+            $0.backgroundColor = kThemeOrangeRedColor
         }
         let lab = UILabel().then {
             $0.textColor = UIColor.black
@@ -50,25 +55,30 @@ extension HCMineAnchorsable where Self : UIView {
         }
         
         // 添加组件
+        view.addSubview(backgroundView)
         view.addSubview(lab)
         view.addSubview(icon)
         
         self.addSubview(view)
         
         // 添加约束
+        backgroundView.snp.makeConstraints { (make) in
+            make.left.right.top.bottom.equalToSuperview()
+        }
+        
         icon.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(MetricGlobal.margin)
-            make.right.equalToSuperview()
+            make.right.equalToSuperview().offset(-MetricGlobal.margin)
             make.centerY.equalToSuperview()
         }
         
         lab.snp.makeConstraints { (make) in
             make.right.equalTo(icon.snp.left).offset(-MetricGlobal.margin / 2)
             make.centerY.equalTo(icon)
-            make.left.equalToSuperview()
+            make.left.equalToSuperview().offset(MetricGlobal.margin)
         }
         
-        return view
+        return (view, backgroundView)
     }
 }
 

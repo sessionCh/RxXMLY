@@ -10,10 +10,10 @@ import UIKit
 import Then
 
 class HCMainViewController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.delegate = self
         
         // 初始化子控制器
@@ -36,7 +36,7 @@ extension HCMainViewController {
         
         let classNameArr = ["Home", "Hear", "Find", "Mine"]
         let moduleNameArr = ["首页", "我听", "发现", "我的"]
-
+        
         var tabArr: [UIViewController] = []
         let projectName = self.getProjectName()
         
@@ -48,7 +48,7 @@ extension HCMainViewController {
             let clsType = NSClassFromString(projectName+"HC"+clsName+"ViewController") as! UIViewController.Type
             let vc = clsType.init()
             vc.title = moduleNameArr[i]
-
+            
             let item: UITabBarItem = UITabBarItem(title: nil, image: UIImage(named: "tabbar_icon_"+lowStr+"_normal"), selectedImage: UIImage(named: "tabbar_icon_"+lowStr+"_pressed"))
             item.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: -8, right: 0)
             vc.tabBarItem = item
@@ -74,16 +74,17 @@ extension HCMainViewController {
 extension HCMainViewController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        
-        if tabBarController.selectedIndex == 3 {
-
-//            self.jump2Login()
-        }
     }
+}
+
+// MARK:- 控制器跳转
+extension HCMainViewController {
     
+    // MARK:- 登录
     func jump2Login() {
         
         let VC = HCBaseNavigationController(rootViewController: HCLoginViewController())
         self.present(VC, animated: true, completion: nil)
     }
 }
+

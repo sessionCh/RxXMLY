@@ -8,6 +8,11 @@
 
 import UIKit
 
-class HCMineHeaderView: UIView {
+class HCMineHeaderView: UIView, NibLoadable {
 
+    @IBOutlet weak var loginLab: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
 }

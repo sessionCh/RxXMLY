@@ -13,6 +13,7 @@ import NSObject_Rx
 import RxDataSources
 import ReusableKit
 import Then
+import RxGesture
 
 // MARK:- 复用
 private enum Reusable {
@@ -29,8 +30,8 @@ fileprivate struct Metric {
     static let cellHeight: CGFloat = 49.0
     static let sectionHeight: CGFloat = 10.0
     
-    static let imageHeight: CGFloat = 260.0
-    static let scrollDownLimit: CGFloat = 400
+    static let marginTop: CGFloat = 40.0
+    static let navbarColorChangePoint: CGFloat = -Metric.marginTop
 }
 
 class HCMineViewController: HCBaseViewController {
@@ -44,14 +45,26 @@ class HCMineViewController: HCBaseViewController {
     private var tableView: UITableView!
     private lazy var imageView = UIImageView().then {
         $0.backgroundColor = kThemeWhiteColor
+        $0.contentMode = .scaleAspectFit
         $0.image = UIImage(named: "favicon")
-        $0.contentMode = .scaleAspectFill
-        $0.clipsToBounds = true
     }
     
     // DataSuorce
     var dataSource : RxTableViewSectionedReloadDataSource<HCMineSection>!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.scrollViewDidScroll(tableView)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.navigationBar.Mg_reset()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -71,7 +84,7 @@ class HCMineViewController: HCBaseViewController {
         titleView?.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview().offset(-0.5) // 修正偏差
             make.left.equalToSuperview().offset(Metric.searchBarLeft)
-            make.right.equalToSuperview().offset(-Metric.searchBarRight)
+            make.right.equalToSuperview()
         }
     }
 }
@@ -83,24 +96,50 @@ extension HCMineViewController: HCNavTitleable {
     private func initTitleView() {
         
         let mineNavigationBar = HCMineNavigationBar()
-        mineNavigationBar.itemClicked = { (model) in }
+        mineNavigationBar.itemClicked = { [weak self] (model) in
+            guard let `self` = self else { return }
+            self.jump2Login()
+        }
         titleView = self.titleView(titleView: mineNavigationBar)
     }
 
     // MARK:- 初始化视图
     private func initUI() {
-        
+
         let tableView = UITableView(frame: .zero, style: .plain)
-        tableView.backgroundColor = kThemeGainsboroColor
+        tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
-        tableView.tableFooterView = UIView()
-        tableView.contentInset = UIEdgeInsetsMake(Metric.imageHeight, 0, 0, 0)
+        let headerView = HCMineHeaderView.loadFromNib()
+        // 点击登录
+        headerView.loginLab.rx.tapGesture().when(.recognized)
+            .subscribe({ [weak self] _ in
+                guard let `self` = self else { return }
+                self.jump2Login()
+            }).disposed(by: rx.disposeBag)
         
-        // 添加顶部图片
-        imageView.frame = CGRect(x: 0, y: -Metric.imageHeight, width: kScreenW, height: Metric.imageHeight)
-        tableView.addSubview(imageView)
+        let tableHeaderView = UIView(frame: headerView.bounds)
+        tableHeaderView.addSubview(headerView)
+        tableView.tableHeaderView = tableHeaderView
+        tableView.tableFooterView = UIView()
+        // 调整视图范围
+        tableView.contentInset = UIEdgeInsetsMake(Metric.marginTop, 0, 0, 0)
+        // 调整滚动条范围
+        tableView.scrollIndicatorInsets = UIEdgeInsetsMake(-kNavibarH, 0, 0, 0)
+        
+        // 设置背景图片
+        if let imageSize = imageView.image?.size {
+            // 以屏幕宽度为基准，等比获得图片高度
+            let imageRealHeight = imageSize.height * kScreenW / imageSize.width
+            let imageTopMargin = (Metric.marginTop + kNavibarH + tableHeaderView.height - imageRealHeight) / 2
+            // 证图片居中
+            imageView.frame = CGRect(x: 0, y: imageTopMargin, width: kScreenW, height: imageRealHeight)
+        } else {
+            imageView.frame = CGRect(x: 0, y: 0, width: kScreenW, height: Metric.marginTop + kNavibarH + tableHeaderView.height)
+        }
 
         view.addSubview(tableView)
+        view.addSubview(imageView)
+        view.insertSubview(tableView, aboveSubview: imageView)
         self.tableView = tableView
 
         tableView.snp.makeConstraints { (make) in
@@ -117,7 +156,13 @@ extension HCMineViewController: HCNavTitleable {
     // MARK:- 绑定视图
     func bindUI() {
         
-        dataSource = RxTableViewSectionedReloadDataSource(configureCell: { (ds, tv, indexPath, item) -> HCSettingCell in
+        dataSource = RxTableViewSectionedReloadDataSource(configureCell: { (ds, tv, indexPath, item) -> UITableViewCell in
+            if indexPath.row == 0 {
+                // 充当 SectionHeader 占位
+                let placeCell = UITableViewCell()
+                placeCell.backgroundColor = kThemeGainsboroColor
+                return placeCell
+            }
             let cell = tv.dequeue(Reusable.settingCell, for: indexPath)
             cell.model = item
             return cell
@@ -133,15 +178,12 @@ extension HCMineViewController: HCNavTitleable {
 extension HCMineViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        // 充当 SectionHeader 数据模型
+        if indexPath.row == 0 {
+            return Metric.sectionHeight
+        }
         return Metric.cellHeight
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return Metric.sectionHeight
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return nil
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -149,30 +191,40 @@ extension HCMineViewController: UITableViewDelegate {
     }
 }
 
+private let tempScale: CGFloat = 104 / 600
+
 // MARK:- UIScrollView
 extension HCMineViewController {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        let offsetY = scrollView.contentOffset.y
-        // 限制下拉距离
-        if offsetY < -Metric.scrollDownLimit {
-            scrollView.contentOffset = CGPoint.init(x: 0, y: -Metric.scrollDownLimit)
-        }
-
-        // 改变图片框的大小 (上滑的时候不改变)
-        let newOffsetY = scrollView.contentOffset.y
-        if (newOffsetY < -Metric.imageHeight) {
-            imageView.frame = CGRect(x: 0, y: newOffsetY, width: kScreenW, height: -newOffsetY)
+        // 调整导航栏背景色渐变
+        let offsetY: CGFloat = scrollView.contentOffset.y
+        HCLog(" offsetY:\(offsetY)")
+        if offsetY < Metric.navbarColorChangePoint {
+            let alpha: CGFloat = max(0, 1 - (Metric.navbarColorChangePoint - offsetY) / kNavibarH)
+            HCLog(" alpha:\(alpha)")
+            self.navigationController?.navigationBar.Mg_setBackgroundColor(backgroundColor: kThemeWhiteColor.withAlphaComponent(alpha))
+        } else {
+            self.navigationController?.navigationBar.Mg_setBackgroundColor(backgroundColor: kThemeWhiteColor.withAlphaComponent(1))
         }
         
-        // SectionHeader 跟随父视图移动 (实际效果并没有一起移动，后面再解决)
-        let offset = scrollView.contentOffset.y + Metric.imageHeight
-        if offset <= Metric.sectionHeight && offset >= 0 {
-            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0)
-        } else if offset >= Metric.sectionHeight {
-            scrollView.contentInset = UIEdgeInsetsMake(-Metric.sectionHeight + Metric.imageHeight, 0, 0, 0);
+        // 缩放图片
+        if (offsetY < 0) {
+            // 减去初始部分
+            let scaleXY = 1  - tempScale + offsetY / (-600)
+            imageView.transform = CGAffineTransform(scaleX: scaleXY, y: scaleXY)
         }
     }
 }
 
+// MARK:- 控制器跳转
+extension HCMineViewController {
+    
+    // MARK:- 登录
+    func jump2Login() {
+        
+        let VC = HCBaseNavigationController(rootViewController: HCLoginViewController())
+        self.present(VC, animated: true, completion: nil)
+    }
+}

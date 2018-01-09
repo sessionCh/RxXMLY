@@ -63,10 +63,13 @@ extension HCMineFactory {
         
         var models = [[HCSettingCellModel]]()
         
-        models.append([model1_1])
-        models.append([model2_1, model2_2])
-        models.append([model3_1, model3_2])
-        models.append([model4_1, model4_2])
+         // 充当 SectionHeader 数据模型
+        let placeModel = HCSettingCellModel()
+
+        models.append([placeModel, model1_1])
+        models.append([placeModel, model2_1, model2_2])
+        models.append([placeModel, model3_1, model3_2])
+        models.append([placeModel, model4_1, model4_2])
 
         return models
     }

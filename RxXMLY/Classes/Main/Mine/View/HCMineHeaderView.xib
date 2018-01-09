@@ -1,23 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HCMineHeaderView" customModule="RxXMLY" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gb-PN-qqj">
+                    <rect key="frame" x="0.0" y="40" width="375" height="110"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击登录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKC-TV-7U4">
+                            <rect key="frame" x="154.5" y="50" width="65.5" height="19.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1秒登录，专享个性化服务" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8L-SL-jrU">
+                            <rect key="frame" x="112" y="79.5" width="152" height="16"/>
+                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="xKC-TV-7U4" firstAttribute="top" secondItem="5gb-PN-qqj" secondAttribute="top" constant="50" id="RmF-7a-8LQ"/>
+                        <constraint firstItem="R8L-SL-jrU" firstAttribute="top" secondItem="xKC-TV-7U4" secondAttribute="bottom" constant="10" id="aDK-Or-gSo"/>
+                        <constraint firstItem="R8L-SL-jrU" firstAttribute="centerX" secondItem="5gb-PN-qqj" secondAttribute="centerX" id="me5-zv-4ST"/>
+                        <constraint firstItem="xKC-TV-7U4" firstAttribute="centerX" secondItem="5gb-PN-qqj" secondAttribute="centerX" id="vpt-SB-dw6"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="mWl-mT-hew">
+                    <rect key="frame" x="147.5" y="0.0" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="a6A-Kt-uB8"/>
+                        <constraint firstAttribute="width" secondItem="mWl-mT-hew" secondAttribute="height" id="wUt-VX-Auo"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="mWl-mT-hew" firstAttribute="top" secondItem="5gb-PN-qqj" secondAttribute="top" constant="-40" id="HSi-EC-leE"/>
+                <constraint firstAttribute="trailing" secondItem="5gb-PN-qqj" secondAttribute="trailing" id="P4I-6x-Ppg"/>
+                <constraint firstItem="mWl-mT-hew" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="SbY-CB-2oN"/>
+                <constraint firstItem="mWl-mT-hew" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WJO-Pk-TH8"/>
+                <constraint firstAttribute="bottom" secondItem="5gb-PN-qqj" secondAttribute="bottom" id="mIZ-AE-J02"/>
+                <constraint firstItem="5gb-PN-qqj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="tBQ-a3-koM"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="loginLab" destination="xKC-TV-7U4" id="yO6-I2-ux2"/>
+            </connections>
         </view>
     </objects>
+    <resources>
+        <image name="me" width="70" height="70"/>
+    </resources>
 </document>
