@@ -30,8 +30,8 @@ fileprivate struct Metric {
     static let cellHeight: CGFloat = 49.0
     static let sectionHeight: CGFloat = 10.0
     
-    static let marginTop: CGFloat = 40.0
-    static let navbarColorChangePoint: CGFloat = -Metric.marginTop
+    static let marginTop: CGFloat = 100.0 // 调整顶部背景图片显示范围
+    static let navbarColorChangePoint: CGFloat = -Metric.marginTop / 2 // 调整导航栏渐变开始位置
 }
 
 class HCMineViewController: HCBaseViewController {
