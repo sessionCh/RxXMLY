@@ -1,4 +1,4 @@
-# RxSwift实现高仿喜马拉雅的函数响应式编程
+# RxSwift实现MVVM高仿喜马拉雅的函数响应式编程
 
 
 ### RxSwift 简介
