@@ -33,7 +33,7 @@
 
 [RxSwift实现高仿喜马拉雅的函数响应式编程](https://github.com/sessionCh/RxXMLY)
 
-***注意事项 ***
+***注意事项***
 
 - 1.源码下载后，执行 pod update --no-repo-update 更新第三方库；
 - 2.项目运行中，如果数据获取失败，一般是链接失效，需要自己重新去抓取相关的链接；
