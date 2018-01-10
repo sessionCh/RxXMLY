@@ -11,8 +11,11 @@ import UIKit
 class HCMineHeaderView: UIView, NibLoadable {
 
     @IBOutlet weak var loginLab: UILabel!
+    @IBOutlet weak var loginImg: UIImageView!
+    @IBOutlet weak var bottomView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        bottomView.backgroundColor = kThemeGainsboroColor
     }
 }

@@ -36,10 +36,9 @@ class HCAccountLoginService {
         return Observable.just(HCAccountLoginResult.ok(message: "密码合法"))
     }
         
-    // 登录
+    // 登录请求
     func login(account: String, password: String) -> Observable<HCAccountLoginResult> {
         
-        // 请求网络
         if account.characters.count > 10 {
             return Observable.just(HCAccountLoginResult.ok(message: "登录成功"))
         } else {
@@ -47,7 +46,7 @@ class HCAccountLoginService {
         }
     }
     
-    // 登录
+    // 登录按钮是否可用
     func loginBtnEnable(account: String, password: String) -> Observable<Bool> {
         
         if InputValidator.isValidEmail(email: account) && InputValidator.isvalidationPassword(password: password) {

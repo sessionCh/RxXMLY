@@ -37,8 +37,8 @@ fileprivate struct Metric {
 class HCMineViewController: HCBaseViewController {
     
     // viewModel
-    private var viewModel = HCMineViewModel()
-    private var vmOutput: HCMineViewModel.HCMineOutput?
+    private var viewModel = HCSettingViewModel()
+    private var vmOutput: HCSettingViewModel.HCSettingOutput?
     
     // View
     private var titleView: UIView?
@@ -50,7 +50,7 @@ class HCMineViewController: HCBaseViewController {
     }
     
     // DataSuorce
-    var dataSource : RxTableViewSectionedReloadDataSource<HCMineSection>!
+    var dataSource : RxTableViewSectionedReloadDataSource<HCSettingSection>!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -89,7 +89,7 @@ class HCMineViewController: HCBaseViewController {
     }
 }
 
-// MARK:- 初始化部分
+// MARK:- 初始化协议部分
 extension HCMineViewController: HCNavTitleable {
     
     // MARK:- 标题组件
@@ -102,16 +102,24 @@ extension HCMineViewController: HCNavTitleable {
         }
         titleView = self.titleView(titleView: mineNavigationBar)
     }
+}
 
+// MARK:- 初始化部分
+extension HCMineViewController {
     // MARK:- 初始化视图
     private func initUI() {
-
+        
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         let headerView = HCMineHeaderView.loadFromNib()
         // 点击登录
         headerView.loginLab.rx.tapGesture().when(.recognized)
+            .subscribe({ [weak self] _ in
+                guard let `self` = self else { return }
+                self.jump2Login()
+            }).disposed(by: rx.disposeBag)
+        headerView.loginImg.rx.tapGesture().when(.recognized)
             .subscribe({ [weak self] _ in
                 guard let `self` = self else { return }
                 self.jump2Login()
@@ -136,12 +144,12 @@ extension HCMineViewController: HCNavTitleable {
         } else {
             imageView.frame = CGRect(x: 0, y: 0, width: kScreenW, height: Metric.marginTop + kNavibarH + tableHeaderView.height)
         }
-
+        
         view.addSubview(tableView)
         view.addSubview(imageView)
         view.insertSubview(tableView, aboveSubview: imageView)
         self.tableView = tableView
-
+        
         tableView.snp.makeConstraints { (make) in
             make.left.top.right.bottom.equalToSuperview()
         }
@@ -152,7 +160,7 @@ extension HCMineViewController: HCNavTitleable {
         // 注册cell
         tableView.register(Reusable.settingCell)
     }
-
+    
     // MARK:- 绑定视图
     func bindUI() {
         
@@ -168,7 +176,7 @@ extension HCMineViewController: HCNavTitleable {
             return cell
         })
         
-        vmOutput = viewModel.transform(input: HCMineViewModel.HCMineInput())
+        vmOutput = viewModel.transform(input: HCSettingViewModel.HCSettingInput(type: .mine))
         
         vmOutput?.sections.asDriver().drive(tableView.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
     }
@@ -188,6 +196,12 @@ extension HCMineViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        if indexPath.section == 3 && indexPath.row == 2 {
+            self.jump2Setting()
+        } else {
+            self.jump2Setting()
+        }
     }
 }
 
@@ -226,5 +240,12 @@ extension HCMineViewController {
         
         let VC = HCBaseNavigationController(rootViewController: HCLoginViewController())
         self.present(VC, animated: true, completion: nil)
+    }
+    
+    // MARK:- 设置
+    func jump2Setting() {
+        
+        let VC = HCSettingViewController()
+        self.navigationController?.pushViewController(VC, animated: true)
     }
 }
