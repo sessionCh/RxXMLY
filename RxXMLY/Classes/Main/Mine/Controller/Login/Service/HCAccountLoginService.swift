@@ -12,7 +12,6 @@ import RxCocoa
 
 class HCAccountLoginService {
 
-    // 单例类
     static let shareInstance = HCAccountLoginService()
     private init() {}
 

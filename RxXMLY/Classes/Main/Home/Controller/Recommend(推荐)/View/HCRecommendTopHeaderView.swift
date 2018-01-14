@@ -12,12 +12,21 @@ import RxCocoa
 import RxDataSources
 import ReusableKit
 
+
 fileprivate struct Metric {
     
     static let scale : CGFloat = 380 / 375
 }
+
 fileprivate enum Reusable {
     static let squareCell = ReusableCell<HCSquareCell>(nibName: "HCSquareCell")
+}
+
+public enum HCRecommendTopHeaderViewType {
+    
+    case none
+    case recommend
+    case boutique
 }
 
 class HCRecommendTopHeaderView: UICollectionReusableView {
@@ -29,6 +38,7 @@ class HCRecommendTopHeaderView: UICollectionReusableView {
     @IBOutlet weak var centerView: UIView!
     @IBOutlet weak var centerBottomView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var bottomViewTopCons: NSLayoutConstraint!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var bottomBtn: UIButton!
     @IBOutlet weak var bottomHeaderView: UIView!
@@ -66,11 +76,7 @@ extension HCRecommendTopHeaderView {
         collectionView.collectionViewLayout = HCSquareFlowLayout()
         collectionView.register(Reusable.squareCell)
         centerBottomView.backgroundColor = kThemeGainsboroColor
-
-        // 立即前往
-//        self.bottomBtn.layer.masksToBounds = true
-//        self.bottomBtn.layer.cornerRadius = self.bottomBtn.height / 2
-        
+ 
         // 猜你喜欢
         let headerView = HCRecommendHeaderView.loadFromNib()
         self.headerView = headerView
@@ -95,11 +101,9 @@ extension HCRecommendTopHeaderView {
             self.bottomBtn.kf.setBackgroundImage(with: URL(string: pic), for: .normal)
         }).disposed(by: rx.disposeBag)
 
-        // 猜你喜欢
+        // 头部标题
         categoryModel.asObservable().subscribe(onNext: { model in
-            var temp = model
-            temp?.title = "猜你喜欢"
-            self.headerView.categoryModel.value = temp
+            self.headerView.categoryModel.value = model
         }).disposed(by: rx.disposeBag)
     }
     
@@ -107,6 +111,20 @@ extension HCRecommendTopHeaderView {
         
         let height = kScreenW * Metric.scale
 
+        return CGSize(width: kScreenW, height: height)
+    }
+    
+    static func headerSize(type: HCRecommendTopHeaderViewType) -> CGSize {
+        
+        if type == .boutique {
+            
+            let height = kScreenW * (380 - 83.5) / 375
+            
+            return CGSize(width: kScreenW, height: height)
+        }
+        
+        let height = kScreenW * Metric.scale
+        
         return CGSize(width: kScreenW, height: height)
     }
 }

@@ -54,6 +54,11 @@ extension HCMainViewController {
             vc.tabBarItem = item
             let navVc = HCBaseNavigationController(rootViewController: vc)
             tabArr.append(navVc)
+            
+            // 注册控制器
+            navigatorShareInstance.navigator.register("myapp://\(lowStr)", { _,_,_ in
+                return vc
+            })
         }
         self.viewControllers = tabArr
     }

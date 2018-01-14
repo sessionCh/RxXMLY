@@ -104,6 +104,7 @@
                 <outlet property="bottomBtn" destination="4Er-EQ-O1d" id="w2o-sI-kyI"/>
                 <outlet property="bottomHeaderView" destination="qdc-J8-Ddq" id="Vdh-Im-Xz6"/>
                 <outlet property="bottomView" destination="XaS-8j-72K" id="oWL-ef-BI5"/>
+                <outlet property="bottomViewTopCons" destination="CMr-G9-Wh1" id="8X8-Mp-X9J"/>
                 <outlet property="centerBottomView" destination="bqP-7L-vCK" id="jvd-2J-e2P"/>
                 <outlet property="centerView" destination="2ZD-zk-crd" id="ZpD-dG-VlF"/>
                 <outlet property="collectionView" destination="NnF-dS-yaz" id="Trr-wS-5hY"/>

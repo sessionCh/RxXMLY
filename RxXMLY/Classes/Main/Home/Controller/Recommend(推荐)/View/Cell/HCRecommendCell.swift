@@ -1,5 +1,5 @@
 //
-//  HCRecommendCell.swift
+//  HCRecommendswift
 //  RxXMLY
 //
 //  Created by sessionCh on 2017/12/16.
@@ -19,6 +19,8 @@ class HCRecommendCell: UICollectionViewCell {
     @IBOutlet weak var descLab: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
+    var item: HCRecommendItemModel? { didSet { setItem() } }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -27,14 +29,21 @@ class HCRecommendCell: UICollectionViewCell {
         imageView.layer.borderWidth = 0.5
     }
     
+    func setItem() {
+        
+        guard let item = self.item else { return }
+        
+        imageView.kf.setImage(with: URL(string: item.pic))
+        descLab.text = item.title
+    }
     static func itemMargin() -> CGFloat {
         
         return MetricGlobal.margin
     }
     
     static func itemSize() -> CGSize {
-        
-        let width = (kScreenW - (Metric.column * 2 + 4) * itemMargin()) / Metric.column
+        // 结合 FlowLayout 设置
+        let width = (kScreenW - (Metric.column - 1 + 4) * itemMargin()) / Metric.column
         let height = width * Metric.scale
         
         return CGSize(width: width, height: height)

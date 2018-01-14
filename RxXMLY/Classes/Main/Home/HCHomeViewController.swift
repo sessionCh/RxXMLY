@@ -116,13 +116,17 @@ extension HCHomeViewController: TYTabPagerControllerDelegate, TYTabPagerControll
     func tabPagerController(_ tabPagerController: TYTabPagerController, controllerFor index: Int, prefetching: Bool) -> UIViewController {
  
         if index == 1 {
-            let recommendVC = HCRecommendViewController()
-            recommendVC.view.backgroundColor = kThemeSnowColor
-            return recommendVC
+            let VC = HCRecommendViewController()
+            VC.view.backgroundColor = kThemeSnowColor
+            return VC
+        } else if index == 2 {
+            let VC = HCBoutiqueViewController()
+            VC.view.backgroundColor = kThemeSnowColor
+            return VC
         }
-        let vc = UIViewController()
-        vc.view.backgroundColor = kThemeWhiteColor
-        return vc
+        let VC = UIViewController()
+        VC.view.backgroundColor = kThemeWhiteColor
+        return VC
     }
     
     func tabPagerController(_ tabPagerController: TYTabPagerController, titleFor index: Int) -> String {

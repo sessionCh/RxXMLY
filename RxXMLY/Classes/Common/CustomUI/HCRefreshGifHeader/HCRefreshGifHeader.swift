@@ -19,9 +19,10 @@ class HCRefreshGifHeader: MJRefreshGifHeader {
         self.stateLabel.isHidden = false
         self.lastUpdatedTimeLabel.isHidden = true
         self.gifView.contentMode = .center
-        self.mj_h = 70
+        self.mj_h = 80
         self.gifView.mj_w = self.mj_w
-        self.gifView.height = self.mj_h - 50.0
+        self.gifView.top = self.top + 80.0
+        self.gifView.height = self.mj_h - 60.0
         self.stateLabel.top = self.gifView.bottom
     }
 }

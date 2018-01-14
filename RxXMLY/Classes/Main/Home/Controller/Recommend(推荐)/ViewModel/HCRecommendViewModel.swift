@@ -17,7 +17,7 @@ import ObjectMapper
 
 class HCRecommendViewModel: NSObject {
 
-    private let vmDatas = Variable<[([HCFocusModel]?, [HCSquareModel]?, HCCategoryModel?, [HCRecommendModel]?, [HCRecommendModel])]>([])
+    private let vmDatas = Variable<[([HCFocusModel]?, [HCSquareModel]?, HCCategoryModel?, [HCRecommendItemModel]?, [HCRecommendItemModel])]>([])
     
     private var page: Int = 1
 }
@@ -87,14 +87,14 @@ extension HCRecommendViewModel: HCViewModelType {
             request.hc_json({
                 
                 return JSON($0)
-            }).mapObject(HCHomeRecommendModel.self).subscribe(onNext: { (datas) in
+            }).mapObject(HCRecommendModel.self).subscribe(onNext: { (datas) in
                 
                 guard let focusList = datas.focusList else { return }
                 guard let squareList = datas.squareList else { return }
                 guard let categoryList = datas.categoryList else { return }
                 
                 var temp_category: [HCCategoryModel] = []
-                var temp_categorySubList: [[HCRecommendModel]] = []
+                var temp_categorySubList: [[HCRecommendItemModel]] = []
 
                 // 组装数据
                 for (index, category) in categoryList.enumerated() {
@@ -120,7 +120,7 @@ extension HCRecommendViewModel: HCViewModelType {
 //                    temp_categorySubList.append(nextCategoryList!)
                 }
 
-                var sectionArr: [([HCFocusModel]?, [HCSquareModel]?, HCCategoryModel?,  [HCRecommendModel]?, [HCRecommendModel])] = []
+                var sectionArr: [([HCFocusModel]?, [HCSquareModel]?, HCCategoryModel?,  [HCRecommendItemModel]?, [HCRecommendItemModel])] = []
 
                 for (index, _) in temp_category.enumerated() {
                     
@@ -143,15 +143,15 @@ struct HCRecommendSection {
     var squareList: [HCSquareModel]?
     var category: HCCategoryModel?
     
-    var nextCategoryList: [HCRecommendModel]?
+    var nextCategoryList: [HCRecommendItemModel]?
 
     var items: [Item]
 }
 
 extension HCRecommendSection: SectionModelType {
-    typealias Item = HCRecommendModel
+    typealias Item = HCRecommendItemModel
  
-    init(original: HCRecommendSection, items: [HCRecommendModel]) {
+    init(original: HCRecommendSection, items: [HCRecommendItemModel]) {
         self = original
         self.items = items
     }

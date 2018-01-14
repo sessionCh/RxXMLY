@@ -1,10 +1,10 @@
 //
-//  HCRecommendModel.swift
+//  HCRecommendItemModel.swift
 //  RxXMLY
 //
 //  Created by sessionCh on 2017/12/16.
 //  Copyright © 2017年 sessionCh. All rights reserved.
-//  
+//  首页-通用 数据模型
 
 /**
  
@@ -42,12 +42,23 @@
  coverLarge : "http://fdfs.xmcdn.com/group36/M00/90/20/wKgJUlo0jGzRkzMnAAEbPHYKcDQ5206455_mobile_large"
  name : "歪，敌方还有五秒钟到达战场~"
  nickname : "珍视_MC白院长"
+ 
+ // 首页-精品
+ intro : "国家级精品国学课，还原真实的孔子"
+ tracks : 49
+ playsCounts : 5096977
+ coverMiddle : "http://fdfs.xmcdn.com/group37/M09/67/6E/wKgJoFpK-86wD11tAAHQ2lluDAE309_mobile_meduim.jpg"
+ tags : "国学,论语,孔子"
+ trackId : 66732255
+ trackTitle : "008|中国人在其他场合是怎么巧用《论语》的？"
+ displayVipPrice : "189.05喜点"
+ 
  */
 
 import Foundation
 import ObjectMapper
 
-struct HCRecommendModel: Mappable {
+struct HCRecommendItemModel: Mappable {
     
     init?(map: Map) {
         
@@ -83,6 +94,16 @@ struct HCRecommendModel: Mappable {
         coverLarge <- map["coverLarge"]
         name <- map["name"]
         nickname <- map["nickname"]
+        intro <- map["intro"]
+        
+        tracks <- map["tracks"]
+        playsCounts <- map["playsCounts"]
+        coverMiddle <- map["coverMiddle"]
+        tags <- map["tags"]
+        trackId <- map["trackId"]
+        
+        trackTitle <- map["trackTitle"]
+        displayVipPrice <- map["displayVipPrice"]
     }
     
     var albumId = 0
@@ -113,4 +134,14 @@ struct HCRecommendModel: Mappable {
     var coverLarge = ""
     var name = ""
     var nickname = ""
+    var intro = ""
+    
+    var tracks = 0
+    var playsCounts = 0
+    var coverMiddle = ""
+    var tags = ""
+    var trackId = 0
+    
+    var trackTitle = ""
+    var displayVipPrice = ""
 }

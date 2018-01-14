@@ -54,7 +54,7 @@ struct HCCategoryModel: Mappable {
     var hasMore = true
     var keywords : [HCKeywardsModel]?
     
-    var list : [HCRecommendModel]?
+    var list : [HCRecommendItemModel]?
     var loopCount = 0
     var moduleType = ""
     var showInterestCard = false

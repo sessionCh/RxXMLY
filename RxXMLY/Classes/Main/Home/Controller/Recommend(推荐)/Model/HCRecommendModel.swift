@@ -1,10 +1,10 @@
 //
-//  HCHomeRecommendModel.swift
+//  HCRecommendModel.swift
 //  RxXMLY
 //
 //  Created by sessionCh on 2017/12/17.
 //  Copyright © 2017年 sessionCh. All rights reserved.
-//  
+//  首页-推荐
 
 /**
  
@@ -19,7 +19,7 @@
 import Foundation
 import ObjectMapper
 
-struct HCHomeRecommendModel: Mappable {
+struct HCRecommendModel: Mappable {
     init?(map: Map) {
         
     }
@@ -42,10 +42,10 @@ struct HCHomeRecommendModel: Mappable {
     var totalCount = 100
     var msg = "成功"
 
-    var focusList : [HCFocusModel]?
-    var squareList : [HCSquareModel]?
+    var focusList: [HCFocusModel]?
+    var squareList: [HCSquareModel]?
     var categoryList: [HCCategoryModel]?
-    var nextCategoryList: [HCRecommendModel]?
+    var nextCategoryList: [HCRecommendItemModel]?
 }
 
 
