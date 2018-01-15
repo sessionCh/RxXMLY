@@ -38,6 +38,7 @@ let kThemeWhiteColor = UIColor.hexColor(0xFFFFFF)
 let kThemeWhiteSmokeColor = UIColor.hexColor(0xF5F5F5)
 let kThemeGainsboroColor = UIColor.hexColor(0xF3F4F5)  // 亮灰色
 let kThemeOrangeRedColor = UIColor.hexColor(0xFF4500)  // 橙红色
+let kThemeLimeGreenColor = UIColor.hexColor(0x32CD32)  // 酸橙绿
 let kThemeSnowColor = UIColor.hexColor(0xFFFAFA)
 let kThemeLightGreyColor = UIColor.hexColor(0xD3D3D3)
 let kThemeGreyColor = UIColor.hexColor(0xA9A9A9)

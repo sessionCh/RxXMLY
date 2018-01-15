@@ -91,6 +91,19 @@ extension HCRecommendViewController {
             } else {
                 cell.cellType = .read
             }
+            
+            let dsSection = ds[indexPath.section]
+
+            // 单元格 底部横线
+            if let maxIndex = dsSection.category?.list?.count, indexPath.row == maxIndex - 1 {
+                cell.bottomLine?.isHidden = true
+            } else {
+                cell.bottomLine?.isHidden = false
+                cell.bottomLine?.snp.updateConstraints({ (make) in
+                    make.left.equalTo(cell.leftImgView.right)
+                })
+            }
+            
             cell.item = item
             
             return cell
@@ -180,6 +193,32 @@ extension HCRecommendViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         
         return HCRecommendFooterView.footerSize()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == 0 || indexPath.section == 1 || indexPath.section == 8 {
+            return false
+        }
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.contentView.backgroundColor = kThemeOrangeRedColor
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.contentView.backgroundColor = kThemeWhiteColor
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if section == 0 || section == 1 || section == 8 {
+            return UIEdgeInsets(top: 0, left: MetricGlobal.margin * 1.5, bottom: 0, right: MetricGlobal.margin * 1.5)
+        }
+        return UIEdgeInsets.zero
     }
 }
 

@@ -10,7 +10,6 @@ import UIKit
 
 fileprivate struct Metric {
     
-    static let margin: CGFloat = 5
     static let width: CGFloat = 60
     static let height : CGFloat = 75
 }

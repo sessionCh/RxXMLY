@@ -15,9 +15,8 @@ class HCRecommendFlowLayout: UICollectionViewFlowLayout {
         
         self.scrollDirection = .vertical
         self.itemSize = HCRecommendCell.itemSize()
-        let margin = HCRecommendCell.itemMargin()
-        self.minimumLineSpacing = margin
-        self.sectionInset = UIEdgeInsetsMake(margin, margin * 2, margin, margin * 2)
+        self.minimumLineSpacing = 0.0
+        self.sectionInset = .zero
     }
     
     required init?(coder aDecoder: NSCoder) {

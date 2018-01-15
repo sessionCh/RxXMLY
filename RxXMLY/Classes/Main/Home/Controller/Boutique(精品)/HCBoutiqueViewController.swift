@@ -43,7 +43,7 @@ extension HCBoutiqueViewController {
         
         let layout = HCRecommendFlowLayout()
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
-        collectionView.backgroundColor = UIColor.white
+        collectionView.backgroundColor = kThemeWhiteColor
         collectionView.showsVerticalScrollIndicator = false
         
         view.addSubview(collectionView)
@@ -61,7 +61,9 @@ extension HCBoutiqueViewController {
         collectionView.register(Reusable.recommendSingleCell)
         collectionView.register(Reusable.recommendTopHeader, kind: SupplementaryViewKind.header)
         collectionView.register(Reusable.recommendHeader, kind: SupplementaryViewKind.header)
+        collectionView.register(Reusable.boutiqueIndexHeader, kind: SupplementaryViewKind.header)
         collectionView.register(Reusable.recommendFooter, kind: SupplementaryViewKind.footer)
+        collectionView.register(Reusable.boutiqueFooter, kind: SupplementaryViewKind.footer)
     }
     
     func bindUI() {
@@ -117,6 +119,15 @@ extension HCBoutiqueViewController {
                     
                     return recommendTopHeader
                 }
+                    // 每日优选
+                else if indexPath.section == 1 {
+                    
+                    let recommendHeader = cv.dequeue(Reusable.boutiqueIndexHeader, kind: .header, for: indexPath)
+                    
+//                    recommendHeader.categoryModel.value = dsSection.category
+                    
+                    return recommendHeader
+                }
                     // 其他头部
                 else {
                     
@@ -127,6 +138,13 @@ extension HCBoutiqueViewController {
                     return recommendHeader
                 }
             } else {
+                
+                if indexPath.section == 10 {
+                    
+                    let boutiqueFooter = cv.dequeue(Reusable.boutiqueFooter, kind: .footer, for: indexPath)
+ 
+                    return boutiqueFooter
+                }
                 
                 let recommendFooter = cv.dequeue(Reusable.recommendFooter, kind: .footer, for: indexPath)
                 
@@ -141,10 +159,7 @@ extension HCBoutiqueViewController {
         refreshHeader = initRefreshGifHeader(collectionView) { [weak self] in
             self?.vmOutput?.requestCommand.onNext(true)
         }
-        let refreshFooter = initRefreshFooter(collectionView) { [weak self] in
-            self?.vmOutput?.requestCommand.onNext(false)
-        }
-        vmOutput?.autoSetRefreshHeaderStatus(header: refreshHeader, footer: refreshFooter).disposed(by: rx.disposeBag)
+        vmOutput?.autoSetRefreshHeaderStatus(header: refreshHeader, footer: nil).disposed(by: rx.disposeBag)
     }
 }
 
@@ -166,14 +181,41 @@ extension HCBoutiqueViewController: UICollectionViewDelegateFlowLayout {
         if section == 0 {
         
             return HCRecommendTopHeaderView.headerSize(type: .boutique)
+        } else if section == 1 {
+            
+            return HCBoutiqueIndexHeaderView.defaultHeaderSize()
         }
         
         return HCRecommendHeaderView.minHeaderSize()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        
+        if section == 10 {
+            return HCBoutiqueFooterView.defaultHeaderSize()
+        }
         return HCRecommendFooterView.footerSize()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.contentView.backgroundColor = kThemeOrangeRedColor
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.contentView.backgroundColor = kThemeWhiteColor
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if section == 0 {
+            return UIEdgeInsets(top: 0, left: MetricGlobal.margin, bottom: 0, right: MetricGlobal.margin)
+        } else {
+            return UIEdgeInsets.zero
+        }
     }
 }
 
@@ -188,6 +230,10 @@ private enum Reusable {
     static let recommendHeader = ReusableView<HCRecommendHeaderView>(identifier: "HCRecommendHeaderView", nibName: "HCRecommendHeaderView")
     
     static let recommendFooter = ReusableView<HCRecommendFooterView>(identifier: "HCRecommendFooterView", nibName: "HCRecommendFooterView")
+    
+    static let boutiqueIndexHeader = ReusableView<HCBoutiqueIndexHeaderView>(identifier: "HCBoutiqueIndexHeaderView", nibName: "HCBoutiqueIndexHeaderView")
+    
+    static let boutiqueFooter = ReusableView<HCBoutiqueFooterView>(identifier: "HCBoutiqueFooterView", nibName: "HCBoutiqueFooterView")
 }
 
 

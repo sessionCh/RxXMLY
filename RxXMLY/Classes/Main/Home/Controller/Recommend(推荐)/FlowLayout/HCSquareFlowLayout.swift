@@ -15,9 +15,9 @@ class HCSquareFlowLayout: UICollectionViewFlowLayout {
         
         self.scrollDirection = .horizontal
         self.itemSize = HCSquareCell.itemSize()
+        self.minimumLineSpacing = 0.0
         let margin = HCSquareCell.itemMargin()
-        self.minimumLineSpacing = margin
-        self.sectionInset = UIEdgeInsetsMake(margin, margin * 2, margin, margin * 2)
+        self.sectionInset = UIEdgeInsetsMake(margin, margin, margin, margin)
     }
     
     required init?(coder aDecoder: NSCoder) {

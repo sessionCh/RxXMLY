@@ -17,7 +17,7 @@ import ObjectMapper
 
 class HCBoutiqueViewModel: NSObject {
 
-    private let vmDatas = Variable<[([HCKeywardsModel]?, [HCFocusModel]?, [HCSquareModel]?, HCCategoryModel?, [HCRecommendItemModel])]>([])
+    private let vmDatas = Variable<[([HCKeywardsModel]?, [HCFocusModel]?, [HCSquareModel]?, [HCBoutiqueIndexModel]?, HCCategoryModel?, [HCRecommendItemModel])]>([])
     
     private var page: Int = 1
 }
@@ -48,8 +48,8 @@ extension HCBoutiqueViewModel: HCViewModelType {
     func transform(input: HCBoutiqueViewModel.HCBoutiqueInput) -> HCBoutiqueViewModel.HCBoutiqueOutput {
      
         let temp_sections = vmDatas.asObservable().map({ (sections) -> [HCBoutiqueSection] in
-            return sections.map({ (keywordList, focusList, squareList, category, models) -> HCBoutiqueSection in
-                return HCBoutiqueSection(keywordList: keywordList, focusList: focusList, squareList: squareList, category: category, items: models)
+            return sections.map({ (keywordList, focusList, squareList, indexList, category, models) -> HCBoutiqueSection in
+                return HCBoutiqueSection(keywordList: keywordList, focusList: focusList, squareList: squareList, indexList: indexList, category: category, items: models)
             })
         }).asDriver(onErrorJustReturn: [])
         
@@ -62,7 +62,6 @@ extension HCBoutiqueViewModel: HCViewModelType {
             
             if isPull {
                 url = kUrlGetBoutiqueList
-            } else {
             }
             
             let request = json(.get, url)
@@ -94,6 +93,7 @@ extension HCBoutiqueViewModel: HCViewModelType {
                 
                 var temp_category: [HCCategoryModel] = []
                 var temp_categorySubList: [[HCRecommendItemModel]] = []
+                var temp_indexList: [HCBoutiqueIndexModel] = []
 
                 // 组装数据
                 for (index, category) in categoryList.enumerated() {
@@ -108,13 +108,19 @@ extension HCBoutiqueViewModel: HCViewModelType {
                     // 处理数据
                     temp_category.append(category)
                     temp_categorySubList.append(categorySubList)
+                    
+                    // 存放索引
+                    var indexModel = HCBoutiqueIndexModel()
+                    indexModel.title = category.title
+                    indexModel.index = index - 4
+                    temp_indexList.append(indexModel)
                 }
             
-                var sectionArr: [([HCKeywardsModel]?, [HCFocusModel]?, [HCSquareModel]?, HCCategoryModel?, [HCRecommendItemModel])] = []
-
+                var sectionArr: [([HCKeywardsModel]?, [HCFocusModel]?, [HCSquareModel]?, [HCBoutiqueIndexModel]?, HCCategoryModel?, [HCRecommendItemModel])] = []
+                
                 for (index, _) in temp_category.enumerated() {
                     
-                    sectionArr.append((keywordList, focusList, squareList, temp_category[index], temp_categorySubList[index]))
+                    sectionArr.append((keywordList, focusList, squareList, temp_indexList, temp_category[index], temp_categorySubList[index]))
                 }
                 
                 // 更新数据
@@ -132,8 +138,8 @@ struct HCBoutiqueSection {
     var keywordList: [HCKeywardsModel]?
     var focusList: [HCFocusModel]?
     var squareList: [HCSquareModel]?
+    var indexList: [HCBoutiqueIndexModel]?
     var category: HCCategoryModel?
-
     var items: [Item]
 }
 

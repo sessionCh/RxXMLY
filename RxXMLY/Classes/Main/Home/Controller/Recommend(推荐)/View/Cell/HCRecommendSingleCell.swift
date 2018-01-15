@@ -9,7 +9,7 @@
 import UIKit
 
 fileprivate struct Metric {
-    static let scale : CGFloat = 90 / 375
+    static let scale : CGFloat = 120 / 375
     static let column: CGFloat = 1
     static let margin : CGFloat = 5
 }
@@ -33,6 +33,9 @@ class HCRecommendSingleCell: UICollectionViewCell {
     @IBOutlet weak var leftBottomLab1: UILabel!
     @IBOutlet weak var leftBottomLab2: UILabel!
     
+    // 下划线
+    var bottomLine: UIView?
+
     var cellType: HCRecommendSingleType = .read
     
     var item: HCRecommendItemModel? { didSet { setItem() } }
@@ -42,6 +45,12 @@ class HCRecommendSingleCell: UICollectionViewCell {
         self.leftImgView.layer.masksToBounds = true
         self.leftImgView.layer.borderColor = kThemeGainsboroColor.cgColor
         self.leftImgView.layer.borderWidth = 0.6
+        
+        initEnableMudule()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
 
     func setItem() {
@@ -70,24 +79,31 @@ class HCRecommendSingleCell: UICollectionViewCell {
         
         if item.isFinished == 0 {
             leftTopTipView.isHidden = true
-            leftTopLabCons.constant = -leftTopTipLab.width
+            leftTopLabCons.constant = -leftTopTipLab.width - 5
         } else {
             leftTopTipView.isHidden = false
+            leftTopTipView.backgroundColor = kThemeLimeGreenColor
             leftTopLabCons.constant = 5.0
             leftTopTipLab.text = "完结"
         }
     }
     
-    static func itemMargin() -> CGFloat {
-        
-        return MetricGlobal.margin
-    }
-    
     static func itemSize() -> CGSize {
         // 结合 FlowLayout 设置
-        let width = (kScreenW - (Metric.column - 1 + 4) * itemMargin()) / Metric.column
+        let width = kScreenW
         let height = width * Metric.scale
         
         return CGSize(width: width, height: height)
+    }
+}
+
+extension HCRecommendSingleCell: HCCellStyleable {
+    
+    // MARK:- 协议组件
+    private func initEnableMudule() {
+        
+        // 横线
+        bottomLine = bottomLine(style: .margin)
+        bottomLine?.backgroundColor = kThemeGainsboroColor
     }
 }

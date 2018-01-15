@@ -73,6 +73,8 @@
 		1B8C545E1FFC81E100987481 /* HCAccountLoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8C545D1FFC81E100987481 /* HCAccountLoginResult.swift */; };
 		1B8C54611FFC870900987481 /* HCAccountLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8C54601FFC870900987481 /* HCAccountLoginViewModel.swift */; };
 		1B8C54641FFC88A900987481 /* HCAccountLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8C54631FFC88A900987481 /* HCAccountLoginService.swift */; };
+		1B988A5A200C419500835E82 /* HCBoutiqueFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B988A59200C419500835E82 /* HCBoutiqueFooterView.swift */; };
+		1B988A5C200C41A400835E82 /* HCBoutiqueFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B988A5B200C41A400835E82 /* HCBoutiqueFooterView.xib */; };
 		1BA035CF1FE6348600E9892E /* HCRecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA035CE1FE6348600E9892E /* HCRecommendModel.swift */; };
 		1BA035D11FE642B700E9892E /* HCRecommendHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA035D01FE642B700E9892E /* HCRecommendHeaderView.swift */; };
 		1BA035D31FE642C200E9892E /* HCRecommendHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA035D21FE642C200E9892E /* HCRecommendHeaderView.xib */; };
@@ -100,6 +102,9 @@
 		1BEE5BB120039DD5001B42D2 /* HCSearchNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEE5BB020039DD4001B42D2 /* HCSearchNavigationBar.swift */; };
 		1BEE5BB320039DDD001B42D2 /* HCHomeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEE5BB220039DDD001B42D2 /* HCHomeNavigationBar.swift */; };
 		1BEE8C7B200B314700AB6E36 /* HCBoutiqueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEE8C7A200B314600AB6E36 /* HCBoutiqueViewModel.swift */; };
+		1BF3DAE1200BC2D000B5958E /* HCBoutiqueIndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF3DAE0200BC2D000B5958E /* HCBoutiqueIndexModel.swift */; };
+		1BF3DAE4200BC62500B5958E /* HCBoutiqueIndexHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF3DAE3200BC62500B5958E /* HCBoutiqueIndexHeaderView.swift */; };
+		1BF3DAE6200BC6BD00B5958E /* HCBoutiqueIndexHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BF3DAE5200BC6BD00B5958E /* HCBoutiqueIndexHeaderView.xib */; };
 		B2F72457C5F0BC8D8490F5B6 /* Pods_RxXMLY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE2E262A5D6978D0DB21709 /* Pods_RxXMLY.framework */; };
 /* End PBXBuildFile section */
 
@@ -193,6 +198,8 @@
 		1B8C545D1FFC81E100987481 /* HCAccountLoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCAccountLoginResult.swift; sourceTree = "<group>"; };
 		1B8C54601FFC870900987481 /* HCAccountLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCAccountLoginViewModel.swift; sourceTree = "<group>"; };
 		1B8C54631FFC88A900987481 /* HCAccountLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCAccountLoginService.swift; sourceTree = "<group>"; };
+		1B988A59200C419500835E82 /* HCBoutiqueFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBoutiqueFooterView.swift; sourceTree = "<group>"; };
+		1B988A5B200C41A400835E82 /* HCBoutiqueFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCBoutiqueFooterView.xib; sourceTree = "<group>"; };
 		1BA035CE1FE6348600E9892E /* HCRecommendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCRecommendModel.swift; sourceTree = "<group>"; };
 		1BA035D01FE642B700E9892E /* HCRecommendHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCRecommendHeaderView.swift; sourceTree = "<group>"; };
 		1BA035D21FE642C200E9892E /* HCRecommendHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCRecommendHeaderView.xib; sourceTree = "<group>"; };
@@ -220,6 +227,9 @@
 		1BEE5BB020039DD4001B42D2 /* HCSearchNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCSearchNavigationBar.swift; sourceTree = "<group>"; };
 		1BEE5BB220039DDD001B42D2 /* HCHomeNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCHomeNavigationBar.swift; sourceTree = "<group>"; };
 		1BEE8C7A200B314600AB6E36 /* HCBoutiqueViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCBoutiqueViewModel.swift; sourceTree = "<group>"; };
+		1BF3DAE0200BC2D000B5958E /* HCBoutiqueIndexModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBoutiqueIndexModel.swift; sourceTree = "<group>"; };
+		1BF3DAE3200BC62500B5958E /* HCBoutiqueIndexHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBoutiqueIndexHeaderView.swift; sourceTree = "<group>"; };
+		1BF3DAE5200BC6BD00B5958E /* HCBoutiqueIndexHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCBoutiqueIndexHeaderView.xib; sourceTree = "<group>"; };
 		48D511ECCED911C27E2B5425 /* Pods-RxXMLY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxXMLY.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxXMLY/Pods-RxXMLY.release.xcconfig"; sourceTree = "<group>"; };
 		5E1F373F4FDFF1ED18A88E2B /* Pods-RxXMLY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxXMLY.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxXMLY/Pods-RxXMLY.debug.xcconfig"; sourceTree = "<group>"; };
 		A3BF366E11AA172CAA4B35D6 /* Pods_RxXMLYTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxXMLYTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -519,6 +529,7 @@
 		1B4D79AC200B1ABC00023853 /* Boutique(精品) */ = {
 			isa = PBXGroup;
 			children = (
+				1BF3DAE2200BC5F700B5958E /* View */,
 				1BEE8C79200B314600AB6E36 /* ViewModel */,
 				1B4D79AD200B1F0100023853 /* Model */,
 				1B4D79B1200B2A4D00023853 /* HCBoutiqueViewController.swift */,
@@ -530,6 +541,7 @@
 			isa = PBXGroup;
 			children = (
 				1B4D79AE200B1F1B00023853 /* HCBoutiqueModel.swift */,
+				1BF3DAE0200BC2D000B5958E /* HCBoutiqueIndexModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -832,6 +844,17 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		1BF3DAE2200BC5F700B5958E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1BF3DAE3200BC62500B5958E /* HCBoutiqueIndexHeaderView.swift */,
+				1BF3DAE5200BC6BD00B5958E /* HCBoutiqueIndexHeaderView.xib */,
+				1B988A59200C419500835E82 /* HCBoutiqueFooterView.swift */,
+				1B988A5B200C41A400835E82 /* HCBoutiqueFooterView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B27CCBCC61291E0C263DCE36 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -969,7 +992,9 @@
 				1BD4C6701FE67EFD00CFBF5C /* HCSquareCell.xib in Resources */,
 				1B8A18FC1FF5EB450046EF52 /* HCOtherLoginModeView.xib in Resources */,
 				1BA035D31FE642C200E9892E /* HCRecommendHeaderView.xib in Resources */,
+				1B988A5C200C41A400835E82 /* HCBoutiqueFooterView.xib in Resources */,
 				1B0C3F1D1FE55A39006BD58F /* HCScrollBarCell.xib in Resources */,
+				1BF3DAE6200BC6BD00B5958E /* HCBoutiqueIndexHeaderView.xib in Resources */,
 				1B085D3A2003A1660091694D /* HCMineHeaderView.xib in Resources */,
 				1B0C3F161FE5551F006BD58F /* HCRecommendTopHeaderView.xib in Resources */,
 				1B841BF31FE6C5CF00B07CBF /* HCRecommendSingleCell.xib in Resources */,
@@ -1121,6 +1146,7 @@
 				1B79F2951FE3BE9300FF3EC3 /* HCSearchController.swift in Sources */,
 				1B8C54611FFC870900987481 /* HCAccountLoginViewModel.swift in Sources */,
 				1B78FA571FE37B6400ACE9B1 /* HCHomeSearchBarable.swift in Sources */,
+				1BF3DAE4200BC62500B5958E /* HCBoutiqueIndexHeaderView.swift in Sources */,
 				1B0C3F241FE57DD7006BD58F /* HCRecommendFlowLayout.swift in Sources */,
 				1B78FA551FE3763300ACE9B1 /* HCSearchResultController.swift in Sources */,
 				1B2C670E1FE27B71003172BE /* HCHearViewController.swift in Sources */,
@@ -1133,6 +1159,8 @@
 				1B6641D41FE4723900DCFFE6 /* HCMineAnchorsable.swift in Sources */,
 				1B0C3F201FE55F52006BD58F /* HCRecommendCell.swift in Sources */,
 				1B085D382003A1410091694D /* HCMineHeaderView.swift in Sources */,
+				1BF3DAE1200BC2D000B5958E /* HCBoutiqueIndexModel.swift in Sources */,
+				1B988A5A200C419500835E82 /* HCBoutiqueFooterView.swift in Sources */,
 				1B8C54641FFC88A900987481 /* HCAccountLoginService.swift in Sources */,
 				1B841BF21FE6C5CF00B07CBF /* HCRecommendSingleCell.swift in Sources */,
 				1B2C67081FE27910003172BE /* HCNavBackable.swift in Sources */,
