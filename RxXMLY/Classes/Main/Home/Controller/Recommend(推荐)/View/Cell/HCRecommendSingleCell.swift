@@ -64,7 +64,8 @@ class HCRecommendSingleCell: UICollectionViewCell {
             leftBottomImgView1.image = UIImage(named: "album_play")
             leftBottomImgView2.isHidden = false
             leftCenterLab.text = item.subtitle
-            leftBottomLab1.text = "\(item.playsCount)次"
+            
+            leftBottomLab1.text = self.defaultPlaysCount(item.playsCount)
             leftBottomLab2.text = "\(item.tracksCount)集"
         } else {
             
@@ -85,6 +86,15 @@ class HCRecommendSingleCell: UICollectionViewCell {
             leftTopTipView.backgroundColor = kThemeLimeGreenColor
             leftTopLabCons.constant = 5.0
             leftTopTipLab.text = "完结"
+        }
+    }
+    
+    private func defaultPlaysCount(_ playsCount: Int) -> String {
+        if playsCount < 10000 {
+            return "\(playsCount)"
+        } else {
+            let result = String(format: "%.1f万", Float(playsCount) / 10000.0)
+            return result
         }
     }
     

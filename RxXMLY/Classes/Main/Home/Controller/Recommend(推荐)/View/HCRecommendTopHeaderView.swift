@@ -44,12 +44,9 @@ class HCRecommendTopHeaderView: UICollectionReusableView {
     @IBOutlet weak var bottomHeaderView: UIView!
     
     var picArr = Variable<[String]>([])
-    
-    var squareArr = Variable<[HCSquareModel?]>([])
-
+    var squareArr = Variable<[HCSquareModel]>([])
     var categoryModel: Variable<HCCategoryModel?> = Variable(nil)
-
-    var modelArr: [HCSquareModel?] = []
+    var modelArr: [HCSquareModel] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -141,10 +138,9 @@ extension HCRecommendTopHeaderView: UICollectionViewDataSource, UICollectionView
         
         let cell = collectionView.dequeue(Reusable.squareCell, for: indexPath)
         let model = self.modelArr[indexPath.row]
-        cell.titleLab.text = model?.title
-        if let pic = model?.coverPath {
-            cell.iconImg.kf.setImage(with: URL(string: pic))
-        }
+        cell.titleLab.text = model.title
+        cell.iconImg.kf.setImage(with: URL(string: model.coverPath))
+        
         return cell
     }
 }

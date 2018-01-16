@@ -149,12 +149,12 @@ extension HCAccountLoginable where Self : HCAccountLoginViewController {
             $0.placeholder = Metric.accountPlaceholder
         }
         
-        // 输入内容 校验
-        let fieldObservable = field.rx.text.skip(1).throttle(0.75, scheduler: MainScheduler.instance).map { (input: String?) -> Bool in
-            guard let input  = input else { return false }
-            HCLog("\(input)")
-            return InputValidator.isValidEmail(email: input)
-        }
+//        // 输入内容 校验
+//        let fieldObservable = field.rx.text.skip(1).throttle(0.75, scheduler: MainScheduler.instance).map { (input: String?) -> Bool in
+//            guard let input  = input else { return false }
+//            HCLog("\(input)")
+//            return InputValidator.isValidEmail(email: input)
+//        }
 
 //        fieldObservable.map { (valid: Bool) -> UIColor in
 //            let color = valid ? kThemeGainsboroColor : kThemeOrangeRedColor

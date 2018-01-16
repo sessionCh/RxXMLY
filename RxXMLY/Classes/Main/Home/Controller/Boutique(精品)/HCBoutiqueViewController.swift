@@ -93,6 +93,18 @@ extension HCBoutiqueViewController {
             cell.cellType = .read
             cell.item = newItem
 
+            let dsSection = ds[indexPath.section]
+            
+            // 单元格 底部横线
+            if let maxIndex = dsSection.category?.list?.count, indexPath.row == maxIndex - 1 {
+                cell.bottomLine?.isHidden = true
+            } else {
+                cell.bottomLine?.isHidden = false
+                cell.bottomLine?.snp.updateConstraints({ (make) in
+                    make.left.equalTo(cell.leftImgView.right)
+                })
+            }
+
             return cell
             
         }, configureSupplementaryView: { (ds, cv, kind, indexPath) in
@@ -122,11 +134,22 @@ extension HCBoutiqueViewController {
                     // 每日优选
                 else if indexPath.section == 1 {
                     
-                    let recommendHeader = cv.dequeue(Reusable.boutiqueIndexHeader, kind: .header, for: indexPath)
-                    
-//                    recommendHeader.categoryModel.value = dsSection.category
-                    
-                    return recommendHeader
+                    let boutiqueIndexHeader = cv.dequeue(Reusable.boutiqueIndexHeader, kind: .header, for: indexPath)
+                    if let indexArr = dsSection.indexList {
+                        boutiqueIndexHeader.boutiqueIndexArr.value = indexArr
+                    }
+                    boutiqueIndexHeader.didSelectItem = { [weak self] (model) in
+                        guard let `self` = self else { return }
+                        let indexPath = IndexPath(row: 0, section: model.index)
+                        let attr = self.collectionView.layoutAttributesForItem(at: indexPath)
+                        if let rect = attr?.frame {
+                            var newRect = rect
+                            newRect.size = self.collectionView.frame.size
+                            newRect.height = newRect.height - kNavibarH - 30
+                            self.collectionView.scrollRectToVisible(newRect, animated: true)
+                        }
+                    }
+                    return boutiqueIndexHeader
                 }
                     // 其他头部
                 else {
@@ -197,25 +220,32 @@ extension HCBoutiqueViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+        
+        if indexPath.section == 0 {
+            return false
+        }
         return true
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
+        // HCRecommendSingleCell 设置高亮
+        let cell = collectionView.cellForItem(at: indexPath) as? HCRecommendSingleCell
         cell?.contentView.backgroundColor = kThemeOrangeRedColor
+        cell?.bottomLine?.isHidden = true
     }
     
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
+        
+        let cell = collectionView.cellForItem(at: indexPath) as? HCRecommendSingleCell
         cell?.contentView.backgroundColor = kThemeWhiteColor
+        cell?.bottomLine?.isHidden = false
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if section == 0 {
-            return UIEdgeInsets(top: 0, left: MetricGlobal.margin, bottom: 0, right: MetricGlobal.margin)
-        } else {
-            return UIEdgeInsets.zero
+            return UIEdgeInsets(top: 0, left: MetricGlobal.margin * 1.5, bottom: 0, right: MetricGlobal.margin * 1.5)
         }
+        return UIEdgeInsets.zero
     }
 }
 

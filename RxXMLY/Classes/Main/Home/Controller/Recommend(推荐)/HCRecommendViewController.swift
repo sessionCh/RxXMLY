@@ -196,6 +196,7 @@ extension HCRecommendViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+        
         if indexPath.section == 0 || indexPath.section == 1 || indexPath.section == 8 {
             return false
         }
@@ -203,20 +204,22 @@ extension HCRecommendViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        
-        let cell = collectionView.cellForItem(at: indexPath)
+        // HCRecommendSingleCell 设置高亮
+        let cell = collectionView.cellForItem(at: indexPath) as? HCRecommendSingleCell
         cell?.contentView.backgroundColor = kThemeOrangeRedColor
+        cell?.bottomLine?.isHidden = true
     }
     
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
 
-        let cell = collectionView.cellForItem(at: indexPath)
+        let cell = collectionView.cellForItem(at: indexPath) as? HCRecommendSingleCell
         cell?.contentView.backgroundColor = kThemeWhiteColor
+        cell?.bottomLine?.isHidden = false
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if section == 0 || section == 1 || section == 8 {
-            return UIEdgeInsets(top: 0, left: MetricGlobal.margin * 1.5, bottom: 0, right: MetricGlobal.margin * 1.5)
+            return UIEdgeInsets(top: 0, left: HCRecommendCell.itemMargin() * 1.5, bottom: 0, right: HCRecommendCell.itemMargin() * 1.5)
         }
         return UIEdgeInsets.zero
     }

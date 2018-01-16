@@ -98,7 +98,7 @@ extension HCBoutiqueViewModel: HCViewModelType {
                 // 组装数据
                 for (index, category) in categoryList.enumerated() {
                     
-                    guard index >= 4 else { // 过滤
+                    guard index >= 5 else { // 过滤
                         continue
                     }
                     
@@ -109,11 +109,13 @@ extension HCBoutiqueViewModel: HCViewModelType {
                     temp_category.append(category)
                     temp_categorySubList.append(categorySubList)
                     
-                    // 存放索引
-                    var indexModel = HCBoutiqueIndexModel()
-                    indexModel.title = category.title
-                    indexModel.index = index - 4
-                    temp_indexList.append(indexModel)
+                    // 存放索引 从【每日优选】开始
+                    if index >= 6 {
+                        var indexModel = HCBoutiqueIndexModel()
+                        indexModel.title = category.title
+                        indexModel.index = index - 5
+                        temp_indexList.append(indexModel)
+                    }
                 }
             
                 var sectionArr: [([HCKeywardsModel]?, [HCFocusModel]?, [HCSquareModel]?, [HCBoutiqueIndexModel]?, HCCategoryModel?, [HCRecommendItemModel])] = []

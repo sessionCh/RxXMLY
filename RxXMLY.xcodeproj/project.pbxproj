@@ -66,6 +66,9 @@
 		1B78FA571FE37B6400ACE9B1 /* HCHomeSearchBarable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B78FA561FE37B6400ACE9B1 /* HCHomeSearchBarable.swift */; };
 		1B79F2931FE3BD7400FF3EC3 /* HCSearchControllerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B79F2921FE3BD7400FF3EC3 /* HCSearchControllerable.swift */; };
 		1B79F2951FE3BE9300FF3EC3 /* HCSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B79F2941FE3BE9300FF3EC3 /* HCSearchController.swift */; };
+		1B81C0D9200D9C89007E52C3 /* HCBoutiqueIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B81C0D7200D9C89007E52C3 /* HCBoutiqueIndexCell.swift */; };
+		1B81C0DA200D9C89007E52C3 /* HCBoutiqueIndexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B81C0D8200D9C89007E52C3 /* HCBoutiqueIndexCell.xib */; };
+		1B81C0DD200DA2D4007E52C3 /* HCBoutiqueIndexFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B81C0DC200DA2D4007E52C3 /* HCBoutiqueIndexFlowLayout.swift */; };
 		1B841BF21FE6C5CF00B07CBF /* HCRecommendSingleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B841BF01FE6C5CF00B07CBF /* HCRecommendSingleCell.swift */; };
 		1B841BF31FE6C5CF00B07CBF /* HCRecommendSingleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B841BF11FE6C5CF00B07CBF /* HCRecommendSingleCell.xib */; };
 		1B8A18FA1FF5EB360046EF52 /* HCOtherLoginModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8A18F91FF5EB360046EF52 /* HCOtherLoginModeView.swift */; };
@@ -191,6 +194,9 @@
 		1B78FA561FE37B6400ACE9B1 /* HCHomeSearchBarable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCHomeSearchBarable.swift; sourceTree = "<group>"; };
 		1B79F2921FE3BD7400FF3EC3 /* HCSearchControllerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCSearchControllerable.swift; sourceTree = "<group>"; };
 		1B79F2941FE3BE9300FF3EC3 /* HCSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCSearchController.swift; sourceTree = "<group>"; };
+		1B81C0D7200D9C89007E52C3 /* HCBoutiqueIndexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBoutiqueIndexCell.swift; sourceTree = "<group>"; };
+		1B81C0D8200D9C89007E52C3 /* HCBoutiqueIndexCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCBoutiqueIndexCell.xib; sourceTree = "<group>"; };
+		1B81C0DC200DA2D4007E52C3 /* HCBoutiqueIndexFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBoutiqueIndexFlowLayout.swift; sourceTree = "<group>"; };
 		1B841BF01FE6C5CF00B07CBF /* HCRecommendSingleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCRecommendSingleCell.swift; sourceTree = "<group>"; };
 		1B841BF11FE6C5CF00B07CBF /* HCRecommendSingleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCRecommendSingleCell.xib; sourceTree = "<group>"; };
 		1B8A18F91FF5EB360046EF52 /* HCOtherLoginModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCOtherLoginModeView.swift; sourceTree = "<group>"; };
@@ -529,6 +535,7 @@
 		1B4D79AC200B1ABC00023853 /* Boutique(精品) */ = {
 			isa = PBXGroup;
 			children = (
+				1B81C0DB200DA2B2007E52C3 /* FlowLayout */,
 				1BF3DAE2200BC5F700B5958E /* View */,
 				1BEE8C79200B314600AB6E36 /* ViewModel */,
 				1B4D79AD200B1F0100023853 /* Model */,
@@ -729,6 +736,23 @@
 			path = HCSearchBarable;
 			sourceTree = "<group>";
 		};
+		1B81C0D6200D9C58007E52C3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1B81C0D7200D9C89007E52C3 /* HCBoutiqueIndexCell.swift */,
+				1B81C0D8200D9C89007E52C3 /* HCBoutiqueIndexCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		1B81C0DB200DA2B2007E52C3 /* FlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				1B81C0DC200DA2D4007E52C3 /* HCBoutiqueIndexFlowLayout.swift */,
+			);
+			path = FlowLayout;
+			sourceTree = "<group>";
+		};
 		1B841BEF1FE6C51600B07CBF /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -847,6 +871,7 @@
 		1BF3DAE2200BC5F700B5958E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1B81C0D6200D9C58007E52C3 /* Cell */,
 				1BF3DAE3200BC62500B5958E /* HCBoutiqueIndexHeaderView.swift */,
 				1BF3DAE5200BC6BD00B5958E /* HCBoutiqueIndexHeaderView.xib */,
 				1B988A59200C419500835E82 /* HCBoutiqueFooterView.swift */,
@@ -995,6 +1020,7 @@
 				1B988A5C200C41A400835E82 /* HCBoutiqueFooterView.xib in Resources */,
 				1B0C3F1D1FE55A39006BD58F /* HCScrollBarCell.xib in Resources */,
 				1BF3DAE6200BC6BD00B5958E /* HCBoutiqueIndexHeaderView.xib in Resources */,
+				1B81C0DA200D9C89007E52C3 /* HCBoutiqueIndexCell.xib in Resources */,
 				1B085D3A2003A1660091694D /* HCMineHeaderView.xib in Resources */,
 				1B0C3F161FE5551F006BD58F /* HCRecommendTopHeaderView.xib in Resources */,
 				1B841BF31FE6C5CF00B07CBF /* HCRecommendSingleCell.xib in Resources */,
@@ -1176,10 +1202,12 @@
 				1B3525EC1FE6BCF000EC9270 /* HCActivityModel.swift in Sources */,
 				1BD4C6671FE660F700CFBF5C /* HCRecommendFooterView.swift in Sources */,
 				1BD4C6761FE694E800CFBF5C /* HCSquareFlowLayout.swift in Sources */,
+				1B81C0D9200D9C89007E52C3 /* HCBoutiqueIndexCell.swift in Sources */,
 				1B2C67061FE2788B003172BE /* HCBaseNavigationController.swift in Sources */,
 				1B0C3F0D1FE53577006BD58F /* HCRecommendItemModel.swift in Sources */,
 				1B2C66F91FE26CF8003172BE /* HCMainViewController.swift in Sources */,
 				1B2C66FF1FE270AB003172BE /* UIView+Frame.swift in Sources */,
+				1B81C0DD200DA2D4007E52C3 /* HCBoutiqueIndexFlowLayout.swift in Sources */,
 				1BD029071FE2F71800461204 /* HCNavUniversalable.swift in Sources */,
 				1B2C67171FE2BF5F003172BE /* HCBaseViewController.swift in Sources */,
 				1BA3F8261FE3A8BE00A06CEB /* UIView+Corner.swift in Sources */,

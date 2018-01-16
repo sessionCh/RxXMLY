@@ -28,12 +28,22 @@ class HCRecommendCell: UICollectionViewCell {
         iconBtn.layer.masksToBounds = true
         iconBtn.layer.borderColor = UIColor.lightGray.cgColor
         iconBtn.layer.borderWidth = 0.5
+        iconBtn.addTarget(self, action: #selector(iconTouchDown(btn:)), for: .touchDown)
+        iconBtn.addTarget(self, action: #selector(iconTouchUpInside(btn:)), for: .touchUpInside)
+    }
+    
+    @objc func iconTouchDown(btn: UIButton?) {
+        iconBtn.backgroundColor = kThemeOrangeRedColor
+    }
+    
+    @objc func iconTouchUpInside(btn: UIButton?) {
+        iconBtn.backgroundColor = kThemeWhiteColor
     }
     
     func setItem() {
         
         guard let item = self.item else { return }
-        
+
         iconBtn.kf.setBackgroundImage(with: URL(string: item.pic), for: .normal)
         descLab.text = item.title
     }
@@ -45,7 +55,7 @@ class HCRecommendCell: UICollectionViewCell {
 
     static func itemSize() -> CGSize {
         // 结合 FlowLayout 设置
-        let width = (kScreenW - MetricGlobal.margin * (Metric.column - 1 + 3)) / Metric.column
+        let width = (kScreenW - Metric.margin * (Metric.column - 1 + 3)) / Metric.column
         let height = width * Metric.scale
         
         return CGSize(width: width, height: height)
