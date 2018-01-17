@@ -881,10 +881,10 @@
 				1B81C0D6200D9C58007E52C3 /* Cell */,
 				1BF3DAE3200BC62500B5958E /* HCBoutiqueIndexHeaderView.swift */,
 				1BF3DAE5200BC6BD00B5958E /* HCBoutiqueIndexHeaderView.xib */,
-				1B988A59200C419500835E82 /* HCBoutiqueFooterView.swift */,
-				1B988A5B200C41A400835E82 /* HCBoutiqueFooterView.xib */,
 				1B6C1F5B200F23D0003C1F87 /* HCBoutiqueSingleHeaderView.swift */,
 				1B6C1F5D200F23E0003C1F87 /* HCBoutiqueSingleHeaderView.xib */,
+				1B988A59200C419500835E82 /* HCBoutiqueFooterView.swift */,
+				1B988A5B200C41A400835E82 /* HCBoutiqueFooterView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";

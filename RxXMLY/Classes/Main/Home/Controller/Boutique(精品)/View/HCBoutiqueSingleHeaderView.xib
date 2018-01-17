@@ -16,6 +16,10 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bt3-Wn-NPP">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JaM-Qu-wJB">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                     <subviews>
@@ -70,26 +74,31 @@
                         <constraint firstAttribute="trailing" secondItem="TfY-Ql-w9c" secondAttribute="trailing" id="aBo-Am-cnE"/>
                         <constraint firstItem="TfY-Ql-w9c" firstAttribute="leading" secondItem="eVP-ER-dCA" secondAttribute="trailing" id="c6C-BD-8DD"/>
                         <constraint firstItem="eVP-ER-dCA" firstAttribute="leading" secondItem="JaM-Qu-wJB" secondAttribute="leading" id="h7H-GM-EvA"/>
+                        <constraint firstAttribute="height" constant="40" id="jqU-Io-6RU"/>
                         <constraint firstAttribute="trailing" secondItem="gNv-Xk-jIE" secondAttribute="trailing" id="pRC-Tr-BBI"/>
                         <constraint firstAttribute="bottom" secondItem="gNv-Xk-jIE" secondAttribute="bottom" id="pRc-bf-9bH"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="bt3-Wn-NPP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3mT-LI-DG4"/>
+                <constraint firstItem="bt3-Wn-NPP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4tt-MK-EjQ"/>
                 <constraint firstItem="JaM-Qu-wJB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="D3x-py-8bH"/>
+                <constraint firstAttribute="bottom" secondItem="bt3-Wn-NPP" secondAttribute="bottom" id="WEC-zy-N0e"/>
                 <constraint firstAttribute="trailing" secondItem="JaM-Qu-wJB" secondAttribute="trailing" id="aRw-gV-q9Q"/>
-                <constraint firstAttribute="bottom" secondItem="JaM-Qu-wJB" secondAttribute="bottom" id="ks2-bm-BST"/>
+                <constraint firstAttribute="trailing" secondItem="bt3-Wn-NPP" secondAttribute="trailing" id="fO8-8y-wq1"/>
                 <constraint firstItem="JaM-Qu-wJB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pzp-GJ-ClB"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="backgroundView" destination="bt3-Wn-NPP" id="mnJ-7A-RO8"/>
                 <outlet property="bottomLine" destination="gNv-Xk-jIE" id="mKZ-TI-WiC"/>
                 <outlet property="btnView" destination="TfY-Ql-w9c" id="6Fi-Ry-Z2R"/>
                 <outlet property="collectionView" destination="eVP-ER-dCA" id="6Fw-bt-fR1"/>
                 <outlet property="collectionViewRightCons" destination="c6C-BD-8DD" id="Yd8-eo-HfO"/>
                 <outlet property="rightBtn" destination="5PO-UI-tKP" id="nd6-ru-pfV"/>
                 <outlet property="topView" destination="JaM-Qu-wJB" id="eLV-sT-rej"/>
+                <outlet property="topViewHeightCons" destination="jqU-Io-6RU" id="gVw-sv-Rnh"/>
             </connections>
         </view>
     </objects>

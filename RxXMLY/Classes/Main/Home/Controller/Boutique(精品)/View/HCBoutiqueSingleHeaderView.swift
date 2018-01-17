@@ -28,7 +28,9 @@ class HCBoutiqueSingleHeaderView: UIView, NibLoadable {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var btnView: UIView!
     @IBOutlet weak var rightBtn: UIButton!
+    @IBOutlet weak var topViewHeightCons: NSLayoutConstraint!
     @IBOutlet weak var collectionViewRightCons: NSLayoutConstraint!
+    @IBOutlet weak var backgroundView: UIView!
     
     // MARK:- 成功回调
     typealias AddBlock = (_ indexModel: HCBoutiqueIndexModel)->Void
@@ -61,38 +63,59 @@ class HCBoutiqueSingleHeaderView: UIView, NibLoadable {
 extension HCBoutiqueSingleHeaderView {
     
     private func initUI() {
+        
+        backgroundView.alpha = 0.65
+        backgroundView.backgroundColor = kThemeBlackColor
+        
         bottomLine.backgroundColor = kThemeLightGreyColor
+        
         btnView.layer.shadowColor = kThemeLightGreyColor.cgColor
         btnView.layer.shadowOpacity = 2.0
         btnView.layer.shadowOffset = CGSize(width: 0, height: 0)
         btnView.layer.shadowRadius = 5
-        collectionView.isUserInteractionEnabled = true
+        
         collectionView.collectionViewLayout = HCBoutiqueSingleIndexFlowLayout()
         collectionView.register(Reusable.boutiqueIndexCell)
+    }
+    
+    private func updateUI(isUp: Bool) {
+        
+        if isUp == true {
+            
+            self.height = kScreenH - kNavibarH
+            self.superview?.height = self.height
+            self.topViewHeightCons.constant = 80.0
+            self.btnView.isHidden = true
+            self.collectionViewRightCons.constant = -80.0
+            self.collectionView.collectionViewLayout = HCBoutiqueSingleIndexFlowLayout(.vertical)
+            
+        } else {
+            self.height = 40.0
+            self.superview?.height = self.height
+            self.topViewHeightCons.constant = 40.0
+            self.btnView.isHidden = false
+            self.collectionViewRightCons.constant = 0
+            self.collectionView.collectionViewLayout = HCBoutiqueSingleIndexFlowLayout(.horizontal)
+        }
+        
+        self.collectionView.reloadData()
     }
     
     private func bindUI() {
         
         rightBtn.rx.tap.do(onNext: { [weak self] _ in
             guard let `self` = self else { return }
-            self.isUp = !self.isUp
-            self.rightBtnClick?(true)
-            if self.isUp == true {
-                self.height = 80.0
-                self.btnView.isHidden = true
-                self.collectionView.collectionViewLayout = HCBoutiqueSingleIndexFlowLayout(.vertical)
-                
-            } else {
-                self.height = 40.0
-                self.btnView.isHidden = false
-                self.collectionViewRightCons.constant = 0
-                self.collectionView.collectionViewLayout = HCBoutiqueSingleIndexFlowLayout(.horizontal)
-            }
-            
-            self.layoutIfNeeded()
-            self.collectionView.reloadData()
+            self.isUp = !self.isUp            
+            self.updateUI(isUp: self.isUp)
             
         }).subscribe().disposed(by: rx.disposeBag)
+        
+        
+        backgroundView.rx.tapGesture().when(.recognized).subscribe({ [weak self] _ in
+            guard let `self` = self else { return }
+            self.isUp = false
+            self.updateUI(isUp: self.isUp)
+        }).disposed(by: rx.disposeBag)
         
         boutiqueIndexArr.asObservable().subscribe(onNext: { [weak self] (boutiqueIndexArr) in
             guard let `self` = self else { return }
