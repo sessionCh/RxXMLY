@@ -32,8 +32,6 @@ class HCRecommendViewController: UIViewController, HCRefreshable {
         
         initUI()
         bindUI()
-        
-        refreshHeader.beginRefreshing()
     }
 }
 
@@ -160,6 +158,8 @@ extension HCRecommendViewController {
             self?.vmOutput?.requestCommand.onNext(false)
         }
         vmOutput?.autoSetRefreshHeaderStatus(header: refreshHeader, footer: refreshFooter).disposed(by: rx.disposeBag)
+        
+        refreshHeader.beginRefreshing()
     }
 }
 

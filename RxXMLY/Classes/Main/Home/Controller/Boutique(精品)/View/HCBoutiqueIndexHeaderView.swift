@@ -24,11 +24,12 @@ fileprivate enum Reusable {
 class HCBoutiqueIndexHeaderView: UICollectionReusableView {
 
     @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var bottomLine: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var bottomLeftLab: UILabel!
     @IBOutlet weak var bottomRightView: UIView!
-    
+        
     // MARK:- 成功回调
     typealias AddBlock = (_ indexModel: HCBoutiqueIndexModel)->Void
     var didSelectItem: AddBlock? = {
@@ -55,7 +56,8 @@ class HCBoutiqueIndexHeaderView: UICollectionReusableView {
 extension HCBoutiqueIndexHeaderView {
     
     private func initUI() {
-        
+        topView.backgroundColor = kThemeWhiteColor
+        bottomLine.backgroundColor = kThemeGainsboroColor
         collectionView.collectionViewLayout = HCBoutiqueIndexFlowLayout()
         collectionView.register(Reusable.boutiqueIndexCell)
     }

@@ -19,7 +19,7 @@ class HCBoutiqueIndexFlowLayout: UICollectionViewFlowLayout {
         let margin = HCBoutiqueIndexCell.itemMargin()
         self.sectionInset = UIEdgeInsetsMake(0, margin * 1.5, 0, margin * 1.5)
     }
-    
+        
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

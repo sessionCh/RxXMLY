@@ -22,7 +22,10 @@ class HCBoutiqueViewController: UIViewController, HCRefreshable {
     
     // View
     private var collectionView: UICollectionView!
-    
+    private var boutiqueSingleIndexHeaderView: HCBoutiqueSingleHeaderView?
+    private var singleHeaderView: UIView?
+    private var offsetTop: CGFloat = 0.0
+
     // DataSuorce
     var dataSource : RxCollectionViewSectionedReloadDataSource<HCBoutiqueSection>!
     
@@ -31,8 +34,6 @@ class HCBoutiqueViewController: UIViewController, HCRefreshable {
         
         initUI()
         bindUI()
-        
-        refreshHeader.beginRefreshing()
     }
 }
 
@@ -45,17 +46,17 @@ extension HCBoutiqueViewController {
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
         collectionView.backgroundColor = kThemeWhiteColor
         collectionView.showsVerticalScrollIndicator = false
-        
+
         view.addSubview(collectionView)
         self.collectionView = collectionView
-        
+
         collectionView.snp.makeConstraints { (make) in
             make.left.top.right.bottom.equalToSuperview()
         }
-        
+
         // 设置代理
         collectionView.rx.setDelegate(self).disposed(by: rx.disposeBag)
-        
+
         // 注册cell
         collectionView.register(Reusable.recommendCell)
         collectionView.register(Reusable.recommendSingleCell)
@@ -64,6 +65,35 @@ extension HCBoutiqueViewController {
         collectionView.register(Reusable.boutiqueIndexHeader, kind: SupplementaryViewKind.header)
         collectionView.register(Reusable.recommendFooter, kind: SupplementaryViewKind.footer)
         collectionView.register(Reusable.boutiqueFooter, kind: SupplementaryViewKind.footer)
+        
+        // 悬浮滚动条 (直接添加xib显示不出来)
+        let headerView = HCBoutiqueSingleHeaderView.loadFromNib()
+        self.boutiqueSingleIndexHeaderView = headerView
+        
+        // 点击滚动到指定位置
+        headerView.didSelectItem = { [weak self] (model) in
+            guard let `self` = self else { return }
+            // 滚动到指定位置
+            let indexPath = IndexPath(row: 0, section: model.index)
+            let attr = self.collectionView.layoutAttributesForItem(at: indexPath)
+            if let rect = attr?.frame {
+                var newRect = rect
+                newRect.size = self.collectionView.frame.size
+                newRect.height = newRect.height - kNavibarH - 30 - 44
+                self.collectionView.scrollRectToVisible(newRect, animated: true)
+            }
+        }
+        headerView.rightBtnClick = { (isUp) in
+            HCLog("\(isUp)")
+        }
+        
+        let singleHeaderView = UIView()
+        singleHeaderView.isHidden = true
+        singleHeaderView.frame = headerView.bounds
+        singleHeaderView.addSubview(headerView)
+        self.singleHeaderView = singleHeaderView
+        view.addSubview(singleHeaderView)
+        view.bringSubview(toFront: singleHeaderView)
     }
     
     func bindUI() {
@@ -134,12 +164,17 @@ extension HCBoutiqueViewController {
                     // 每日优选
                 else if indexPath.section == 1 {
                     
+                    self.offsetTop = self.collectionView.layoutAttributesForItem(at: indexPath)?.frame.top ?? 0.0
+                    
                     let boutiqueIndexHeader = cv.dequeue(Reusable.boutiqueIndexHeader, kind: .header, for: indexPath)
                     if let indexArr = dsSection.indexList {
                         boutiqueIndexHeader.boutiqueIndexArr.value = indexArr
+                        self.boutiqueSingleIndexHeaderView?.boutiqueIndexArr.value = indexArr
                     }
+                    
                     boutiqueIndexHeader.didSelectItem = { [weak self] (model) in
                         guard let `self` = self else { return }
+                        // 滚动到指定位置
                         let indexPath = IndexPath(row: 0, section: model.index)
                         let attr = self.collectionView.layoutAttributesForItem(at: indexPath)
                         if let rect = attr?.frame {
@@ -155,7 +190,6 @@ extension HCBoutiqueViewController {
                 else {
                     
                     let recommendHeader = cv.dequeue(Reusable.recommendHeader, kind: .header, for: indexPath)
-                    
                     recommendHeader.categoryModel.value = dsSection.category
                     
                     return recommendHeader
@@ -183,6 +217,9 @@ extension HCBoutiqueViewController {
             self?.vmOutput?.requestCommand.onNext(true)
         }
         vmOutput?.autoSetRefreshHeaderStatus(header: refreshHeader, footer: nil).disposed(by: rx.disposeBag)
+        
+        // 刷新
+        refreshHeader.beginRefreshing()
     }
 }
 
@@ -246,6 +283,15 @@ extension HCBoutiqueViewController: UICollectionViewDelegateFlowLayout {
             return UIEdgeInsets(top: 0, left: MetricGlobal.margin * 1.5, bottom: 0, right: MetricGlobal.margin * 1.5)
         }
         return UIEdgeInsets.zero
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        HCLog("\(scrollView.contentOffset) - \(offsetTop)")
+        if scrollView.contentOffset.y > 0 && scrollView.contentOffset.y >= offsetTop - 45.0 - 40.0 {
+            self.singleHeaderView?.isHidden = false
+        } else {
+            self.singleHeaderView?.isHidden = true
+        }
     }
 }
 

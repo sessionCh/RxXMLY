@@ -19,7 +19,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fdg-kZ-LZq">
                     <rect key="frame" x="0.0" y="10" width="375" height="80"/>
                     <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hlD-L3-QOq">
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hlD-L3-QOq">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BfY-s6-dIC">
@@ -33,14 +33,24 @@
                                 <outlet property="delegate" destination="iN0-l3-epB" id="149-Fo-Anc"/>
                             </connections>
                         </collectionView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1tw-E7-IXN">
+                            <rect key="frame" x="0.0" y="80" width="375" height="0.5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="w6r-8Q-cj0"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="hlD-L3-QOq" firstAttribute="top" secondItem="Fdg-kZ-LZq" secondAttribute="top" id="96m-rK-fGO"/>
+                        <constraint firstAttribute="trailing" secondItem="1tw-E7-IXN" secondAttribute="trailing" id="9tG-bW-AD1"/>
                         <constraint firstItem="hlD-L3-QOq" firstAttribute="leading" secondItem="Fdg-kZ-LZq" secondAttribute="leading" id="DR1-WG-0hc"/>
                         <constraint firstAttribute="trailing" secondItem="hlD-L3-QOq" secondAttribute="trailing" id="Gca-9j-EHZ"/>
+                        <constraint firstItem="1tw-E7-IXN" firstAttribute="leading" secondItem="Fdg-kZ-LZq" secondAttribute="leading" id="MVL-a7-HVl"/>
                         <constraint firstAttribute="height" constant="80" id="Qhc-Iv-MYI"/>
-                        <constraint firstAttribute="bottom" secondItem="hlD-L3-QOq" secondAttribute="bottom" id="X23-4n-dmI"/>
+                        <constraint firstItem="1tw-E7-IXN" firstAttribute="top" secondItem="hlD-L3-QOq" secondAttribute="bottom" id="h0v-4R-1YE"/>
+                        <constraint firstAttribute="bottom" secondItem="1tw-E7-IXN" secondAttribute="bottom" id="qKt-gs-uSN"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3gB-5y-0D3">
@@ -100,11 +110,13 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="bottomLeftLab" destination="byG-8G-RPn" id="XZi-Js-Zrs"/>
+                <outlet property="bottomLine" destination="1tw-E7-IXN" id="G38-ks-6j9"/>
                 <outlet property="bottomRightView" destination="r7a-6F-5f4" id="Zqp-a3-tBY"/>
                 <outlet property="bottomView" destination="3gB-5y-0D3" id="dKo-Dt-Ls4"/>
                 <outlet property="collectionView" destination="hlD-L3-QOq" id="zHS-1C-G3v"/>
                 <outlet property="topView" destination="Fdg-kZ-LZq" id="nDt-el-cLi"/>
             </connections>
+            <point key="canvasLocation" x="-131" y="-493"/>
         </view>
     </objects>
     <resources>

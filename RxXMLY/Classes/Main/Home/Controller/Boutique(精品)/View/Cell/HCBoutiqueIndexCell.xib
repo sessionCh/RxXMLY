@@ -28,7 +28,7 @@
                         <rect key="frame" x="10" y="34" width="40" height="1"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="0.65000000000000002" id="NFa-fX-W29"/>
+                            <constraint firstAttribute="height" constant="0.5" id="NFa-fX-W29"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -38,7 +38,7 @@
                 <constraint firstItem="gAh-2I-KhI" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Leg-Sf-U9i"/>
                 <constraint firstItem="l6v-db-jBz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="ckX-Gi-dzP"/>
                 <constraint firstItem="gAh-2I-KhI" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="tqY-gY-KV7"/>
-                <constraint firstAttribute="bottom" secondItem="l6v-db-jBz" secondAttribute="bottom" id="w1Q-Im-KT1"/>
+                <constraint firstAttribute="bottom" secondItem="l6v-db-jBz" secondAttribute="bottom" constant="0.5" id="w1Q-Im-KT1"/>
             </constraints>
             <connections>
                 <outlet property="bottomLine" destination="l6v-db-jBz" id="UnJ-OG-BI4"/>
