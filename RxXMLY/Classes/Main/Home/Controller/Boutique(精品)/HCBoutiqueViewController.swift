@@ -22,6 +22,7 @@ class HCBoutiqueViewController: UIViewController, HCRefreshable {
     
     // View
     private var collectionView: UICollectionView!
+    private var boutiqueIndexHeader: HCBoutiqueIndexHeaderView?
     private var headerView: UIView?
     private var offsetTop: CGFloat = 0.0
 
@@ -70,7 +71,7 @@ extension HCBoutiqueViewController {
     
         // 悬浮滚动条 (直接添加xib显示不出来)
         let singleHeaderView = HCBoutiqueSingleHeaderView.loadFromNib()
-        singleHeaderView.frame = CGRect(x: 0, y: 0, width: kScreenW, height: 40.0)
+        singleHeaderView.frame = CGRect(x: 0, y: 0, width: kScreenW, height: HCBoutiqueSingleHeaderView.singleHeight())
         
         // 点击滚动到指定位置
         singleHeaderView.didSelectItem = { [weak self] (model) in
@@ -84,6 +85,10 @@ extension HCBoutiqueViewController {
                 newRect.height = newRect.height - kNavibarH - 30 - 44
                 self.collectionView.scrollRectToVisible(newRect, animated: true)
             }
+            
+            // 同步数据
+            self.boutiqueIndexHeader?.selectedModel = model
+            self.boutiqueIndexHeader?.collectionView.reloadData()
         }
         let headerView = UIView()
         headerView.frame = singleHeaderView.bounds
@@ -133,13 +138,18 @@ extension HCBoutiqueViewController {
             
             // 单元格 底部横线
             if let maxIndex = dsSection.category?.list?.count, indexPath.row == maxIndex - 1 {
-                cell.bottomLine?.isHidden = true
+                cell.bottomLine?.isHidden = false
+                cell.bottomLine?.snp.updateConstraints({ (make) in
+                    make.left.equalTo(MetricGlobal.margin * 1.5)
+                    make.right.equalTo(-MetricGlobal.margin * 1.5)
+                })
             } else {
                 cell.bottomLine?.isHidden = false
                 cell.bottomLine?.snp.updateConstraints({ (make) in
                     make.left.equalTo(cell.leftImgView.right)
                 })
             }
+
 
             return cell
             
@@ -173,12 +183,15 @@ extension HCBoutiqueViewController {
                     self.offsetTop = self.collectionView.layoutAttributesForItem(at: indexPath)?.frame.top ?? 0.0
                     
                     let boutiqueIndexHeader = cv.dequeue(Reusable.boutiqueIndexHeader, kind: .header, for: indexPath)
+                    // 加载数据
                     if let indexArr = dsSection.indexList {
                         boutiqueIndexHeader.boutiqueIndexArr.value = indexArr
+                        // 滚动条
                         let singleHeaderView = self.headerView?.subviews.first as? HCBoutiqueSingleHeaderView
                         singleHeaderView?.boutiqueIndexArr.value = indexArr
                     }
                     
+                    // 处理点击事件
                     boutiqueIndexHeader.didSelectItem = { [weak self] (model) in
                         guard let `self` = self else { return }
                         // 滚动到指定位置
@@ -190,7 +203,17 @@ extension HCBoutiqueViewController {
                             newRect.height = newRect.height - kNavibarH - 30
                             self.collectionView.scrollRectToVisible(newRect, animated: true)
                         }
+                        
+                        // 滚动条 同步数据
+                        let singleHeaderView = self.headerView?.subviews.first as? HCBoutiqueSingleHeaderView
+                        singleHeaderView?.selectedModel =  model
+                        singleHeaderView?.collectionView.reloadData()
+                        
+                        DispatchQueue.main.async {
+                            singleHeaderView?.collectionView.scrollToItem(at: IndexPath(row: model.index - 1, section: 0), at: .centeredHorizontally, animated: true)
+                        }
                     }
+                    self.boutiqueIndexHeader = boutiqueIndexHeader
                     return boutiqueIndexHeader
                 }
                     // 其他头部
@@ -211,7 +234,12 @@ extension HCBoutiqueViewController {
                 }
                 
                 let recommendFooter = cv.dequeue(Reusable.recommendFooter, kind: .footer, for: indexPath)
-                
+                if indexPath.section == 0 {
+                    recommendFooter.topLine.isHidden = false
+                } else {
+                    recommendFooter.topLine.isHidden = true
+                }
+
                 return recommendFooter
             }
         })

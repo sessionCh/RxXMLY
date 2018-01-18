@@ -114,6 +114,6 @@ extension HCRecommendSingleCell: HCCellStyleable {
         
         // 横线
         bottomLine = bottomLine(style: .margin)
-        bottomLine?.backgroundColor = kThemeGainsboroColor
+        bottomLine?.backgroundColor = kThemeLightGreyColor
     }
 }

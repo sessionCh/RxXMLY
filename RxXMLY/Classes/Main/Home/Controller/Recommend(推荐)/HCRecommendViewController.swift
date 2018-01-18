@@ -94,7 +94,11 @@ extension HCRecommendViewController {
 
             // 单元格 底部横线
             if let maxIndex = dsSection.category?.list?.count, indexPath.row == maxIndex - 1 {
-                cell.bottomLine?.isHidden = true
+                cell.bottomLine?.isHidden = false
+                cell.bottomLine?.snp.updateConstraints({ (make) in
+                    make.left.equalTo(MetricGlobal.margin * 1.5)
+                    make.right.equalTo(-MetricGlobal.margin * 1.5)
+                })
             } else {
                 cell.bottomLine?.isHidden = false
                 cell.bottomLine?.snp.updateConstraints({ (make) in
@@ -141,8 +145,13 @@ extension HCRecommendViewController {
                 }
             } else {
                 
+                // 横线
                 let recommendFooter = cv.dequeue(Reusable.recommendFooter, kind: .footer, for: indexPath)
-                
+                if indexPath.section == 0 || indexPath.section == 1 || indexPath.section == 8 {
+                    recommendFooter.topLine.isHidden = false
+                } else {
+                    recommendFooter.topLine.isHidden = true
+                }
                 return recommendFooter
             }
         })

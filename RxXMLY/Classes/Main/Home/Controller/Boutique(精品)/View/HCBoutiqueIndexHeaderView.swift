@@ -56,8 +56,9 @@ class HCBoutiqueIndexHeaderView: UICollectionReusableView {
 extension HCBoutiqueIndexHeaderView {
     
     private func initUI() {
+        
         topView.backgroundColor = kThemeWhiteColor
-        bottomLine.backgroundColor = kThemeGainsboroColor
+        bottomLine.backgroundColor = kThemeLightGreyColor
         collectionView.collectionViewLayout = HCBoutiqueIndexFlowLayout()
         collectionView.register(Reusable.boutiqueIndexCell)
     }

@@ -75,14 +75,16 @@ extension HCBoutiqueSingleHeaderView {
 
     private func initUI() {
         
+        self.frame = CGRect(x: 0, y: 0, width: kScreenW, height: Metric.singleHeight)
+        
         backgroundView.alpha = 0.35
         backgroundView.backgroundColor = kThemeBlackColor
         
         bottomLine.backgroundColor = kThemeLightGreyColor
         
         btnView.layer.shadowColor = kThemeLightGreyColor.cgColor
-        btnView.layer.shadowOpacity = 2.0
-        btnView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        btnView.layer.shadowOpacity = 0.8
+        btnView.layer.shadowOffset = CGSize(width: -2, height: 0)
         btnView.layer.shadowRadius = 5
         collectionView.collectionViewLayout = self.horizontalLayout
         collectionView.register(Reusable.boutiqueIndexCell)
@@ -189,7 +191,10 @@ extension HCBoutiqueSingleHeaderView: UICollectionViewDataSource, UICollectionVi
         guard selectedModel?.index != model.index else { return }
         selectedModel = model
         collectionView.reloadData()
-        
+        DispatchQueue.main.async {
+            self.collectionView.scrollToItem(at: IndexPath(row: model.index - 1, section: 0), at: .centeredHorizontally, animated: true)
+        }
+
         // 回调
         didSelectItem?(model)
     }
