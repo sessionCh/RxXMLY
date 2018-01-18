@@ -42,6 +42,9 @@ class HCBoutiqueSingleHeaderView: UIView, NibLoadable {
         (_) in return
     }
     
+    let horizontalLayout = HCBoutiqueSingleIndexFlowLayout(.horizontal)
+    let verticalLayout = HCBoutiqueSingleIndexFlowLayout(.vertical)
+
     var isUp: Bool = false
     var boutiqueIndexArr = Variable<[HCBoutiqueIndexModel]>([])
     var modelArr: [HCBoutiqueIndexModel] = []
@@ -64,7 +67,7 @@ extension HCBoutiqueSingleHeaderView {
     
     private func initUI() {
         
-        backgroundView.alpha = 0.65
+        backgroundView.alpha = 0.35
         backgroundView.backgroundColor = kThemeBlackColor
         
         bottomLine.backgroundColor = kThemeLightGreyColor
@@ -73,32 +76,39 @@ extension HCBoutiqueSingleHeaderView {
         btnView.layer.shadowOpacity = 2.0
         btnView.layer.shadowOffset = CGSize(width: 0, height: 0)
         btnView.layer.shadowRadius = 5
-        
-        collectionView.collectionViewLayout = HCBoutiqueSingleIndexFlowLayout()
+        collectionView.collectionViewLayout = self.horizontalLayout
         collectionView.register(Reusable.boutiqueIndexCell)
     }
     
     private func updateUI(isUp: Bool) {
         
+        // 重新设置布局
+        self.collectionView.collectionViewLayout.invalidateLayout()
+        
         if isUp == true {
             
-            self.height = kScreenH - kNavibarH
-            self.superview?.height = self.height
-            self.topViewHeightCons.constant = 80.0
+            self.superview?.frame = CGRect(x: 0, y: 0, width: kScreenW, height: kScreenH - kNavibarH)
+            self.frame = (self.superview?.bounds)!
+            self.height = (self.superview?.height)!
             self.btnView.isHidden = true
+            self.topViewHeightCons.constant = 80.0
             self.collectionViewRightCons.constant = -80.0
-            self.collectionView.collectionViewLayout = HCBoutiqueSingleIndexFlowLayout(.vertical)
-            
+            DispatchQueue.main.async {
+                self.collectionView.setCollectionViewLayout(self.verticalLayout, animated: true)
+            }
+
         } else {
-            self.height = 40.0
-            self.superview?.height = self.height
-            self.topViewHeightCons.constant = 40.0
+            self.superview?.frame = CGRect(x: 0, y: 0, width: kScreenW, height: 40.0)
+            self.frame = (self.superview?.bounds)!
             self.btnView.isHidden = false
+            self.topViewHeightCons.constant = 40.0
             self.collectionViewRightCons.constant = 0
-            self.collectionView.collectionViewLayout = HCBoutiqueSingleIndexFlowLayout(.horizontal)
+            DispatchQueue.main.async {
+                self.collectionView.setCollectionViewLayout(self.horizontalLayout, animated: true)
+            }
         }
-        
         self.collectionView.reloadData()
+        self.superview?.layoutIfNeeded()
     }
     
     private func bindUI() {
@@ -109,7 +119,6 @@ extension HCBoutiqueSingleHeaderView {
             self.updateUI(isUp: self.isUp)
             
         }).subscribe().disposed(by: rx.disposeBag)
-        
         
         backgroundView.rx.tapGesture().when(.recognized).subscribe({ [weak self] _ in
             guard let `self` = self else { return }
@@ -132,17 +141,24 @@ extension HCBoutiqueSingleHeaderView {
 extension HCBoutiqueSingleHeaderView: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
+        if self.isUp == true {
+            return 2
+        }
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if self.isUp == true {
+            return self.modelArr.count / 2
+        }
         return self.modelArr.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeue(Reusable.boutiqueIndexCell, for: indexPath)
-        let model = self.modelArr[indexPath.row]
+        let index = indexPath.row + indexPath.section * self.modelArr.count / 2
+        let model = self.modelArr[index]
         if model.index == selectedModel?.index {
             cell.bottomLine.isHidden = false
         } else {
@@ -155,24 +171,35 @@ extension HCBoutiqueSingleHeaderView: UICollectionViewDataSource, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let model = self.modelArr[indexPath.row]
-        // 回调
-        didSelectItem?(model)
+        let index = indexPath.row + indexPath.section * self.modelArr.count / 2
+        let model = self.modelArr[index]
+   
         // 刷新样式
+//        self.isUp = false
+//        self.updateUI(isUp: self.isUp)
+
         guard selectedModel?.index != model.index else { return }
         selectedModel = model
         collectionView.reloadData()
+        
+        // 回调
+        didSelectItem?(model)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return HCBoutiqueIndexCell.singleItemSize()
+        if self.isUp == true {
+            return HCBoutiqueIndexCell.singleItemSize()
+        }
+        return HCBoutiqueIndexCell.itemSize()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         let margin = HCBoutiqueIndexCell.itemMargin()
-        
+        if self.isUp == true {
+            return UIEdgeInsetsMake(0, margin * 1.5, 0, margin * 1.5)
+        }
         return UIEdgeInsetsMake(0, margin * 1.5, 0, 0)
     }
 }

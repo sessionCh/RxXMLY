@@ -12,7 +12,7 @@ import ReusableKit
 fileprivate struct Metric {
     
     static let margin : CGFloat = 10
-    static let height : CGFloat = 40
+    static let height : CGFloat = 38
     static let column: CGFloat = 5
     static let singleColumn: CGFloat = 4.5
 }
