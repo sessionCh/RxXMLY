@@ -294,7 +294,8 @@ extension HCBoutiqueViewController: UICollectionViewDelegateFlowLayout {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         HCLog("\(scrollView.contentOffset) - \(offsetTop)")
-        let margin = offsetTop - 45.0 - 40.0
+        // 减去 分页头部 滚动条徒步
+        let margin = offsetTop - HCHomeViewController.pagerBarHeight() - HCBoutiqueSingleHeaderView.singleHeight()
         if scrollView.contentOffset.y > 0 &&
             margin > 0 &&
             scrollView.contentOffset.y >= margin {

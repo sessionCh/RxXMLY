@@ -64,6 +64,11 @@ class HCHomeViewController: HCBaseViewController {
 // MARK:- 初始化协议
 extension HCHomeViewController: HCNavTitleable {
     
+    static func pagerBarHeight() -> CGFloat {
+        
+        return Metric.pagerBarHeight
+    }
+
     // MARK:- 标题组件
     private func initTitleView() {
         

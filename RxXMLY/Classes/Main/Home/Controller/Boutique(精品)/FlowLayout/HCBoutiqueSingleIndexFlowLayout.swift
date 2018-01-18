@@ -22,12 +22,21 @@ class HCBoutiqueSingleIndexFlowLayout: UICollectionViewFlowLayout {
     init(_ scrollDirection: UICollectionViewScrollDirection) {
         
         super.init()
-        
-        self.scrollDirection = scrollDirection
-        self.itemSize = HCBoutiqueIndexCell.itemSize()
-        self.minimumLineSpacing = 0.0
-        let margin = HCBoutiqueIndexCell.itemMargin()
-        self.sectionInset = UIEdgeInsetsMake(0, margin * 1.5, 0, margin * 1.5)
+        if scrollDirection == .horizontal {
+            
+            self.scrollDirection = scrollDirection
+            self.itemSize = HCBoutiqueIndexCell.singleItemSize()
+            self.minimumLineSpacing = 0.0
+            let margin = HCBoutiqueIndexCell.itemMargin()
+            self.sectionInset = UIEdgeInsetsMake(0, margin * 1.5, 0, 0)
+            
+        } else {
+            self.scrollDirection = scrollDirection
+            self.itemSize = HCBoutiqueIndexCell.itemSize()
+            self.minimumLineSpacing = 0.0
+            let margin = HCBoutiqueIndexCell.itemMargin()
+            self.sectionInset = UIEdgeInsetsMake(0, margin * 1.5, 0, margin * 1.5)
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
