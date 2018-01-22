@@ -134,6 +134,12 @@ extension HCBoutiqueSingleHeaderView {
             guard let `self` = self else { return }
             self.isUp = false
             self.updateUI(isUp: self.isUp)
+            
+            DispatchQueue.main.async {
+                if let model = self.selectedModel {
+                    self.collectionView.scrollToItem(at: IndexPath(row: model.index - 1, section: 0), at: .centeredHorizontally, animated: true)
+                }
+            }
         }).disposed(by: rx.disposeBag)
         
         boutiqueIndexArr.asObservable().subscribe(onNext: { [weak self] (boutiqueIndexArr) in

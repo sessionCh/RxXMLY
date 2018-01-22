@@ -9,6 +9,7 @@
 import UIKit
 
 class HCBoutiqueSingleIndexFlowLayout: UICollectionViewFlowLayout {
+    
     override init() {
         super.init()
         

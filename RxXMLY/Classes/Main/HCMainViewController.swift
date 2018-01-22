@@ -54,12 +54,12 @@ extension HCMainViewController {
             vc.tabBarItem = item
             let navVc = HCBaseNavigationController(rootViewController: vc)
             tabArr.append(navVc)
-            
-            // 注册控制器
-            navigatorShareInstance.navigator.register("myapp://\(lowStr)", { _,_,_ in
-                return vc
-            })
         }
+        let placeVC = UIViewController()
+        placeVC.view.backgroundColor = kThemeWhiteColor
+        
+        tabArr.insert(placeVC, at: 2)
+        
         self.viewControllers = tabArr
     }
     
@@ -78,7 +78,15 @@ extension HCMainViewController {
 // MARK:- 代理
 extension HCMainViewController: UITabBarControllerDelegate {
     
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if tabBarController.selectedIndex == 2 {
+            return false
+        }
+        return true
+    }
+    
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        
     }
 }
 
