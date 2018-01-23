@@ -106,6 +106,7 @@ extension HCMineViewController: HCNavTitleable {
 
 // MARK:- 初始化部分
 extension HCMineViewController {
+    
     // MARK:- 初始化视图
     private func initUI() {
         

@@ -159,8 +159,10 @@ extension HCNavUniversalable where Self : UIViewController {
         } else {
             // 图标
             let btn = UIButton(type: .custom)
-            btn.setImage(UIImage(named: model.imageNamed), for: .normal)
-            btn.setImage(UIImage(named: model.highlightedImageNamed), for: .highlighted)
+            btn.setBackgroundImage(UIImage(named: model.imageNamed), for: .normal)
+            if model.highlightedImageNamed.characters.count > 0 {
+                btn.setBackgroundImage(UIImage(named: model.highlightedImageNamed), for: .highlighted)
+            }
             item = UIBarButtonItem(customView: btn)
             btn.rx.tap.do(onNext: {
                 onNext(model)
