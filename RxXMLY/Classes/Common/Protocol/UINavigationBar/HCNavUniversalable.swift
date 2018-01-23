@@ -26,6 +26,11 @@ struct HCNavigationBarItemMetric {
                                         description: "返回",
                                         imageNamed: "icon_back_h")
     
+    static let downBack = HCNavigationBarItemModel(type: .back,
+                                               position: .left,
+                                               description: "返回",
+                                               imageNamed: "playpage_icon_down_white", highlightedImageNamed: "playpage_icon_down_white_HL")
+
     static let message = HCNavigationBarItemModel(type: .message,
                                            position: .left,
                                            description: "消息",
@@ -42,6 +47,17 @@ struct HCNavigationBarItemMetric {
                                            imageNamed: "meSetNor")
 
     // Right
+    
+    static let share = HCNavigationBarItemModel(type: .share,
+                                                position: .right,
+                                                description: "分享",
+                                                imageNamed: "playpage_icon_share_white", highlightedImageNamed: "playpage_icon_share_white_HL")
+    
+    static let more = HCNavigationBarItemModel(type: .more,
+                                               position: .right,
+                                               description: "工具",
+                                               imageNamed: "playpage_icon_more_white", highlightedImageNamed: "playpage_icon_more_white_HL")
+    
     static let history = HCNavigationBarItemModel(type: .history,
                                            position: .right,
                                            description: "历史记录",
@@ -136,15 +152,19 @@ extension HCNavUniversalable where Self : UIViewController {
         if model.title != nil {
             // 标题
             item = UIBarButtonItem(title: model.title, style: .plain, target: nil, action: nil)
-            
+            item.rx.tap.do(onNext: {
+                onNext(model)
+            }).subscribe().disposed(by: rx.disposeBag)
+
         } else {
             // 图标
-            item = UIBarButtonItem(image: UIImage(named: model.imageNamed), style: .plain, target: nil, action: nil)
-        }
-        
-        item.rx.tap.do(onNext: {
-            onNext(model)
-        }).subscribe().disposed(by: rx.disposeBag)
+            let btn = UIButton(type: .custom)
+            btn.setImage(UIImage(named: model.imageNamed), for: .normal)
+            btn.setImage(UIImage(named: model.highlightedImageNamed), for: .highlighted)
+            item = UIBarButtonItem(customView: btn)
+            btn.rx.tap.do(onNext: {
+                onNext(model)
+            }).subscribe().disposed(by: rx.disposeBag)        }
         
         switch model.position {
             
@@ -201,6 +221,8 @@ struct HCNavigationBarItemModel {
     
     enum HCNavigationBarItemType {
         case back
+        case share
+        case more
         case title(index: Int, title: String)
         case message
         case history
@@ -217,7 +239,8 @@ struct HCNavigationBarItemModel {
     var title: String?
     var description: String
     var imageNamed: String
-    
+    var highlightedImageNamed: String
+
     init(type: HCNavigationBarItemType, position: HCNavigationBarItemPosition, title: String, description: String) {
         
         self.type = type
@@ -225,6 +248,7 @@ struct HCNavigationBarItemModel {
         self.title = title
         self.description = description
         self.imageNamed = ""
+        self.highlightedImageNamed = ""
     }
 
     init(type: HCNavigationBarItemType, position: HCNavigationBarItemPosition, description: String, imageNamed: String) {
@@ -234,5 +258,16 @@ struct HCNavigationBarItemModel {
         self.title = nil
         self.description = description
         self.imageNamed = imageNamed
+        self.highlightedImageNamed = ""
+    }
+    
+    init(type: HCNavigationBarItemType, position: HCNavigationBarItemPosition, description: String, imageNamed: String, highlightedImageNamed: String) {
+        
+        self.type = type
+        self.position = position
+        self.title = nil
+        self.description = description
+        self.imageNamed = imageNamed
+        self.highlightedImageNamed = highlightedImageNamed
     }
 }

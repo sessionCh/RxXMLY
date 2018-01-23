@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B085D382003A1410091694D /* HCMineHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B085D372003A1410091694D /* HCMineHeaderView.swift */; };
 		1B085D3A2003A1660091694D /* HCMineHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B085D392003A1660091694D /* HCMineHeaderView.xib */; };
+		1B08C00620172DD90037300A /* HCTabbarPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B08C00520172DD90037300A /* HCTabbarPlayView.swift */; };
 		1B0C3EEB1FE51EEA006BD58F /* JsonTemplate.txt in Sources */ = {isa = PBXBuildFile; fileRef = 1B0C3EEA1FE51EEA006BD58F /* JsonTemplate.txt */; };
 		1B0C3EED1FE5204C006BD58F /* HCRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0C3EEC1FE5204C006BD58F /* HCRecommendViewController.swift */; };
 		1B0C3EF01FE52137006BD58F /* HCRefreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0C3EEF1FE52136006BD58F /* HCRefreshable.swift */; };
@@ -28,6 +29,7 @@
 		1B0C3F201FE55F52006BD58F /* HCRecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0C3F1E1FE55F52006BD58F /* HCRecommendCell.swift */; };
 		1B0C3F211FE55F52006BD58F /* HCRecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B0C3F1F1FE55F52006BD58F /* HCRecommendCell.xib */; };
 		1B0C3F241FE57DD7006BD58F /* HCRecommendFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0C3F231FE57DD7006BD58F /* HCRecommendFlowLayout.swift */; };
+		1B0E018E20178AC0004E5E5C /* HCPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0E018D20178AC0004E5E5C /* HCPlayViewController.swift */; };
 		1B15CD1A2005B13F00A9EBFC /* HCSettingCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B15CD192005B13F00A9EBFC /* HCSettingCellModel.swift */; };
 		1B15CD1F2005C07300A9EBFC /* HCSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B15CD1E2005C07300A9EBFC /* HCSettingViewController.swift */; };
 		1B15CD24200614C900A9EBFC /* HCURLNavigatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B15CD23200614C900A9EBFC /* HCURLNavigatorManager.swift */; };
@@ -134,6 +136,7 @@
 /* Begin PBXFileReference section */
 		1B085D372003A1410091694D /* HCMineHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCMineHeaderView.swift; sourceTree = "<group>"; };
 		1B085D392003A1660091694D /* HCMineHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCMineHeaderView.xib; sourceTree = "<group>"; };
+		1B08C00520172DD90037300A /* HCTabbarPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCTabbarPlayView.swift; sourceTree = "<group>"; };
 		1B0C3EEA1FE51EEA006BD58F /* JsonTemplate.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = JsonTemplate.txt; sourceTree = "<group>"; };
 		1B0C3EEC1FE5204C006BD58F /* HCRecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCRecommendViewController.swift; sourceTree = "<group>"; };
 		1B0C3EEF1FE52136006BD58F /* HCRefreshable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCRefreshable.swift; sourceTree = "<group>"; };
@@ -153,6 +156,7 @@
 		1B0C3F1E1FE55F52006BD58F /* HCRecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCRecommendCell.swift; sourceTree = "<group>"; };
 		1B0C3F1F1FE55F52006BD58F /* HCRecommendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCRecommendCell.xib; sourceTree = "<group>"; };
 		1B0C3F231FE57DD7006BD58F /* HCRecommendFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCRecommendFlowLayout.swift; sourceTree = "<group>"; };
+		1B0E018D20178AC0004E5E5C /* HCPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPlayViewController.swift; sourceTree = "<group>"; };
 		1B15CD192005B13F00A9EBFC /* HCSettingCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCSettingCellModel.swift; sourceTree = "<group>"; };
 		1B15CD1E2005C07300A9EBFC /* HCSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCSettingViewController.swift; sourceTree = "<group>"; };
 		1B15CD23200614C900A9EBFC /* HCURLNavigatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCURLNavigatorManager.swift; sourceTree = "<group>"; };
@@ -281,6 +285,22 @@
 				1B15CD23200614C900A9EBFC /* HCURLNavigatorManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		1B08C00320172D9D0037300A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1B08C00520172DD90037300A /* HCTabbarPlayView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1B08C00420172DB10037300A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1B0E018D20178AC0004E5E5C /* HCPlayViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		1B0C3EEE1FE52136006BD58F /* MJRefresh */ = {
@@ -486,6 +506,8 @@
 		1B2C66F71FE26C8B003172BE /* Play */ = {
 			isa = PBXGroup;
 			children = (
+				1B08C00420172DB10037300A /* Controller */,
+				1B08C00320172D9D0037300A /* View */,
 			);
 			path = Play;
 			sourceTree = "<group>";
@@ -1193,6 +1215,7 @@
 				1BA035CF1FE6348600E9892E /* HCRecommendModel.swift in Sources */,
 				1B15CD24200614C900A9EBFC /* HCURLNavigatorManager.swift in Sources */,
 				1B2C67121FE2B9EC003172BE /* UIImage+Color.swift in Sources */,
+				1B0E018E20178AC0004E5E5C /* HCPlayViewController.swift in Sources */,
 				1B1F9EAF1FE4F4C80025D675 /* HCNavTitleable.swift in Sources */,
 				1B6641D41FE4723900DCFFE6 /* HCMineAnchorsable.swift in Sources */,
 				1B0C3F201FE55F52006BD58F /* HCRecommendCell.swift in Sources */,
@@ -1215,6 +1238,7 @@
 				1BD4C6671FE660F700CFBF5C /* HCRecommendFooterView.swift in Sources */,
 				1BD4C6761FE694E800CFBF5C /* HCSquareFlowLayout.swift in Sources */,
 				1B81C0D9200D9C89007E52C3 /* HCBoutiqueIndexCell.swift in Sources */,
+				1B08C00620172DD90037300A /* HCTabbarPlayView.swift in Sources */,
 				1B2C67061FE2788B003172BE /* HCBaseNavigationController.swift in Sources */,
 				1B0C3F0D1FE53577006BD58F /* HCRecommendItemModel.swift in Sources */,
 				1B2C66F91FE26CF8003172BE /* HCMainViewController.swift in Sources */,

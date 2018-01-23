@@ -11,26 +11,52 @@ import Then
 
 class HCMainViewController: UITabBarController {
     
+    private let playView = HCTabbarPlayView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.delegate = self
+    
+        UITabBar.appearance().isTranslucent = false
+        UITabBar.appearance().barTintColor = kThemeWhiteColor
+        UITabBar.appearance().tintColor = kThemeTomatoColor
+        UITabBar.appearance().backgroundImage = UIImage.init()
+        UITabBar.appearance().shadowImage = UIImage.init()
+
+        // 没有效果
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor : kThemeBlackColor], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor : kThemeTomatoColor], for: .selected)
         
+
         // 初始化子控制器
         self.initSubViewControllers()
         
-        // 设置tabBarItem选中与未选中的文字颜色
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor : kThemeWhiteColor], for: UIControlState.normal)
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor : kThemeTomatoColor], for: UIControlState.selected)
-        
-        self.tabBar.tintColor = kThemeTomatoColor
-        self.tabBar.backgroundColor = UIColor.white
+        // 初始化播放按钮
+        self.initPalyView()
     }
 }
 
 // MARK:- 初始化
 extension HCMainViewController {
     
+    // MARK:- 初始化播放按钮
+    private func initPalyView() {
+        
+        view.addSubview(playView)
+        
+        playView.didClickedBtn = { [weak self] (isPlay) in
+            guard let `self` = self else { return }
+            self.jump2Paly()
+        }
+        
+        playView.snp.makeConstraints { (make) in
+            make.width.height.equalTo(HCTabbarPlayView.with())
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-MetricGlobal.padding / 2)
+        }
+    }
+
     // MARK:- 初始化控制器
     private func initSubViewControllers() {
         
@@ -49,8 +75,12 @@ extension HCMainViewController {
             let vc = clsType.init()
             vc.title = moduleNameArr[i]
             
-            let item: UITabBarItem = UITabBarItem(title: nil, image: UIImage(named: "tabbar_icon_"+lowStr+"_normal"), selectedImage: UIImage(named: "tabbar_icon_"+lowStr+"_pressed"))
+            let image = UIImage(named: "tabbar_icon_" + lowStr + "_normal")
+            let selectedImage = UIImage(named: "tabbar_icon_" + lowStr + "_pressed")
+            
+            let item: UITabBarItem = UITabBarItem(title: nil, image: image, selectedImage: selectedImage)
             item.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: -8, right: 0)
+            
             vc.tabBarItem = item
             let navVc = HCBaseNavigationController(rootViewController: vc)
             tabArr.append(navVc)
@@ -79,14 +109,14 @@ extension HCMainViewController {
 extension HCMainViewController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        if tabBarController.selectedIndex == 2 {
+    
+        if viewController == tabBarController.viewControllers![2] {
             return false
         }
         return true
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        
     }
 }
 
@@ -97,6 +127,13 @@ extension HCMainViewController {
     func jump2Login() {
         
         let VC = HCBaseNavigationController(rootViewController: HCLoginViewController())
+        self.present(VC, animated: true, completion: nil)
+    }
+    
+    // MARK:- 播放
+    func jump2Paly() {
+        
+        let VC = HCBaseNavigationController(rootViewController: HCPlayViewController())
         self.present(VC, animated: true, completion: nil)
     }
 }
