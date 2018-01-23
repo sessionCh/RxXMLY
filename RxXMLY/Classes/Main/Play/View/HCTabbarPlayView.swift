@@ -32,7 +32,7 @@ class HCTabbarPlayView: UIView {
     private let layerView = UIView().then {
         $0.layer.shadowColor = kThemeGreyColor.cgColor
         $0.layer.shadowOpacity = 0.8
-        $0.layer.shadowOffset = CGSize(width: 0, height: -3)
+        $0.layer.shadowOffset = CGSize(width: 0, height: -1)
         $0.layer.shadowRadius = 3
     }
     

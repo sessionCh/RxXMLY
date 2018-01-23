@@ -27,7 +27,11 @@ class HCMainViewController: UITabBarController {
         // 没有效果
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor : kThemeBlackColor], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor : kThemeTomatoColor], for: .selected)
-        
+
+        self.tabBar.layer.shadowColor = kThemeGreyColor.cgColor
+        self.tabBar.layer.shadowOpacity = 0.8
+        self.tabBar.layer.shadowOffset = CGSize(width: 0, height: -1)
+        self.tabBar.layer.shadowRadius = 3
 
         // 初始化子控制器
         self.initSubViewControllers()
