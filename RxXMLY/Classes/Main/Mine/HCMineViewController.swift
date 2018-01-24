@@ -30,7 +30,7 @@ fileprivate struct Metric {
     static let cellHeight: CGFloat = 49.0
     static let sectionHeight: CGFloat = 10.0
     
-    static let marginTop: CGFloat = 100.0 // 调整顶部背景图片显示范围
+    static let marginTop: CGFloat = 90.0 // 调整顶部背景图片位置
     static let navbarColorChangePoint: CGFloat = -Metric.marginTop / 2 // 调整导航栏渐变开始位置
 }
 
@@ -55,13 +55,23 @@ class HCMineViewController: HCBaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.navigationController?.navigationBar.backgroundColor = .clear
+        self.navigationController?.navigationBar.barTintColor = .clear
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.scrollViewDidScroll(tableView)
+        
+        if let tabbarVC = self.tabBarController as? HCMainViewController {
+            tabbarVC.isHiddenPlayView(false)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
+        // 修正 Push 后导航栏灰色
+        self.navigationController?.navigationBar.backgroundColor = kThemeWhiteColor
+        self.navigationController?.navigationBar.barTintColor = kThemeWhiteColor
+        // 移除
         self.navigationController?.navigationBar.Mg_reset()
     }
 
@@ -129,7 +139,7 @@ extension HCMineViewController {
         let tableHeaderView = UIView(frame: headerView.bounds)
         tableHeaderView.addSubview(headerView)
         tableView.tableHeaderView = tableHeaderView
-        tableView.tableFooterView = UIView()
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 60.0))
         // 调整视图范围
         tableView.contentInset = UIEdgeInsetsMake(Metric.marginTop, 0, 0, 0)
         // 调整滚动条范围
@@ -196,8 +206,12 @@ extension HCMineViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         tableView.deselectRow(at: indexPath, animated: true)
         
+        // 充当 SectionHeader 数据模型
+        if indexPath.row == 0 { return }
+
         if indexPath.section == 3 && indexPath.row == 2 {
             self.jump2Setting()
         } else {
@@ -247,6 +261,10 @@ extension HCMineViewController {
     func jump2Setting() {
         
         let VC = HCSettingViewController()
+        VC.hidesBottomBarWhenPushed = true
+        if let tabbarVC = self.tabBarController as? HCMainViewController {
+            tabbarVC.isHiddenPlayView(true)
+        }
         self.navigationController?.pushViewController(VC, animated: true)
     }
 }

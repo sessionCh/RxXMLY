@@ -39,16 +39,28 @@ class HCMainViewController: UITabBarController {
         // 初始化播放按钮
         self.initPalyView()
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        view.bringSubview(toFront: playView)
+    }
 }
 
 // MARK:- 初始化
 extension HCMainViewController {
     
+    // MARK:- 是否显示播放按钮
+    func isHiddenPlayView(_ isHidden: Bool) {
+      
+        playView.isHidden = isHidden
+    }
+    
     // MARK:- 初始化播放按钮
     private func initPalyView() {
         
         view.addSubview(playView)
-        
+        view.bringSubview(toFront: playView)
+
         playView.didClickedBtn = { [weak self] (isPlay) in
             guard let `self` = self else { return }
             self.jump2Paly()

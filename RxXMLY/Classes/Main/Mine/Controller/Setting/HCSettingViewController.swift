@@ -43,6 +43,10 @@ class HCSettingViewController: HCBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 修正 Push 后导航栏灰色
+        self.navigationController?.navigationBar.backgroundColor = kThemeWhiteColor
+        self.navigationController?.navigationBar.barTintColor = kThemeWhiteColor
+
         initEnableMudule()
         initUI()
         bindUI()
@@ -77,11 +81,11 @@ extension HCSettingViewController {
     private func initUI() {
         
         self.title = "设置"
-
+        
         let tableView = UITableView(frame: .zero, style: .plain)
-        tableView.backgroundColor = .clear
+        tableView.backgroundColor = kThemeGainsboroColor
         tableView.separatorStyle = .none
-        tableView.tableFooterView = UIView()
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 60.0))
         view.addSubview(tableView)
         self.tableView = tableView
         
@@ -130,7 +134,11 @@ extension HCSettingViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        // 充当 SectionHeader 数据模型
+        if indexPath.row == 0 { return }
     }
 }
 
