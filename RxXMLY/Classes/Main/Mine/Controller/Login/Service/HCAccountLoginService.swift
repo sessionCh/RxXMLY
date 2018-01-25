@@ -18,7 +18,7 @@ class HCAccountLoginService {
     // 验证账号是否合法
     func validationAccount(_ account: String) -> Observable<HCAccountLoginResult> {
         
-        if InputValidator.isValidEmail(email: account) == false {
+        if HCInputValidator.isValidEmail(email: account) == false {
             return Observable.just(HCAccountLoginResult.failed(message: "账号非法"))
         }
       
@@ -28,7 +28,7 @@ class HCAccountLoginService {
     // 验证密码是否合法
     func validationPassword(_ passsword: String) -> Observable<HCAccountLoginResult> {
         
-        if InputValidator.isvalidationPassword(password: passsword) == false {
+        if HCInputValidator.isvalidationPassword(password: passsword) == false {
             return Observable.just(HCAccountLoginResult.failed(message: "密码非法"))
         }
         
@@ -48,7 +48,7 @@ class HCAccountLoginService {
     // 登录按钮是否可用
     func loginBtnEnable(account: String, password: String) -> Observable<Bool> {
         
-        if InputValidator.isValidEmail(email: account) && InputValidator.isvalidationPassword(password: password) {
+        if HCInputValidator.isValidEmail(email: account) && HCInputValidator.isvalidationPassword(password: password) {
             return Observable.just(true)
         } else {
             return Observable.just(false)

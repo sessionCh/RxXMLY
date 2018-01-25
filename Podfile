@@ -37,6 +37,7 @@ target 'RxXMLY' do
     pod 'SwiftyColor'
 #    pod 'MLeaksFinder'              # 检测内存泄漏
     pod 'URLNavigator'
+    pod 'TTRangeSlider'
 
     # SDK
     

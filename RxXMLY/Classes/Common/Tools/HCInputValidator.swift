@@ -1,5 +1,5 @@
 //
-//  InputValidator.swift
+//  HCInputValidator.swift
 //  RxXMLY
 //
 //  Created by sessionCh on 2017/12/29.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InputValidator: NSObject {
+class HCInputValidator: NSObject {
 
     class func isValidEmail(email: String) -> Bool {
         

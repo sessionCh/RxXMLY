@@ -153,7 +153,7 @@ extension HCAccountLoginable where Self : HCAccountLoginViewController {
 //        let fieldObservable = field.rx.text.skip(1).throttle(0.75, scheduler: MainScheduler.instance).map { (input: String?) -> Bool in
 //            guard let input  = input else { return false }
 //            HCLog("\(input)")
-//            return InputValidator.isValidEmail(email: input)
+//            return HCInputValidator.isValidEmail(email: input)
 //        }
 
 //        fieldObservable.map { (valid: Bool) -> UIColor in
@@ -185,7 +185,7 @@ extension HCAccountLoginable where Self : HCAccountLoginViewController {
 //        let fieldObservable = field.rx.text.skip(1).throttle(0.75, scheduler: MainScheduler.instance).map { (input: String?) -> Bool in
 //            guard let input  = input else { return false }
 //            HCLog("\(input)")
-//            return InputValidator.isvalidationPassword(password: input)
+//            return HCInputValidator.isvalidationPassword(password: input)
 //        }
         
 //        fieldObservable.map { (valid: Bool) -> UIColor in

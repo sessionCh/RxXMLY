@@ -39,7 +39,7 @@ class HCMainViewController: UITabBarController {
         // 初始化播放按钮
         self.initPalyView()
     }
-    
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         view.bringSubview(toFront: playView)

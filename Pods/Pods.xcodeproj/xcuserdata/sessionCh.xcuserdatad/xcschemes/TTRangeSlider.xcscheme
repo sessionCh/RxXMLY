@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DE874A99677D06A11E5FCC43C238A7D5"
-               BuildableName = "SwiftyJSON.framework"
-               BlueprintName = "SwiftyJSON"
+               BlueprintIdentifier = "E86A9F4C831EEE122A82C7CE19D4011B"
+               BuildableName = "TTRangeSlider.framework"
+               BlueprintName = "TTRangeSlider"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DE874A99677D06A11E5FCC43C238A7D5"
-            BuildableName = "SwiftyJSON.framework"
-            BlueprintName = "SwiftyJSON"
+            BlueprintIdentifier = "E86A9F4C831EEE122A82C7CE19D4011B"
+            BuildableName = "TTRangeSlider.framework"
+            BlueprintName = "TTRangeSlider"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

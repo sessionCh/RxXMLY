@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E0F7C3A0D206693D3514C6AA506E946F"
+               BlueprintIdentifier = "CCEEA2E517C9CB166C75BAF4A263A7CF"
                BuildableName = "TYPagerController.framework"
                BlueprintName = "TYPagerController"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E0F7C3A0D206693D3514C6AA506E946F"
+            BlueprintIdentifier = "CCEEA2E517C9CB166C75BAF4A263A7CF"
             BuildableName = "TYPagerController.framework"
             BlueprintName = "TYPagerController"
             ReferencedContainer = "container:Pods.xcodeproj">

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1860698B2FE844DEE210A301D6D24195"
+               BlueprintIdentifier = "0B620384669DABB34C3C5B96EA60F12A"
                BuildableName = "TYCyclePagerView.framework"
                BlueprintName = "TYCyclePagerView"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1860698B2FE844DEE210A301D6D24195"
+            BlueprintIdentifier = "0B620384669DABB34C3C5B96EA60F12A"
             BuildableName = "TYCyclePagerView.framework"
             BlueprintName = "TYCyclePagerView"
             ReferencedContainer = "container:Pods.xcodeproj">

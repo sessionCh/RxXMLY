@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EB05BD8CBA4937E09AC8D1DDD5BC4997"
+               BlueprintIdentifier = "C76585AF9502709B32A11133189DDA23"
                BuildableName = "URLNavigator.framework"
                BlueprintName = "URLNavigator"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EB05BD8CBA4937E09AC8D1DDD5BC4997"
+            BlueprintIdentifier = "C76585AF9502709B32A11133189DDA23"
             BuildableName = "URLNavigator.framework"
             BlueprintName = "URLNavigator"
             ReferencedContainer = "container:Pods.xcodeproj">

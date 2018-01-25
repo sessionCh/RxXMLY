@@ -23,7 +23,7 @@ enum HCRefreshStatus {
 
 protocol OutputRefreshProtocol {
 
-    var refreshStatus : Variable<HCRefreshStatus> {get}
+    var refreshStatus : Variable<HCRefreshStatus> { get }
 }
 extension OutputRefreshProtocol {
     func autoSetRefreshHeaderStatus(header: MJRefreshHeader?, footer: MJRefreshFooter?) -> Disposable {

@@ -16,7 +16,7 @@ fileprivate struct Metric {
     
     static let width: CGFloat = 60.0    // 控件大小
     static let spaceWidth: CGFloat = 8.0    // 圆环间距
-    static let iconWidth: CGFloat = 20.0    // 播放按钮大小
+    static let iconWidth: CGFloat = Metric.width - Metric.spaceWidth * 2 + 2   // 播放按钮大小
 }
 
 class HCTabbarPlayView: UIView {
@@ -110,7 +110,8 @@ extension HCTabbarPlayView {
         
         iconView.snp.makeConstraints { (make) in
             make.width.height.equalTo(Metric.iconWidth)
-            make.center.equalToSuperview()
+            make.left.equalToSuperview().offset(Metric.spaceWidth - 1)
+            make.top.equalToSuperview().offset(Metric.spaceWidth - 1)
         }
     }
     
