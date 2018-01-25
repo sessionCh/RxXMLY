@@ -27,7 +27,7 @@
 
 #### 动画演示
 
-![喜马拉雅演示动画](http://upload-images.jianshu.io/upload_images/1126310-6fd7c54dc6ffff12.gif?imageMogr2/auto-orient/strip)
+![喜马拉雅演示动画](http://ovy8j7ypb.bkt.clouddn.com/1.25%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85%E5%8A%A8%E6%80%81%E5%9B%BE.gif)
 
 #### 源码下载
 
