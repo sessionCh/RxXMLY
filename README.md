@@ -27,7 +27,7 @@
 
 #### 动画演示
 
-![喜马拉雅演示动画](http://ovy8j7ypb.bkt.clouddn.com/1.25%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85%E5%8A%A8%E6%80%81%E5%9B%BE.gif)
+![喜马拉雅演示动画](http://ovy8j7ypb.bkt.clouddn.com/1.25%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85%E6%BC%94%E7%A4%BA%E5%9B%BEgithub.gif)
 
 #### 源码下载
 
@@ -65,6 +65,7 @@
 ![高仿喜马拉雅截图1-3](http://upload-images.jianshu.io/upload_images/1126310-9c5eec8b7519c9a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ![高仿喜马拉雅截图1-4](http://upload-images.jianshu.io/upload_images/1126310-7e4192dd98de6071.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 #### 项目结构
 
