@@ -27,7 +27,7 @@
 
 #### 动画演示
 
-![喜马拉雅演示动画](http://ovy8j7ypb.bkt.clouddn.com/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85-%E6%BC%94%E7%A4%BA%E5%8A%A8%E7%94%BBiPhone%20X.gif)
+![喜马拉雅演示动画](http://ovy8j7ypb.bkt.clouddn.com/1.25%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85%E6%BC%94%E7%A4%BA%E5%9B%BEgithub.gif)
 
 #### 源码下载
 
@@ -46,9 +46,10 @@
 
 当前已完成以下部分：
 
-- 1.【首页-推荐】模块，其他模块可类比；该模块从数据抓取，数组处理和数据显示，均采用 MVVM 模式开发，对于学习 RxSwift 进行 MVVM 开发比较有借鉴作用；
+- 1.【首页-推荐、精品】模块，其他模块可类比；该模块从数据抓取，数组处理和数据显示，均采用 MVVM 模式开发，对于学习 RxSwift 进行 MVVM 开发比较有借鉴作用；
 - 2.【登录】模块，比较形象的展现了 ***函数响应式编程*** 在进行状态转化方面的优势
-- 3.【我的】模块，简易版 MVVM 模式开发，实现了比较典型的导航栏渐变和顶部图片下拉缩放的效果，如：QQ 空间，喜马拉雅 FM 我的页面的效果；
+- 3.【我的、设置】模块，简易版 MVVM 模式开发，实现了比较典型的导航栏渐变和顶部图片下拉缩放的效果，如：QQ 空间，喜马拉雅 FM 我的页面的效果；
+- 4.【播放页面】模块待完善。
 
 未来计划从以下两个方面着手：
 
@@ -57,15 +58,18 @@
 
 #### 效果截图
 
-![高仿喜马拉雅截图1-1](http://ovy8j7ypb.bkt.clouddn.com/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85-%E6%8E%A8%E8%8D%90%E5%88%97%E8%A1%A81-1.png)
+![高仿喜马拉雅截图1-1](http://upload-images.jianshu.io/upload_images/1126310-d4fa407856a53136.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![高仿喜马拉雅截图1-2](http://ovy8j7ypb.bkt.clouddn.com/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85-%E6%8E%A8%E8%8D%90%E5%88%97%E8%A1%A81-2.png)
+![高仿喜马拉雅截图1-2](http://upload-images.jianshu.io/upload_images/1126310-34850bc3e862281c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![高仿喜马拉雅截图1-3](http://upload-images.jianshu.io/upload_images/1126310-9c5eec8b7519c9a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![高仿喜马拉雅截图1-4](http://upload-images.jianshu.io/upload_images/1126310-7e4192dd98de6071.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 #### 项目结构
 
-![喜马拉雅-目录结构](http://ovy8j7ypb.bkt.clouddn.com/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85-%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95.png)
+![喜马拉雅-目录结构](http://upload-images.jianshu.io/upload_images/1126310-c54e0e33682b4ccb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![喜马拉雅-第三方库](http://ovy8j7ypb.bkt.clouddn.com/%E5%96%9C%E9%A9%AC%E6%8B%89%E9%9B%85-%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93.png)
-
+![喜马拉雅-第三方库](http://upload-images.jianshu.io/upload_images/1126310-9df8a179885aab1d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
