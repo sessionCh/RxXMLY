@@ -64,7 +64,7 @@ class HCPlayProgressView: UIView, NibLoadable {
 
         sliderMinValue = 0
         sliderMaxValue = 3661
-        sliderValue.value = 600
+        sliderValue.value = 0
         sliderValue.asObservable().subscribe { [weak self] (_) in
             guard let `self` = self else { return }
             self.leftLab.text = HCTimeTools.formatPlayTime(secounds: self.sliderValue.value)

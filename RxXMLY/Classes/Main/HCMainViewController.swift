@@ -69,7 +69,11 @@ extension HCMainViewController {
         playView.snp.makeConstraints { (make) in
             make.width.height.equalTo(HCTabbarPlayView.with())
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-MetricGlobal.padding / 2)
+            if is_iPhoneX {
+                make.bottom.equalToSuperview().offset(-MetricGlobal.padding / 2 - iPhoneXBottomH)
+            } else {
+                make.bottom.equalToSuperview().offset(-MetricGlobal.padding / 2)
+            }
         }
     }
 

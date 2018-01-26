@@ -91,7 +91,6 @@
 		1BA035D31FE642C200E9892E /* HCRecommendHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA035D21FE642C200E9892E /* HCRecommendHeaderView.xib */; };
 		1BA3F8261FE3A8BE00A06CEB /* UIView+Corner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA3F8251FE3A8BE00A06CEB /* UIView+Corner.swift */; };
 		1BC9B7CC2018C89300569749 /* HCPlayProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BC9B7CB2018C89300569749 /* HCPlayProgressView.xib */; };
-		1BC9B7CE2018CF7D00569749 /* HCPlaySliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC9B7CD2018CF7D00569749 /* HCPlaySliderView.swift */; };
 		1BD029071FE2F71800461204 /* HCNavUniversalable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD029061FE2F71800461204 /* HCNavUniversalable.swift */; };
 		1BD4C6671FE660F700CFBF5C /* HCRecommendFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD4C6661FE660F700CFBF5C /* HCRecommendFooterView.swift */; };
 		1BD4C6691FE6610B00CFBF5C /* HCRecommendFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BD4C6681FE6610B00CFBF5C /* HCRecommendFooterView.xib */; };
@@ -230,7 +229,6 @@
 		1BA035D21FE642C200E9892E /* HCRecommendHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCRecommendHeaderView.xib; sourceTree = "<group>"; };
 		1BA3F8251FE3A8BE00A06CEB /* UIView+Corner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Corner.swift"; sourceTree = "<group>"; };
 		1BC9B7CB2018C89300569749 /* HCPlayProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCPlayProgressView.xib; sourceTree = "<group>"; };
-		1BC9B7CD2018CF7D00569749 /* HCPlaySliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPlaySliderView.swift; sourceTree = "<group>"; };
 		1BD029061FE2F71800461204 /* HCNavUniversalable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCNavUniversalable.swift; sourceTree = "<group>"; };
 		1BD4C6661FE660F700CFBF5C /* HCRecommendFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCRecommendFooterView.swift; sourceTree = "<group>"; };
 		1BD4C6681FE6610B00CFBF5C /* HCRecommendFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCRecommendFooterView.xib; sourceTree = "<group>"; };
@@ -307,7 +305,6 @@
 				1BC9B7CB2018C89300569749 /* HCPlayProgressView.xib */,
 				1B3B179F2018354E00386F84 /* HCPlayHeaderView.swift */,
 				1B3B17A12018355C00386F84 /* HCPlayHeaderView.xib */,
-				1BC9B7CD2018CF7D00569749 /* HCPlaySliderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1216,7 +1213,6 @@
 				1B0C3EEB1FE51EEA006BD58F /* JsonTemplate.txt in Sources */,
 				1BEB29471FE2C49C001F7C1B /* HCNavDownloadable.swift in Sources */,
 				1B0C3F181FE558D4006BD58F /* HCScrollBarView.swift in Sources */,
-				1BC9B7CE2018CF7D00569749 /* HCPlaySliderView.swift in Sources */,
 				1B4D79AF200B1F1B00023853 /* HCBoutiqueModel.swift in Sources */,
 				1B6C1F60200F3539003C1F87 /* HCBoutiqueSingleIndexFlowLayout.swift in Sources */,
 				1BD653732003400500B4BD26 /* HCSettingCell.swift in Sources */,
