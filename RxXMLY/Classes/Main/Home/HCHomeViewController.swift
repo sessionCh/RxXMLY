@@ -25,7 +25,7 @@ fileprivate struct Metric {
 
 class HCHomeViewController: HCBaseViewController {
     
-    private var myTitleView: UIView?
+    private var titleView: UIView?
 
     private let titles: [String] = ["分类", "推荐", "精品", "直播", "广播"]
     private let pageVC = TYTabPagerController().then {
@@ -53,7 +53,7 @@ class HCHomeViewController: HCBaseViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        myTitleView?.snp.makeConstraints { (make) in
+        titleView?.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview().offset(-0.5) // 修正偏差
             make.left.equalToSuperview().offset(Metric.searchBarLeft)
             make.right.equalToSuperview().offset(-Metric.searchBarRight)
@@ -64,11 +64,16 @@ class HCHomeViewController: HCBaseViewController {
 // MARK:- 初始化协议
 extension HCHomeViewController: HCNavTitleable {
     
+    static func pagerBarHeight() -> CGFloat {
+        
+        return Metric.pagerBarHeight
+    }
+
     // MARK:- 标题组件
     private func initTitleView() {
         
-        let homeNavBar = HCHomeNavBar()
-        homeNavBar.itemClicked = { [weak self] (model) in
+        let homeNavigationBar = HCHomeNavigationBar()
+        homeNavigationBar.itemClicked = { [weak self] (model) in
             
             guard let `self` = self else { return }
 
@@ -85,7 +90,7 @@ extension HCHomeViewController: HCNavTitleable {
             default: break
             }
         }
-        myTitleView = self.titleView(titleView: homeNavBar)
+        titleView = self.titleView(titleView: homeNavigationBar)
     }
     
     // MARK:- 分页控制器
@@ -116,13 +121,17 @@ extension HCHomeViewController: TYTabPagerControllerDelegate, TYTabPagerControll
     func tabPagerController(_ tabPagerController: TYTabPagerController, controllerFor index: Int, prefetching: Bool) -> UIViewController {
  
         if index == 1 {
-            let recommendVC = HCRecommendViewController()
-            recommendVC.view.backgroundColor = kThemeSnowColor
-            return recommendVC
+            let VC = HCRecommendViewController()
+            VC.view.backgroundColor = kThemeSnowColor
+            return VC
+        } else if index == 2 {
+            let VC = HCBoutiqueViewController()
+            VC.view.backgroundColor = kThemeSnowColor
+            return VC
         }
-        let vc = UIViewController()
-        vc.view.backgroundColor = kThemeWhiteColor
-        return vc
+        let VC = UIViewController()
+        VC.view.backgroundColor = kThemeWhiteColor
+        return VC
     }
     
     func tabPagerController(_ tabPagerController: TYTabPagerController, titleFor index: Int) -> String {

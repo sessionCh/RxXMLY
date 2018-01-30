@@ -10,9 +10,9 @@ import UIKit
 
 protocol NibLoadable { }
 
-extension NibLoadable where Self : UIView{
+extension NibLoadable where Self : UIView {
     
-    static func loadFromNib(_ nibNmae :String? = nil) -> Self{
+    static func loadFromNib(_ nibNmae :String? = nil) -> Self {
         return Bundle.main.loadNibNamed(nibNmae ?? "\(self)", owner: nil, options: nil)?.first as! Self
     }
 }

@@ -24,8 +24,8 @@ extension HCFindViewController: HCNavUniversalable {
     private func initEnableMudule() {
         
         // 消息 搜索
-        let models = [HCNavBarItemMetric.message,
-                      HCNavBarItemMetric.search]
+        let models = [HCNavigationBarItemMetric.message,
+                      HCNavigationBarItemMetric.search]
         self.universals(modelArr: models) { (model) in HCLog(model.description) }
     }
 }

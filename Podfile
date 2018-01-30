@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+# platform :ios, '9.1'
 
 target 'RxXMLY' do
     use_frameworks!
@@ -36,6 +36,8 @@ target 'RxXMLY' do
     pod 'ReusableKit'
     pod 'SwiftyColor'
 #    pod 'MLeaksFinder'              # 检测内存泄漏
+    pod 'URLNavigator'
+    pod 'TTRangeSlider'
 
     # SDK
     

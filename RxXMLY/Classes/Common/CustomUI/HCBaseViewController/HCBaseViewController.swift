@@ -17,7 +17,7 @@ class HCBaseViewController: UIViewController {
         super.viewDidLoad()
         HCLog("init: \(type(of: self))")
 
-        view.backgroundColor = .white
+        view.backgroundColor = kThemeGainsboroColor
     }
     
     deinit {

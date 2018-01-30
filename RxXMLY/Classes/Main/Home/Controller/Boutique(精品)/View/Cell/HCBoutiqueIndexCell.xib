@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HCBoutiqueIndexCell" customModule="RxXMLY" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="60" height="35"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="60" height="35"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAh-2I-KhI">
+                        <rect key="frame" x="12.5" y="9.5" width="35.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6v-db-jBz">
+                        <rect key="frame" x="10" y="34" width="40" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="NFa-fX-W29"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="l6v-db-jBz" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Ji3-EF-kym"/>
+                <constraint firstItem="gAh-2I-KhI" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Leg-Sf-U9i"/>
+                <constraint firstItem="l6v-db-jBz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="ckX-Gi-dzP"/>
+                <constraint firstItem="gAh-2I-KhI" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="tqY-gY-KV7"/>
+                <constraint firstAttribute="bottom" secondItem="l6v-db-jBz" secondAttribute="bottom" constant="0.5" id="w1Q-Im-KT1"/>
+            </constraints>
+            <connections>
+                <outlet property="bottomLine" destination="l6v-db-jBz" id="UnJ-OG-BI4"/>
+                <outlet property="titleLab" destination="gAh-2I-KhI" id="ZuH-Sx-ufs"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

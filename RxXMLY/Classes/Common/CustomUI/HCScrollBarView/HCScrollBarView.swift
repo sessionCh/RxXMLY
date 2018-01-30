@@ -37,21 +37,10 @@ class HCScrollBarView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-}
-extension HCScrollBarView {
-    
-    func bindUI() {
-        
-        // 刷新轮播图
-        picArr.asObservable().subscribe { (_) in
-            self.pagerView.reloadData()
-            self.pageControl.numberOfPages = self.picArr.value.count
-            }.disposed(by: rx.disposeBag)
-    }
 }
 
 extension HCScrollBarView {
+    
     
     private func initUI() {
         
@@ -73,6 +62,15 @@ extension HCScrollBarView {
         pagerView.register(UINib(nibName: String(describing: HCScrollBarCell.self), bundle: nil), forCellWithReuseIdentifier: String(describing: HCScrollBarCell.self))
         pagerView.delegate = self
         pagerView.dataSource = self
+    }
+
+    func bindUI() {
+        
+        // 刷新轮播图
+        picArr.asObservable().subscribe { (_) in
+            self.pagerView.reloadData()
+            self.pageControl.numberOfPages = self.picArr.value.count
+            }.disposed(by: rx.disposeBag)
     }
 }
 

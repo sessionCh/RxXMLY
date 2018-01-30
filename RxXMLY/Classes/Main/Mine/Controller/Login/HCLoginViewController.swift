@@ -63,14 +63,11 @@ extension HCLoginViewController: HCNavBackable, HCNavUniversalable {
     private func initEnableMudule() {
         
         // 登录页面 返回、注册
-        let models = [HCNavBarItemMetric.back,
-                      HCNavBarItemMetric.loginRegister]
+        let models = [HCNavigationBarItemMetric.back,
+                      HCNavigationBarItemMetric.loginRegister]
         self.universals(modelArr: models) { [weak self] (model) in
-            
             guard let `self` = self else { return }
-
             HCLog(model.description)
-            
             let type = model.type
             switch type {
             case .back:

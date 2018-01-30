@@ -18,62 +18,78 @@ fileprivate struct Metric {
 }
 
 // MARK:- 导航栏 通用组件
-struct HCNavBarItemMetric {
+struct HCNavigationBarItemMetric {
     
     // Left
-    static let back = HCNavBarItemModel(type: .back,
+    static let back = HCNavigationBarItemModel(type: .back,
                                         position: .left,
                                         description: "返回",
                                         imageNamed: "icon_back_h")
     
-    static let message = HCNavBarItemModel(type: .message,
+    static let downBack = HCNavigationBarItemModel(type: .back,
+                                               position: .left,
+                                               description: "返回",
+                                               imageNamed: "playpage_icon_down_white", highlightedImageNamed: "playpage_icon_down_white_HL")
+
+    static let message = HCNavigationBarItemModel(type: .message,
                                            position: .left,
                                            description: "消息",
                                            imageNamed: "top_message_n")
     
-    static let meMessage = HCNavBarItemModel(type: .message,
+    static let meMessage = HCNavigationBarItemModel(type: .message,
                                            position: .left,
                                            description: "消息",
                                            imageNamed: "meMesNor")
     
-    static let setting = HCNavBarItemModel(type: .setting,
+    static let setting = HCNavigationBarItemModel(type: .setting,
                                            position: .left,
                                            description: "设置",
                                            imageNamed: "meSetNor")
 
     // Right
-    static let history = HCNavBarItemModel(type: .history,
+    
+    static let share = HCNavigationBarItemModel(type: .share,
+                                                position: .right,
+                                                description: "分享",
+                                                imageNamed: "playpage_icon_share_white", highlightedImageNamed: "playpage_icon_share_white_HL")
+    
+    static let more = HCNavigationBarItemModel(type: .more,
+                                               position: .right,
+                                               description: "工具",
+                                               imageNamed: "playpage_icon_more_white", highlightedImageNamed: "playpage_icon_more_white_HL")
+    
+    static let history = HCNavigationBarItemModel(type: .history,
                                            position: .right,
                                            description: "历史记录",
                                            imageNamed: "top_history_n")
 
-    static let download = HCNavBarItemModel(type: .download,
+    static let download = HCNavigationBarItemModel(type: .download,
                                             position: .right,
                                             description: "下载",
                                             imageNamed: "top_download_n")
 
-    static let search = HCNavBarItemModel(type: .search,
+    static let search = HCNavigationBarItemModel(type: .search,
                                           position: .right,
                                           description: "搜索",
                                           imageNamed: "icon_search_n")
     
-    static let homeSearchBar = HCNavBarItemModel(type: .homeSearchBar,
+    static let homeSearchBar = HCNavigationBarItemModel(type: .homeSearchBar,
                                           position: .center,
                                           description: "首页搜索栏",
                                           imageNamed: "")
     
-    static let mineAnchors = HCNavBarItemModel(type: .mineAnchors,
+    static let mineAnchors = HCNavigationBarItemModel(type: .mineAnchors,
                                              position: .right,
                                              description: "主播工作台",
                                              imageNamed: "")
     
-    static let searchBar = HCNavBarItemModel(type: .searchBar(index: 0, desc: ""),
+    static let searchBar = HCNavigationBarItemModel(type: .searchBar(index: 0, desc: ""),
                                                  position: .center,
                                                  description: "搜索页面",
                                                  imageNamed: "")
     
     // 登录页面-注册
-    static let loginRegister = HCNavBarItemModel(type: .title(index: 0, title: "注册"),
+    static let loginRegister = HCNavigationBarItemModel(type: .title(index: 0, title: "注册"),
                                           position: .right,
                                           title: "注册",
                                           description: "登录页面-注册")
@@ -87,7 +103,7 @@ protocol HCNavUniversalable {
 extension HCNavUniversalable where Self : UIView {
     
     // MARK:- 导航栏 通用组件
-    func universal(model: HCNavBarItemModel, onNext: @escaping (_ model: HCNavBarItemModel)->Void) -> UIView {
+    func universal(model: HCNavigationBarItemModel, onNext: @escaping (_ model: HCNavigationBarItemModel)->Void) -> UIView {
         
         // 创建组件
         let view = UIView().then {
@@ -129,22 +145,28 @@ extension HCNavUniversalable where Self : UIView {
 extension HCNavUniversalable where Self : UIViewController {
     
     // MARK:- 导航栏 通用组件
-    func universal(model: HCNavBarItemModel, onNext: @escaping (_ model: HCNavBarItemModel)->Void) {
+    func universal(model: HCNavigationBarItemModel, onNext: @escaping (_ model: HCNavigationBarItemModel)->Void) {
 
         var item: UIBarButtonItem
         
         if model.title != nil {
             // 标题
             item = UIBarButtonItem(title: model.title, style: .plain, target: nil, action: nil)
-            
+            item.rx.tap.do(onNext: {
+                onNext(model)
+            }).subscribe().disposed(by: rx.disposeBag)
+
         } else {
             // 图标
-            item = UIBarButtonItem(image: UIImage(named: model.imageNamed), style: .plain, target: nil, action: nil)
-        }
-        
-        item.rx.tap.do(onNext: {
-            onNext(model)
-        }).subscribe().disposed(by: rx.disposeBag)
+            let btn = UIButton(type: .custom)
+            btn.setBackgroundImage(UIImage(named: model.imageNamed), for: .normal)
+            if model.highlightedImageNamed.characters.count > 0 {
+                btn.setBackgroundImage(UIImage(named: model.highlightedImageNamed), for: .highlighted)
+            }
+            item = UIBarButtonItem(customView: btn)
+            btn.rx.tap.do(onNext: {
+                onNext(model)
+            }).subscribe().disposed(by: rx.disposeBag)        }
         
         switch model.position {
             
@@ -176,7 +198,7 @@ extension HCNavUniversalable where Self : UIViewController {
     }
     
     // MARK:- 导航栏 通用组件
-    func universals(modelArr: [HCNavBarItemModel], onNext: @escaping (_ model: HCNavBarItemModel)->Void) {
+    func universals(modelArr: [HCNavigationBarItemModel], onNext: @escaping (_ model: HCNavigationBarItemModel)->Void) {
         
         modelArr.enumerated().forEach { (index, element) in
             
@@ -191,16 +213,18 @@ extension HCNavUniversalable where Self : UIViewController {
 }
 
 // MARK:- 导航栏 通用组件 数据模型
-struct HCNavBarItemModel {
+struct HCNavigationBarItemModel {
     
-    enum HCNavBarItemPosition {
+    enum HCNavigationBarItemPosition {
         case left
         case center
         case right
     }
     
-    enum HCNavBarItemType {
+    enum HCNavigationBarItemType {
         case back
+        case share
+        case more
         case title(index: Int, title: String)
         case message
         case history
@@ -212,27 +236,40 @@ struct HCNavBarItemModel {
         case mineAnchors                // 主播工作台
     }
     
-    var type: HCNavBarItemType
-    var position: HCNavBarItemPosition
+    var type: HCNavigationBarItemType
+    var position: HCNavigationBarItemPosition
     var title: String?
     var description: String
     var imageNamed: String
-    
-    init(type: HCNavBarItemType, position: HCNavBarItemPosition, title: String, description: String) {
+    var highlightedImageNamed: String
+
+    init(type: HCNavigationBarItemType, position: HCNavigationBarItemPosition, title: String, description: String) {
         
         self.type = type
         self.position = position
         self.title = title
         self.description = description
         self.imageNamed = ""
+        self.highlightedImageNamed = ""
     }
 
-    init(type: HCNavBarItemType, position: HCNavBarItemPosition, description: String, imageNamed: String) {
+    init(type: HCNavigationBarItemType, position: HCNavigationBarItemPosition, description: String, imageNamed: String) {
         
         self.type = type
         self.position = position
         self.title = nil
         self.description = description
         self.imageNamed = imageNamed
+        self.highlightedImageNamed = ""
+    }
+    
+    init(type: HCNavigationBarItemType, position: HCNavigationBarItemPosition, description: String, imageNamed: String, highlightedImageNamed: String) {
+        
+        self.type = type
+        self.position = position
+        self.title = nil
+        self.description = description
+        self.imageNamed = imageNamed
+        self.highlightedImageNamed = highlightedImageNamed
     }
 }
