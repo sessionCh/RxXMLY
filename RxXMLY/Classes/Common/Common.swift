@@ -36,6 +36,7 @@ func kRGBA (r:CGFloat, g:CGFloat, b:CGFloat, a:CGFloat) -> UIColor {
 
 let kThemeWhiteColor = UIColor.hexColor(0xFFFFFF)
 let kThemeWhiteSmokeColor = UIColor.hexColor(0xF5F5F5)
+let kThemeMistyRoseColor = UIColor.hexColor(0xFFE4E1)  // 薄雾玫瑰
 let kThemeGainsboroColor = UIColor.hexColor(0xF3F4F5)  // 亮灰色
 let kThemeOrangeRedColor = UIColor.hexColor(0xFF4500)  // 橙红色
 let kThemeLimeGreenColor = UIColor.hexColor(0x32CD32)  // 酸橙绿

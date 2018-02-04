@@ -24,7 +24,6 @@ private enum Reusable {
 // MARK:- 常量
 fileprivate struct Metric {
 
-    static let cellHeight: CGFloat = 49.0
     static let sectionHeight: CGFloat = 10.0
 }
 
@@ -130,7 +129,7 @@ extension HCSettingViewController: UITableViewDelegate {
         if indexPath.row == 0 {
             return Metric.sectionHeight
         }
-        return Metric.cellHeight
+        return HCSettingCell.cellHeight()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

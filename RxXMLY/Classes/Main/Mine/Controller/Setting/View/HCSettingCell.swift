@@ -13,6 +13,8 @@ import SnapKit
 // MARK:- 常量
 fileprivate struct Metric {
     
+    static let cellHeight: CGFloat = 49.0
+    
     static let titleFontSize: CGFloat = 15.0
     static let descFontSize: CGFloat = 13.0
     static let lineHeight: CGFloat = 0.5
@@ -256,6 +258,11 @@ extension HCSettingCell {
             self.rightTextLab?.text = description
         }
     }
+
+    static func cellHeight() -> CGFloat {
+        
+        return Metric.cellHeight
+    }
 }
 
 extension HCSettingCell: HCCellStyleable {
@@ -264,6 +271,6 @@ extension HCSettingCell: HCCellStyleable {
     private func initEnableMudule() {
    
         // 横线
-        bottomLine = bottomLine(style: .margin)
+        bottomLine = bottomLine(style: .marginLeft)
     }
 }

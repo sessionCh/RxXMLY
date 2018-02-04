@@ -54,6 +54,8 @@
 		1B359F23200375DE00ADFE9A /* HCMineFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B359F22200375DE00ADFE9A /* HCMineFactory.swift */; };
 		1B3B17A02018354E00386F84 /* HCPlayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3B179F2018354E00386F84 /* HCPlayHeaderView.swift */; };
 		1B3B17A22018355C00386F84 /* HCPlayHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B3B17A12018355C00386F84 /* HCPlayHeaderView.xib */; };
+		1B3CE44E2024217900D7ABC0 /* HCPlayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3CE44D2024217900D7ABC0 /* HCPlayViewModel.swift */; };
+		1B3CE4512024228000D7ABC0 /* HCPlayCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3CE4502024228000D7ABC0 /* HCPlayCellModel.swift */; };
 		1B4474B91FE263F200A31004 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B4474B81FE263F200A31004 /* LaunchScreen.storyboard */; };
 		1B4D79AF200B1F1B00023853 /* HCBoutiqueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4D79AE200B1F1B00023853 /* HCBoutiqueModel.swift */; };
 		1B4D79B2200B2A4D00023853 /* HCBoutiqueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4D79B1200B2A4D00023853 /* HCBoutiqueViewController.swift */; };
@@ -101,6 +103,8 @@
 		1BD6536A2003185500B4BD26 /* HCCellStyleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD653692003185500B4BD26 /* HCCellStyleable.swift */; };
 		1BD653732003400500B4BD26 /* HCSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD653722003400500B4BD26 /* HCSettingCell.swift */; };
 		1BD65376200365E800B4BD26 /* HCSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD65375200365E800B4BD26 /* HCSettingViewModel.swift */; };
+		1BDD66F82024112900509EAA /* HCPlayAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDD66F62024112900509EAA /* HCPlayAlbumCell.swift */; };
+		1BDD66F92024112900509EAA /* HCPlayAlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BDD66F72024112900509EAA /* HCPlayAlbumCell.xib */; };
 		1BE113221FF238BC0018B541 /* HCLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE113211FF238BC0018B541 /* HCLoginViewController.swift */; };
 		1BE4E7561FF3865E008705CD /* HCAccountLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4E7551FF3865E008705CD /* HCAccountLoginViewController.swift */; };
 		1BE4E7581FF38684008705CD /* HCThridLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4E7571FF38684008705CD /* HCThridLoginViewController.swift */; };
@@ -115,6 +119,9 @@
 		1BEE5BB320039DDD001B42D2 /* HCHomeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEE5BB220039DDD001B42D2 /* HCHomeNavigationBar.swift */; };
 		1BEE8C7B200B314700AB6E36 /* HCBoutiqueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEE8C7A200B314600AB6E36 /* HCBoutiqueViewModel.swift */; };
 		1BF0881D2018C223007BA5BA /* HCPlayProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0881B2018C223007BA5BA /* HCPlayProgressView.swift */; };
+		1BF1B4E12026EED6003A6365 /* HCPlaySynopsisCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF1B4DF2026EED6003A6365 /* HCPlaySynopsisCell.swift */; };
+		1BF1B4E22026EED6003A6365 /* HCPlaySynopsisCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BF1B4E02026EED6003A6365 /* HCPlaySynopsisCell.xib */; };
+		1BF1B4E42026F823003A6365 /* play_synopsis.html in Resources */ = {isa = PBXBuildFile; fileRef = 1BF1B4E32026F823003A6365 /* play_synopsis.html */; };
 		1BF3DAE1200BC2D000B5958E /* HCBoutiqueIndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF3DAE0200BC2D000B5958E /* HCBoutiqueIndexModel.swift */; };
 		1BF3DAE4200BC62500B5958E /* HCBoutiqueIndexHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF3DAE3200BC62500B5958E /* HCBoutiqueIndexHeaderView.swift */; };
 		1BF3DAE6200BC6BD00B5958E /* HCBoutiqueIndexHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BF3DAE5200BC6BD00B5958E /* HCBoutiqueIndexHeaderView.xib */; };
@@ -186,6 +193,8 @@
 		1B359F22200375DE00ADFE9A /* HCMineFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCMineFactory.swift; sourceTree = "<group>"; };
 		1B3B179F2018354E00386F84 /* HCPlayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPlayHeaderView.swift; sourceTree = "<group>"; };
 		1B3B17A12018355C00386F84 /* HCPlayHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCPlayHeaderView.xib; sourceTree = "<group>"; };
+		1B3CE44D2024217900D7ABC0 /* HCPlayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPlayViewModel.swift; sourceTree = "<group>"; };
+		1B3CE4502024228000D7ABC0 /* HCPlayCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPlayCellModel.swift; sourceTree = "<group>"; };
 		1B4474B81FE263F200A31004 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B4D79AE200B1F1B00023853 /* HCBoutiqueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBoutiqueModel.swift; sourceTree = "<group>"; };
 		1B4D79B1200B2A4D00023853 /* HCBoutiqueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBoutiqueViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +248,8 @@
 		1BD653692003185500B4BD26 /* HCCellStyleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCCellStyleable.swift; sourceTree = "<group>"; };
 		1BD653722003400500B4BD26 /* HCSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCSettingCell.swift; sourceTree = "<group>"; };
 		1BD65375200365E800B4BD26 /* HCSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCSettingViewModel.swift; sourceTree = "<group>"; };
+		1BDD66F62024112900509EAA /* HCPlayAlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPlayAlbumCell.swift; sourceTree = "<group>"; };
+		1BDD66F72024112900509EAA /* HCPlayAlbumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCPlayAlbumCell.xib; sourceTree = "<group>"; };
 		1BE113211FF238BC0018B541 /* HCLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLoginViewController.swift; sourceTree = "<group>"; };
 		1BE4E7551FF3865E008705CD /* HCAccountLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCAccountLoginViewController.swift; sourceTree = "<group>"; };
 		1BE4E7571FF38684008705CD /* HCThridLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCThridLoginViewController.swift; sourceTree = "<group>"; };
@@ -253,6 +264,9 @@
 		1BEE5BB220039DDD001B42D2 /* HCHomeNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCHomeNavigationBar.swift; sourceTree = "<group>"; };
 		1BEE8C7A200B314600AB6E36 /* HCBoutiqueViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCBoutiqueViewModel.swift; sourceTree = "<group>"; };
 		1BF0881B2018C223007BA5BA /* HCPlayProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPlayProgressView.swift; sourceTree = "<group>"; };
+		1BF1B4DF2026EED6003A6365 /* HCPlaySynopsisCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPlaySynopsisCell.swift; sourceTree = "<group>"; };
+		1BF1B4E02026EED6003A6365 /* HCPlaySynopsisCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCPlaySynopsisCell.xib; sourceTree = "<group>"; };
+		1BF1B4E32026F823003A6365 /* play_synopsis.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = play_synopsis.html; sourceTree = "<group>"; };
 		1BF3DAE0200BC2D000B5958E /* HCBoutiqueIndexModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBoutiqueIndexModel.swift; sourceTree = "<group>"; };
 		1BF3DAE3200BC62500B5958E /* HCBoutiqueIndexHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBoutiqueIndexHeaderView.swift; sourceTree = "<group>"; };
 		1BF3DAE5200BC6BD00B5958E /* HCBoutiqueIndexHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCBoutiqueIndexHeaderView.xib; sourceTree = "<group>"; };
@@ -300,6 +314,7 @@
 		1B08C00320172D9D0037300A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1BF1B4DE2026E7B6003A6365 /* Cell */,
 				1B08C00520172DD90037300A /* HCTabbarPlayView.swift */,
 				1BF0881B2018C223007BA5BA /* HCPlayProgressView.swift */,
 				1BC9B7CB2018C89300569749 /* HCPlayProgressView.xib */,
@@ -520,6 +535,8 @@
 		1B2C66F71FE26C8B003172BE /* Play */ = {
 			isa = PBXGroup;
 			children = (
+				1B3CE44F2024227800D7ABC0 /* Model */,
+				1B3CE44C2024216700D7ABC0 /* ViewModel */,
 				1B08C00420172DB10037300A /* Controller */,
 				1B08C00320172D9D0037300A /* View */,
 			);
@@ -570,6 +587,22 @@
 		1B359F21200375C900ADFE9A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1B3CE44C2024216700D7ABC0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1B3CE44D2024217900D7ABC0 /* HCPlayViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1B3CE44F2024227800D7ABC0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1B3CE4502024228000D7ABC0 /* HCPlayCellModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -675,6 +708,7 @@
 				1B2C66FA1FE26EAB003172BE /* Common.swift */,
 				1B2C67001FE27107003172BE /* RequestUrl.swift */,
 				1B0C3EEA1FE51EEA006BD58F /* JsonTemplate.txt */,
+				1BF1B4E32026F823003A6365 /* play_synopsis.html */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -912,6 +946,17 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		1BF1B4DE2026E7B6003A6365 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1BDD66F62024112900509EAA /* HCPlayAlbumCell.swift */,
+				1BDD66F72024112900509EAA /* HCPlayAlbumCell.xib */,
+				1BF1B4DF2026EED6003A6365 /* HCPlaySynopsisCell.swift */,
+				1BF1B4E02026EED6003A6365 /* HCPlaySynopsisCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		1BF3DAE2200BC5F700B5958E /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1055,13 +1100,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BF1B4E42026F823003A6365 /* play_synopsis.html in Resources */,
 				1B4474B91FE263F200A31004 /* LaunchScreen.storyboard in Resources */,
 				1BD4C6691FE6610B00CFBF5C /* HCRecommendFooterView.xib in Resources */,
 				1B0C3F211FE55F52006BD58F /* HCRecommendCell.xib in Resources */,
+				1BDD66F92024112900509EAA /* HCPlayAlbumCell.xib in Resources */,
 				1B5C3DE61FE24B2300587750 /* Assets.xcassets in Resources */,
 				1B5C3DE41FE24B2300587750 /* Main.storyboard in Resources */,
 				1BD4C6701FE67EFD00CFBF5C /* HCSquareCell.xib in Resources */,
 				1BC9B7CC2018C89300569749 /* HCPlayProgressView.xib in Resources */,
+				1BF1B4E22026EED6003A6365 /* HCPlaySynopsisCell.xib in Resources */,
 				1B8A18FC1FF5EB450046EF52 /* HCOtherLoginModeView.xib in Resources */,
 				1BA035D31FE642C200E9892E /* HCRecommendHeaderView.xib in Resources */,
 				1B988A5C200C41A400835E82 /* HCBoutiqueFooterView.xib in Resources */,
@@ -1204,6 +1252,7 @@
 				1B2C670A1FE27B4C003172BE /* HCHomeViewController.swift in Sources */,
 				1B0C3F121FE54060006BD58F /* RxAlamofire+ObjectMapper.swift in Sources */,
 				1B8A18FA1FF5EB360046EF52 /* HCOtherLoginModeView.swift in Sources */,
+				1BF1B4E12026EED6003A6365 /* HCPlaySynopsisCell.swift in Sources */,
 				1B6C1F5C200F23D0003C1F87 /* HCBoutiqueSingleHeaderView.swift in Sources */,
 				1BEB29491FE2C7F8001F7C1B /* HCNavSearchable.swift in Sources */,
 				1B0C3F0B1FE53227006BD58F /* HCKeywardsModel.swift in Sources */,
@@ -1213,6 +1262,7 @@
 				1B0C3EEB1FE51EEA006BD58F /* JsonTemplate.txt in Sources */,
 				1BEB29471FE2C49C001F7C1B /* HCNavDownloadable.swift in Sources */,
 				1B0C3F181FE558D4006BD58F /* HCScrollBarView.swift in Sources */,
+				1B3CE4512024228000D7ABC0 /* HCPlayCellModel.swift in Sources */,
 				1B4D79AF200B1F1B00023853 /* HCBoutiqueModel.swift in Sources */,
 				1B6C1F60200F3539003C1F87 /* HCBoutiqueSingleIndexFlowLayout.swift in Sources */,
 				1BD653732003400500B4BD26 /* HCSettingCell.swift in Sources */,
@@ -1252,6 +1302,7 @@
 				1BEB29451FE2C2E0001F7C1B /* HCNavHistoryable.swift in Sources */,
 				1B3341F31FF255DB008EAF43 /* String+GetSize.swift in Sources */,
 				1BE113221FF238BC0018B541 /* HCLoginViewController.swift in Sources */,
+				1B3CE44E2024217900D7ABC0 /* HCPlayViewModel.swift in Sources */,
 				1BEE5BB120039DD5001B42D2 /* HCSearchNavigationBar.swift in Sources */,
 				1B15CD1A2005B13F00A9EBFC /* HCSettingCellModel.swift in Sources */,
 				1B653DF21FF6493400F2425D /* HCInputValidator.swift in Sources */,
@@ -1271,6 +1322,7 @@
 				1B0C3EF01FE52137006BD58F /* HCRefreshable.swift in Sources */,
 				1B5C3DE11FE24B2300587750 /* ViewController.swift in Sources */,
 				1BEB294B1FE2CA6D001F7C1B /* HCNavSettingable.swift in Sources */,
+				1BDD66F82024112900509EAA /* HCPlayAlbumCell.swift in Sources */,
 				1B779DBD2019AC4500EA5916 /* HCTimeTools.swift in Sources */,
 				1B15CD1F2005C07300A9EBFC /* HCSettingViewController.swift in Sources */,
 				1B78C9D91FE7B61F00876F89 /* HCRecommendCellTypeModel.swift in Sources */,

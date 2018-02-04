@@ -18,29 +18,30 @@ import RxGesture
 // MARK:- 复用
 private enum Reusable {
     
-    static let settingCell = ReusableCell<HCSettingCell>()
+    static let playAlbumCell = ReusableCell<HCPlayAlbumCell>(nibName: "HCPlayAlbumCell")
+    static let playSynopsisCell = ReusableCell<HCPlaySynopsisCell>(nibName: "HCPlaySynopsisCell")
 }
 
 // MARK:- 常量
 fileprivate struct Metric {
     
-    static let cellHeight: CGFloat = 49.0
     static let sectionHeight: CGFloat = 10.0
     
-    static let changeColorPoint: CGFloat = 150.0 // 调整顶部背景图片位置
+    static let changeColorPoint: CGFloat = 100.0 // 调整顶部背景图片位置
 }
 
 class HCPlayViewController: HCBaseViewController {
 
     // viewModel
-    private var viewModel = HCSettingViewModel()
-    private var vmOutput: HCSettingViewModel.HCSettingOutput?
+    private var viewModel = HCPlayViewModel()
+    private var vmOutput: HCPlayViewModel.HCPlayOutput?
     
     // View
     private var tableView: UITableView!
-    
+    private var playSynopsisCell: HCPlaySynopsisCell?
+
     // DataSuorce
-    var dataSource : RxTableViewSectionedReloadDataSource<HCSettingSection>!
+    var dataSource : RxTableViewSectionedReloadDataSource<HCPlaySection>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,25 +136,42 @@ extension HCPlayViewController {
         tableView.rx.setDelegate(self).disposed(by: rx.disposeBag)
         
         // 注册cell
-        tableView.register(Reusable.settingCell)
+        tableView.register(Reusable.playAlbumCell)
+        tableView.register(Reusable.playSynopsisCell)
     }
     
     // MARK:- 绑定视图
     func bindUI() {
         
-        dataSource = RxTableViewSectionedReloadDataSource(configureCell: { (ds, tv, indexPath, item) -> UITableViewCell in
+        dataSource = RxTableViewSectionedReloadDataSource(configureCell: { [weak self] (ds, tv, indexPath, item) -> UITableViewCell in
+            
+            guard let `self` = self else { return UITableViewCell.init() }
+            
             if indexPath.row == 0 {
                 // 充当 SectionHeader 占位
                 let placeCell = UITableViewCell()
                 placeCell.backgroundColor = kThemeGainsboroColor
                 return placeCell
+            } else if indexPath.row == 1 {
+                
+                let cell = tv.dequeue(Reusable.playAlbumCell, for: indexPath)
+                return cell
+            } else if indexPath.row == 2 {
+                
+                let cell = tv.dequeue(Reusable.playSynopsisCell, for: indexPath)
+                self.playSynopsisCell = cell
+                // 更新UI
+                cell.updatelUI = { [weak self] in
+                    guard let `self` = self else { return }
+                    self.tableView.reloadData()
+                }
+                return cell
             }
-            let cell = tv.dequeue(Reusable.settingCell, for: indexPath)
-            cell.model = item
-            return cell
+            
+            return UITableViewCell.init()
         })
         
-        vmOutput = viewModel.transform(input: HCSettingViewModel.HCSettingInput(type: .mine))
+        vmOutput = viewModel.transform(input: HCPlayViewModel.HCPlayInput())
         
         vmOutput?.sections.asDriver().drive(tableView.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
     }
@@ -167,8 +185,15 @@ extension HCPlayViewController: UITableViewDelegate {
         // 充当 SectionHeader 数据模型
         if indexPath.row == 0 {
             return Metric.sectionHeight
+        } else if indexPath.row == 1 {
+            return HCPlayAlbumCell.cellHeight()
+        } else if indexPath.row == 2 {
+            if let cellHeight = playSynopsisCell?.cellHeight() {
+                return cellHeight
+            }
+            return HCPlaySynopsisCell.cellHeight()
         }
-        return Metric.cellHeight
+        return 0.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -177,12 +202,6 @@ extension HCPlayViewController: UITableViewDelegate {
         
         // 充当 SectionHeader 数据模型
         if indexPath.row == 0 { return }
-        
-//        if indexPath.section == 3 && indexPath.row == 2 {
-//            self.jump2Setting()
-//        } else {
-//            self.jump2Setting()
-//        }
     }
 }
 

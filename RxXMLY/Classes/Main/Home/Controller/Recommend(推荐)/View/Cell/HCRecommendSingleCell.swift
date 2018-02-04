@@ -113,7 +113,7 @@ extension HCRecommendSingleCell: HCCellStyleable {
     private func initEnableMudule() {
         
         // 横线
-        bottomLine = bottomLine(style: .margin)
+        bottomLine = bottomLine(style: .marginLeft)
         bottomLine?.backgroundColor = kThemeLightGreyColor
     }
 }
