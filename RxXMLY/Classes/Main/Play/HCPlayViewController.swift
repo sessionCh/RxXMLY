@@ -39,6 +39,7 @@ class HCPlayViewController: HCBaseViewController {
     // View
     private var tableView: UITableView!
     private var playSynopsisCell: HCPlaySynopsisCell?
+    private var headerView: HCPlayHeaderView?
     private var titleView: HCPlayTitleView?
 
     // DataSuorce
@@ -115,6 +116,8 @@ extension HCPlayViewController {
         self.titleView = titleView
         self.navigationController?.navigationBar.addSubview(titleView)
         titleView.snp.makeConstraints { (make) in
+            make.width.equalTo(titleView.width)
+            make.height.equalTo(titleView.height)
             make.center.equalToSuperview()
         }
         
@@ -124,6 +127,7 @@ extension HCPlayViewController {
         tableView.separatorStyle = .none
         
         let headerView = HCPlayHeaderView.loadFromNib()
+        self.headerView = headerView
         headerView.frame = CGRect(x: 0, y: kNavibarH, width: headerView.width, height: headerView.height)
         let tableHeaderView = UIView()
         tableHeaderView.backgroundColor = kThemeWhiteColor
@@ -153,13 +157,13 @@ extension HCPlayViewController {
     
     // MARK:- 绑定视图
     func bindUI() {
-        
+
         dataSource = RxTableViewSectionedReloadDataSource(configureCell: { [weak self] (ds, tv, indexPath, item) -> UITableViewCell in
             
             guard let `self` = self else { return UITableViewCell.init() }
             
             let dsSection = ds[indexPath.section]
-
+            
             if indexPath.row == 0 {
                 // 充当 SectionHeader 占位
                 let placeCell = UITableViewCell()
@@ -193,8 +197,14 @@ extension HCPlayViewController {
                 cell.playModel.value = dsSection.playModel
                 return cell
             }
+            return UITableViewCell()
             
-            return UITableViewCell.init()
+            }, titleForHeaderInSection: { [weak self] (ds, section) -> String? in
+                
+                let dsSection = ds[section]
+                guard let `self` = self else { return nil }
+                self.headerView?.playModel.value = dsSection.playModel
+                return nil
         })
         
         vmOutput = viewModel.transform(input: HCPlayViewModel.HCPlayInput())

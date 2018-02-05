@@ -17,23 +17,23 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9rC-Zv-7iH">
-                    <rect key="frame" x="32" y="5" width="96" height="30"/>
+                    <rect key="frame" x="32" y="6" width="96" height="28"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已停播" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqU-9Q-PLL">
-                            <rect key="frame" x="25" y="5" width="46" height="20"/>
+                            <rect key="frame" x="25" y="5" width="46" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playpage_icon_play" translatesAutoresizingMaskIntoConstraints="NO" id="Efz-Hs-DoU">
-                            <rect key="frame" x="0.0" y="5" width="20" height="20"/>
+                            <rect key="frame" x="0.0" y="4" width="20" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Efz-Hs-DoU" secondAttribute="height" id="Gs1-Bj-ilZ"/>
                                 <constraint firstAttribute="width" constant="20" id="MOy-qe-wFR"/>
                             </constraints>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playpage_icon_dynamic_rhythm_p1" translatesAutoresizingMaskIntoConstraints="NO" id="NE8-MX-1B0">
-                            <rect key="frame" x="76" y="7" width="15" height="15"/>
+                            <rect key="frame" x="76" y="6" width="15" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="NE8-MX-1B0" secondAttribute="height" id="7N1-mb-XSz"/>
                                 <constraint firstAttribute="width" constant="15" id="VyU-Kz-NXr"/>
@@ -52,24 +52,16 @@
                         <constraint firstItem="PqU-9Q-PLL" firstAttribute="centerY" secondItem="Efz-Hs-DoU" secondAttribute="centerY" id="kyg-sn-KG4"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyF-n6-hcz">
-                    <rect key="frame" x="32" y="5" width="96" height="30"/>
-                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="9rC-Zv-7iH" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="5J5-Vy-9Ro"/>
-                <constraint firstItem="wyF-n6-hcz" firstAttribute="width" secondItem="9rC-Zv-7iH" secondAttribute="width" id="NPi-j2-8Dq"/>
-                <constraint firstItem="wyF-n6-hcz" firstAttribute="height" secondItem="9rC-Zv-7iH" secondAttribute="height" id="T9M-nx-10t"/>
                 <constraint firstItem="9rC-Zv-7iH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="VV1-Qj-e0i"/>
-                <constraint firstItem="wyF-n6-hcz" firstAttribute="centerY" secondItem="9rC-Zv-7iH" secondAttribute="centerY" id="ekZ-OJ-bWQ"/>
-                <constraint firstItem="wyF-n6-hcz" firstAttribute="centerX" secondItem="9rC-Zv-7iH" secondAttribute="centerX" id="kXQ-PM-Ksw"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="contentView" destination="9rC-Zv-7iH" id="KxU-Wb-jOp"/>
                 <outlet property="leftImg" destination="Efz-Hs-DoU" id="8Qw-VP-heQ"/>
-                <outlet property="playBtn" destination="wyF-n6-hcz" id="cFi-h6-aUN"/>
                 <outlet property="rightImg" destination="NE8-MX-1B0" id="uWx-9k-sOf"/>
                 <outlet property="title" destination="PqU-9Q-PLL" id="xA6-Rq-T7z"/>
             </connections>

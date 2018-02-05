@@ -23,7 +23,6 @@ class HCPlayTitleView: UIView, NibLoadable {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var leftImg: UIImageView!
     @IBOutlet weak var rightImg: UIImageView!
-    @IBOutlet weak var playBtn: UIButton!
     
     private var isPlay: Bool = false    // 播放状态
 
@@ -66,12 +65,12 @@ extension HCPlayTitleView {
         if self.isPlay {
             
             self.title.text = "播放中"
-            self.leftImg.image = UIImage(named: "playpage_icon_play")
+            self.leftImg.image = UIImage(named: "playpage_icon_suspend")
             self.rightImg.startAnimating()
             
         } else {
             self.title.text = "已停播"
-            self.leftImg.image = UIImage(named: "playpage_icon_suspend")
+            self.leftImg.image = UIImage(named: "playpage_icon_play")
             self.rightImg.stopAnimating()
         }
     }

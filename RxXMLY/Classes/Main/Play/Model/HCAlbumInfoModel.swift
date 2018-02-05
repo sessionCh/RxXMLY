@@ -62,10 +62,12 @@ struct HCAlbumInfoModel: Mappable {
         intro <- map["intro"]
         tags <- map["tags"]
         title <- map["title"]
+        coverLarge <- map["coverLarge"]
     }
     
     var albumId: UInt32 = 0
     var intro = ""
     var tags = ""
     var title = ""
+    var coverLarge = ""
 }

@@ -84,6 +84,7 @@ struct HCTrackInfoModel: Mappable {
         categoryName <- map["categoryName"]
         
         categoryId <- map["categoryId"]
+        coverLarge <- map["coverLarge"]
     }
     
     var albumId = 0
@@ -93,4 +94,5 @@ struct HCTrackInfoModel: Mappable {
     var categoryName = ""
     
     var categoryId: UInt32 = 0
+    var coverLarge = ""
 }
