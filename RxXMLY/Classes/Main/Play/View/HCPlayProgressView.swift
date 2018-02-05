@@ -4,7 +4,7 @@
 //
 //  Created by sessionCh on 2018/1/24.
 //  Copyright © 2018年 sessionCh. All rights reserved.
-//
+//  播放进度条
 
 import UIKit
 import RxSwift
@@ -37,7 +37,18 @@ class HCPlayProgressView: UIView, NibLoadable {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+    
+        initUI()
+        bindUI()
+    }
+}
+
+// MARK:- 初始化
+extension HCPlayProgressView {
+    
+    // MARK:- 初始化
+    private func initUI() {
+    
         // 设置样式
         sliderView.layer.masksToBounds = true
         sliderView.layer.cornerRadius = sliderView.width / 2
@@ -55,23 +66,32 @@ class HCPlayProgressView: UIView, NibLoadable {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(HCPlayProgressView.tapGesture(sender:)))
         tapView.addGestureRecognizer(tapGesture)
-
+        
+        // 设置初始值
+        sliderMinValue = 0
+        sliderMaxValue = 3661
+        sliderValue.value = 1000
+        
         // 设置初始值
         sliderMinWidth = 0.0
         sliderMaxWidth = progressView.width
-        sliderOriginWidth = 100.0
+        sliderOriginWidth = CGFloat((sliderValue.value - sliderMinValue) / (sliderMaxValue - sliderMinValue)) * (sliderMaxWidth - sliderMinWidth) + sliderMinWidth
+        
         sliderWidthCons.constant = sliderOriginWidth
-
-        sliderMinValue = 0
-        sliderMaxValue = 3661
-        sliderValue.value = 0
-        sliderValue.asObservable().subscribe { [weak self] (_) in
-            guard let `self` = self else { return }
-            self.leftLab.text = HCTimeTools.formatPlayTime(secounds: self.sliderValue.value)
-        }.disposed(by: rx.disposeBag)
 
         leftLab.text = HCTimeTools.formatPlayTime(secounds: sliderMinValue)
         rightLab.text = HCTimeTools.formatPlayTime(secounds: sliderMaxValue)
+    }
+    
+    // MARK:- 绑定事件
+    private func bindUI() {
+        
+        sliderValue.asObservable().subscribe { [weak self] (_) in
+            
+            guard let `self` = self else { return }
+            self.leftLab.text = HCTimeTools.formatPlayTime(secounds: self.sliderValue.value)
+    
+        }.disposed(by: rx.disposeBag)
     }
 }
 

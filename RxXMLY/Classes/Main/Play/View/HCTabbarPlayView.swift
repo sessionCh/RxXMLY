@@ -4,7 +4,7 @@
 //
 //  Created by sessionCh on 2018/1/23.
 //  Copyright © 2018年 sessionCh. All rights reserved.
-//
+//  播放按钮
 
 import UIKit
 import RxSwift
@@ -21,11 +21,11 @@ fileprivate struct Metric {
 
 class HCTabbarPlayView: UIView {
 
-    var isPlay: Bool = false
-    
+    var isPlay: Variable<Bool> = Variable(false)                // 播放状态
+
     // MARK:- 成功回调
     typealias AddBlock = (_ isPlay: Bool)->Void
-    var didClickedBtn: AddBlock? = {
+    var playBtnClickedBlock: AddBlock? = {
         (_) in return
     }
 
@@ -55,14 +55,15 @@ class HCTabbarPlayView: UIView {
     
     private let iconView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
-        $0.image = UIImage(named: "tabbar_np_play")
+        $0.image = UIImage(named: "toolbar_play_n")
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
         initUI()
         bindUI()
+        updatePlayStatus(isPlay: false)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -115,12 +116,36 @@ extension HCTabbarPlayView {
         }
     }
     
+    // MARK:- 更新UI
+    private func updatePlayStatus(isPlay: Bool) {
+        
+        if isPlay {
+            self.iconView.image = UIImage(named: "toolbar_pause_n")
+        } else {
+            self.iconView.image = UIImage(named: "toolbar_play_n")
+        }
+    }
+
     private func bindUI() {
         
-        self.rx.tapGesture().when(.recognized).subscribe({ [weak self]  _ in
+        // 绑定事件
+        isPlay.asObservable().subscribe(onNext: { [weak self] beel in
+            
             guard let `self` = self else { return }
-            self.isPlay = !self.isPlay
-            self.didClickedBtn?(self.isPlay)
+            // 更新状态
+            self.updatePlayStatus(isPlay: beel)
+            // 回调处理
+            self.playBtnClickedBlock?(self.isPlay.value)
+            
+        }).disposed(by: rx.disposeBag)
+
+        // 点击事件
+        self.rx.tapGesture().when(.recognized).subscribe({ [weak self]  _ in
+            
+            guard let `self` = self else { return }
+            // 点击 进入 播放状态
+            self.isPlay.value = true
+            
         }).disposed(by: rx.disposeBag)
     }
     

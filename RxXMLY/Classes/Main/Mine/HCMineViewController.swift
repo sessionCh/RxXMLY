@@ -83,11 +83,6 @@ class HCMineViewController: HCBaseViewController {
         bindUI()
     }
     
-    deinit {
-        tableView.delegate = nil
-        HCLog("deinit: \(type(of: self))")
-    }
-
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         

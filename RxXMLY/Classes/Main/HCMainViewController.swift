@@ -9,14 +9,19 @@
 import UIKit
 import Then
 
+// MARK:- 全局变量
+var mainViewController: HCMainViewController?
+
 class HCMainViewController: UITabBarController {
     
-    private let playView = HCTabbarPlayView()
+    // 播放按钮
+    lazy var playView = HCTabbarPlayView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.delegate = self
+        mainViewController = self
     
         UITabBar.appearance().isTranslucent = false
         UITabBar.appearance().barTintColor = kThemeWhiteColor
@@ -61,7 +66,7 @@ extension HCMainViewController {
         view.addSubview(playView)
         view.bringSubview(toFront: playView)
 
-        playView.didClickedBtn = { [weak self] (isPlay) in
+        playView.playBtnClickedBlock = { [weak self] (isPlay) in
             guard let `self` = self else { return }
             self.jump2Paly()
         }

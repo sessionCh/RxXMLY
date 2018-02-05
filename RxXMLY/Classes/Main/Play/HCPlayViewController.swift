@@ -51,6 +51,10 @@ class HCPlayViewController: HCBaseViewController {
         initEnableMudule()
         initUI()
         bindUI()
+        // 初始化 播放状态
+        if let isPlay = mainViewController?.playView.isPlay.value {
+            updatePlayStatus(isPlay: isPlay)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,12 +73,7 @@ class HCPlayViewController: HCBaseViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-    }
-    
-    deinit {
-        tableView.delegate = nil
-        HCLog("deinit: \(type(of: self))")
-    }
+    }    
 }
 
 // MARK:- 初始化协议
@@ -106,12 +105,39 @@ extension HCPlayViewController: HCNavBackable, HCNavUniversalable {
 
 // MARK:- 初始化部分
 extension HCPlayViewController {
+    
+    // MARK:- 更新 播放状态
+    private func updatePlayStatus(isPlay: Bool) {
         
+        // 需要更新状态
+        if let beel = self.headerView?.isPlay.value, beel != isPlay {
+            // 更新 头部按钮 播放状态
+            self.headerView?.isPlay.value = isPlay
+        }
+        
+        // 需要更新状态
+        if let beel = self.titleView?.isPlay.value, beel != isPlay {
+            // 更新 标题 播放状态
+            self.titleView?.isPlay.value = isPlay
+        }
+        
+        // 需要更新状态
+        if let beel = mainViewController?.playView.isPlay.value, beel != isPlay {
+            // 更新 标题 播放状态
+            mainViewController?.playView.isPlay.value = isPlay
+        }
+    }
+    
     // MARK:- 初始化视图
     private func initUI() {
         
         // TitleView
         let titleView = HCPlayTitleView.loadFromNib()
+        titleView.playBtnClickedBlock = { [weak self] (isPlay) in
+            
+            guard let `self` = self else { return }
+            self.updatePlayStatus(isPlay: isPlay)
+        }
         titleView.isHidden = true
         self.titleView = titleView
         self.navigationController?.navigationBar.addSubview(titleView)
@@ -127,6 +153,11 @@ extension HCPlayViewController {
         tableView.separatorStyle = .none
         
         let headerView = HCPlayHeaderView.loadFromNib()
+        headerView.playBtnClickedBlock = { [weak self] (isPlay) in
+            
+            guard let `self` = self else { return }
+            self.updatePlayStatus(isPlay: isPlay)
+        }
         self.headerView = headerView
         headerView.frame = CGRect(x: 0, y: kNavibarH, width: headerView.width, height: headerView.height)
         let tableHeaderView = UIView()
