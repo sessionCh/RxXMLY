@@ -16,7 +16,7 @@ import NSObject_Rx
 fileprivate struct Metric {
     
     static let defaultHeight : CGFloat = 90.0
-    static let minHeight : CGFloat = 45.0
+    static let minHeight : CGFloat = 50.0
 }
 
 class HCRecommendHeaderView: UICollectionReusableView, NibLoadable {
@@ -49,35 +49,7 @@ class HCRecommendHeaderView: UICollectionReusableView, NibLoadable {
         initUI()
         bindUI()
     }
-    
-    private func bindUI() {
-        
-        categoryModel.asObservable().subscribe(onNext: { model in
-            
-            if let beel = model?.showInterestCard {
-                self.leftSubView.isHidden = !beel
-            }
 
-            self.leftTitle.text = model?.title
-            
-            guard let keywords = model?.keywords, keywords.count > 0 else {
-                
-                self.height = Metric.minHeight
-                self.bottomView.isHidden = true
-                return
-            }
-            
-            self.height = Metric.defaultHeight
-            self.bottomView.isHidden = false
-
-            self.tagLab1.text = model?.keywords![0].keywordName
-            self.tagLab2.text = model?.keywords![1].keywordName
-            self.tagLab3.text = model?.keywords![2].keywordName
-            self.tagLab4.text = model?.keywords![3].keywordName
-
-        }).disposed(by: rx.disposeBag)
-    }
-    
     private func initUI() {
         
         tagView1.backgroundColor = .clear
@@ -103,6 +75,34 @@ class HCRecommendHeaderView: UICollectionReusableView, NibLoadable {
         tagView4.layer.masksToBounds = true
         tagView4.layer.borderColor = UIColor.darkGray.cgColor
         tagView4.layer.borderWidth = 0.6
+    }
+
+    private func bindUI() {
+        
+        categoryModel.asObservable().subscribe(onNext: { model in
+            
+            if let beel = model?.showInterestCard {
+                self.leftSubView.isHidden = !beel
+            }
+            
+            self.leftTitle.text = model?.title
+            
+            guard let keywords = model?.keywords, keywords.count > 0 else {
+                
+                self.height = Metric.minHeight
+                self.bottomView.isHidden = true
+                return
+            }
+            
+            self.height = Metric.defaultHeight
+            self.bottomView.isHidden = false
+            
+            self.tagLab1.text = model?.keywords![0].keywordName
+            self.tagLab2.text = model?.keywords![1].keywordName
+            self.tagLab3.text = model?.keywords![2].keywordName
+            self.tagLab4.text = model?.keywords![3].keywordName
+            
+        }).disposed(by: rx.disposeBag)
     }
     
     static func defaultHeaderSize() -> CGSize {

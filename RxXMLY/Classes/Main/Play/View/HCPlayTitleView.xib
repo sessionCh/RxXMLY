@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HCPlayTitleView" customModule="RxXMLY" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="160" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9rC-Zv-7iH">
+                    <rect key="frame" x="32" y="5" width="96" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已停播" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqU-9Q-PLL">
+                            <rect key="frame" x="25" y="5" width="46" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playpage_icon_play" translatesAutoresizingMaskIntoConstraints="NO" id="Efz-Hs-DoU">
+                            <rect key="frame" x="0.0" y="5" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Efz-Hs-DoU" secondAttribute="height" id="Gs1-Bj-ilZ"/>
+                                <constraint firstAttribute="width" constant="20" id="MOy-qe-wFR"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playpage_icon_dynamic_rhythm_p1" translatesAutoresizingMaskIntoConstraints="NO" id="NE8-MX-1B0">
+                            <rect key="frame" x="76" y="7" width="15" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="NE8-MX-1B0" secondAttribute="height" id="7N1-mb-XSz"/>
+                                <constraint firstAttribute="width" constant="15" id="VyU-Kz-NXr"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="PqU-9Q-PLL" firstAttribute="leading" secondItem="Efz-Hs-DoU" secondAttribute="trailing" constant="5" id="1UC-7s-Ey7"/>
+                        <constraint firstItem="NE8-MX-1B0" firstAttribute="leading" secondItem="PqU-9Q-PLL" secondAttribute="trailing" constant="5" id="7ZF-KS-2hq"/>
+                        <constraint firstItem="NE8-MX-1B0" firstAttribute="centerY" secondItem="Efz-Hs-DoU" secondAttribute="centerY" id="Elv-Ze-jgS"/>
+                        <constraint firstAttribute="trailing" secondItem="NE8-MX-1B0" secondAttribute="trailing" constant="5" id="KqN-Cd-PM5"/>
+                        <constraint firstItem="PqU-9Q-PLL" firstAttribute="centerX" secondItem="9rC-Zv-7iH" secondAttribute="centerX" id="Lly-PS-sIK"/>
+                        <constraint firstAttribute="bottom" secondItem="PqU-9Q-PLL" secondAttribute="bottom" constant="5" id="PPu-7c-Uww"/>
+                        <constraint firstItem="PqU-9Q-PLL" firstAttribute="centerY" secondItem="9rC-Zv-7iH" secondAttribute="centerY" id="SxC-sI-12T"/>
+                        <constraint firstItem="PqU-9Q-PLL" firstAttribute="top" secondItem="9rC-Zv-7iH" secondAttribute="top" constant="5" id="csP-zZ-GlM"/>
+                        <constraint firstItem="PqU-9Q-PLL" firstAttribute="centerY" secondItem="Efz-Hs-DoU" secondAttribute="centerY" id="kyg-sn-KG4"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyF-n6-hcz">
+                    <rect key="frame" x="32" y="5" width="96" height="30"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="9rC-Zv-7iH" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="5J5-Vy-9Ro"/>
+                <constraint firstItem="wyF-n6-hcz" firstAttribute="width" secondItem="9rC-Zv-7iH" secondAttribute="width" id="NPi-j2-8Dq"/>
+                <constraint firstItem="wyF-n6-hcz" firstAttribute="height" secondItem="9rC-Zv-7iH" secondAttribute="height" id="T9M-nx-10t"/>
+                <constraint firstItem="9rC-Zv-7iH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="VV1-Qj-e0i"/>
+                <constraint firstItem="wyF-n6-hcz" firstAttribute="centerY" secondItem="9rC-Zv-7iH" secondAttribute="centerY" id="ekZ-OJ-bWQ"/>
+                <constraint firstItem="wyF-n6-hcz" firstAttribute="centerX" secondItem="9rC-Zv-7iH" secondAttribute="centerX" id="kXQ-PM-Ksw"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="contentView" destination="9rC-Zv-7iH" id="KxU-Wb-jOp"/>
+                <outlet property="leftImg" destination="Efz-Hs-DoU" id="8Qw-VP-heQ"/>
+                <outlet property="playBtn" destination="wyF-n6-hcz" id="cFi-h6-aUN"/>
+                <outlet property="rightImg" destination="NE8-MX-1B0" id="uWx-9k-sOf"/>
+                <outlet property="title" destination="PqU-9Q-PLL" id="xA6-Rq-T7z"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="playpage_icon_dynamic_rhythm_p1" width="24" height="24"/>
+        <image name="playpage_icon_play" width="25" height="25"/>
+    </resources>
+</document>

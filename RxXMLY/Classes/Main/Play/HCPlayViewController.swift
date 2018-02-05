@@ -39,6 +39,7 @@ class HCPlayViewController: HCBaseViewController {
     // View
     private var tableView: UITableView!
     private var playSynopsisCell: HCPlaySynopsisCell?
+    private var titleView: HCPlayTitleView?
 
     // DataSuorce
     var dataSource : RxTableViewSectionedReloadDataSource<HCPlaySection>!
@@ -104,10 +105,20 @@ extension HCPlayViewController: HCNavBackable, HCNavUniversalable {
 
 // MARK:- 初始化部分
 extension HCPlayViewController {
-    
+        
     // MARK:- 初始化视图
     private func initUI() {
-                
+        
+        // TitleView
+        let titleView = HCPlayTitleView.loadFromNib()
+        titleView.isHidden = true
+        self.titleView = titleView
+        self.navigationController?.navigationBar.addSubview(titleView)
+        titleView.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+        }
+        
+        // TableView
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.backgroundColor = kThemeGainsboroColor
         tableView.separatorStyle = .none
@@ -147,24 +158,39 @@ extension HCPlayViewController {
             
             guard let `self` = self else { return UITableViewCell.init() }
             
+            let dsSection = ds[indexPath.section]
+
             if indexPath.row == 0 {
                 // 充当 SectionHeader 占位
                 let placeCell = UITableViewCell()
+                placeCell.selectionStyle = .none
                 placeCell.backgroundColor = kThemeGainsboroColor
                 return placeCell
             } else if indexPath.row == 1 {
                 
                 let cell = tv.dequeue(Reusable.playAlbumCell, for: indexPath)
+                cell.selectionStyle = .none
+                cell.playModel.value = dsSection.playModel
                 return cell
-            } else if indexPath.row == 2 {
+            } else if indexPath.row == 2 && indexPath.section == 0 {
                 
                 let cell = tv.dequeue(Reusable.playSynopsisCell, for: indexPath)
-                self.playSynopsisCell = cell
+                cell.selectionStyle = .none
                 // 更新UI
                 cell.updatelUI = { [weak self] in
                     guard let `self` = self else { return }
                     self.tableView.reloadData()
                 }
+                cell.playModel.value = dsSection.playModel
+                self.playSynopsisCell = cell
+                return cell
+            }
+            // 待完善...
+            else {
+               
+                let cell = tv.dequeue(Reusable.playAlbumCell, for: indexPath)
+                cell.selectionStyle = .none
+                cell.playModel.value = dsSection.playModel
                 return cell
             }
             
@@ -172,7 +198,7 @@ extension HCPlayViewController {
         })
         
         vmOutput = viewModel.transform(input: HCPlayViewModel.HCPlayInput())
-        
+        vmOutput?.requestCommand.onNext(true)
         vmOutput?.sections.asDriver().drive(tableView.rx.items(dataSource: dataSource)).disposed(by: rx.disposeBag)
     }
 }
@@ -187,13 +213,13 @@ extension HCPlayViewController: UITableViewDelegate {
             return Metric.sectionHeight
         } else if indexPath.row == 1 {
             return HCPlayAlbumCell.cellHeight()
-        } else if indexPath.row == 2 {
+        } else if indexPath.row == 2 && indexPath.section == 0 {
             if let cellHeight = playSynopsisCell?.cellHeight() {
                 return cellHeight
             }
             return HCPlaySynopsisCell.cellHeight()
         }
-        return 0.0
+        return HCPlayAlbumCell.cellHeight()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -219,6 +245,14 @@ extension HCPlayViewController {
             let alpha: CGFloat = min(1, (offsetY - Metric.changeColorPoint) / Metric.changeColorPoint)
             HCLog(" alpha:\(alpha)")
             
+            // 不透明才显示标题栏
+            if alpha >= 1 {
+                self.titleView?.isHidden = false
+            } else {
+                self.titleView?.isHidden = true
+            }
+            
+            // 改变导航栏背景色
             let changeColor = kThemeWhiteColor.withAlphaComponent(alpha)
             
             self.navigationController?.navigationBar.backgroundColor = changeColor

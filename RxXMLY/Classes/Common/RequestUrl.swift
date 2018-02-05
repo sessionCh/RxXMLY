@@ -9,6 +9,8 @@
 import Foundation
 
 
+// 首页 播放 播放详情
+let kUrlGetPlayDetail = "http://mobile.ximalaya.com/mobile/track/v2/playpage/47581915/ts-1517751452809?ac=WIFI&albumId=9996644&appid=0&device=iPhone&deviceId=49AF49CB-60ED-4CF5-84BD-21E9E016956E&network=WIFI&operator=3&scale=2&trackUid=12495477&uid=0&version=6.3.54&xt=1517751452809"
 
 // 首页 推荐 下拉刷新
 let kUrlGetRecommendList = "http://mobwsa.ximalaya.com/discovery-firstpage/explore/ts-1513673738360?appid=0&categoryId=-2&channel=ios-b1&code=43_440000_4403&device=iPhone&deviceId=49AF49CB-60ED-4CF5-84BD-21E9E016956E&includeActivity=true&includeSpecial=true&network=WIFI&operator=3&scale=2&uid=0&version=6.3.45&xt=1513673738361"

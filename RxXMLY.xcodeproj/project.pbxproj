@@ -59,6 +59,8 @@
 		1B4474B91FE263F200A31004 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B4474B81FE263F200A31004 /* LaunchScreen.storyboard */; };
 		1B4D79AF200B1F1B00023853 /* HCBoutiqueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4D79AE200B1F1B00023853 /* HCBoutiqueModel.swift */; };
 		1B4D79B2200B2A4D00023853 /* HCBoutiqueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4D79B1200B2A4D00023853 /* HCBoutiqueViewController.swift */; };
+		1B58CA6F2028039200E1BDAB /* HCPlayTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B58CA6E2028039200E1BDAB /* HCPlayTitleView.swift */; };
+		1B58CA71202803F200E1BDAB /* HCPlayTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B58CA70202803F200E1BDAB /* HCPlayTitleView.xib */; };
 		1B5C3DDF1FE24B2300587750 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5C3DDE1FE24B2300587750 /* AppDelegate.swift */; };
 		1B5C3DE11FE24B2300587750 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5C3DE01FE24B2300587750 /* ViewController.swift */; };
 		1B5C3DE41FE24B2300587750 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B5C3DE21FE24B2300587750 /* Main.storyboard */; };
@@ -86,6 +88,11 @@
 		1B8C545E1FFC81E100987481 /* HCAccountLoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8C545D1FFC81E100987481 /* HCAccountLoginResult.swift */; };
 		1B8C54611FFC870900987481 /* HCAccountLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8C54601FFC870900987481 /* HCAccountLoginViewModel.swift */; };
 		1B8C54641FFC88A900987481 /* HCAccountLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8C54631FFC88A900987481 /* HCAccountLoginService.swift */; };
+		1B95152B20274E3F002B834C /* HCAlbumInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B95152A20274E3F002B834C /* HCAlbumInfoModel.swift */; };
+		1B95152D20274E71002B834C /* HCPlayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B95152C20274E71002B834C /* HCPlayModel.swift */; };
+		1B95152F20275043002B834C /* HCNoCacheInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B95152E20275043002B834C /* HCNoCacheInfoModel.swift */; };
+		1B951531202750C4002B834C /* HCTrackInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B951530202750C4002B834C /* HCTrackInfoModel.swift */; };
+		1B951533202752A5002B834C /* HCPlayUserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B951532202752A5002B834C /* HCPlayUserInfoModel.swift */; };
 		1B988A5A200C419500835E82 /* HCBoutiqueFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B988A59200C419500835E82 /* HCBoutiqueFooterView.swift */; };
 		1B988A5C200C41A400835E82 /* HCBoutiqueFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B988A5B200C41A400835E82 /* HCBoutiqueFooterView.xib */; };
 		1BA035CF1FE6348600E9892E /* HCRecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA035CE1FE6348600E9892E /* HCRecommendModel.swift */; };
@@ -198,6 +205,8 @@
 		1B4474B81FE263F200A31004 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B4D79AE200B1F1B00023853 /* HCBoutiqueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBoutiqueModel.swift; sourceTree = "<group>"; };
 		1B4D79B1200B2A4D00023853 /* HCBoutiqueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBoutiqueViewController.swift; sourceTree = "<group>"; };
+		1B58CA6E2028039200E1BDAB /* HCPlayTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPlayTitleView.swift; sourceTree = "<group>"; };
+		1B58CA70202803F200E1BDAB /* HCPlayTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCPlayTitleView.xib; sourceTree = "<group>"; };
 		1B5C3DDB1FE24B2300587750 /* RxXMLY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxXMLY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B5C3DDE1FE24B2300587750 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B5C3DE01FE24B2300587750 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +240,11 @@
 		1B8C545D1FFC81E100987481 /* HCAccountLoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCAccountLoginResult.swift; sourceTree = "<group>"; };
 		1B8C54601FFC870900987481 /* HCAccountLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCAccountLoginViewModel.swift; sourceTree = "<group>"; };
 		1B8C54631FFC88A900987481 /* HCAccountLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCAccountLoginService.swift; sourceTree = "<group>"; };
+		1B95152A20274E3F002B834C /* HCAlbumInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCAlbumInfoModel.swift; sourceTree = "<group>"; };
+		1B95152C20274E71002B834C /* HCPlayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPlayModel.swift; sourceTree = "<group>"; };
+		1B95152E20275043002B834C /* HCNoCacheInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCNoCacheInfoModel.swift; sourceTree = "<group>"; };
+		1B951530202750C4002B834C /* HCTrackInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCTrackInfoModel.swift; sourceTree = "<group>"; };
+		1B951532202752A5002B834C /* HCPlayUserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPlayUserInfoModel.swift; sourceTree = "<group>"; };
 		1B988A59200C419500835E82 /* HCBoutiqueFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBoutiqueFooterView.swift; sourceTree = "<group>"; };
 		1B988A5B200C41A400835E82 /* HCBoutiqueFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCBoutiqueFooterView.xib; sourceTree = "<group>"; };
 		1BA035CE1FE6348600E9892E /* HCRecommendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCRecommendModel.swift; sourceTree = "<group>"; };
@@ -320,6 +334,8 @@
 				1BC9B7CB2018C89300569749 /* HCPlayProgressView.xib */,
 				1B3B179F2018354E00386F84 /* HCPlayHeaderView.swift */,
 				1B3B17A12018355C00386F84 /* HCPlayHeaderView.xib */,
+				1B58CA6E2028039200E1BDAB /* HCPlayTitleView.swift */,
+				1B58CA70202803F200E1BDAB /* HCPlayTitleView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -327,7 +343,6 @@
 		1B08C00420172DB10037300A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1B0E018D20178AC0004E5E5C /* HCPlayViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -536,9 +551,10 @@
 			isa = PBXGroup;
 			children = (
 				1B3CE44F2024227800D7ABC0 /* Model */,
+				1B08C00320172D9D0037300A /* View */,
 				1B3CE44C2024216700D7ABC0 /* ViewModel */,
 				1B08C00420172DB10037300A /* Controller */,
-				1B08C00320172D9D0037300A /* View */,
+				1B0E018D20178AC0004E5E5C /* HCPlayViewController.swift */,
 			);
 			path = Play;
 			sourceTree = "<group>";
@@ -603,6 +619,11 @@
 			isa = PBXGroup;
 			children = (
 				1B3CE4502024228000D7ABC0 /* HCPlayCellModel.swift */,
+				1B95152C20274E71002B834C /* HCPlayModel.swift */,
+				1B95152A20274E3F002B834C /* HCAlbumInfoModel.swift */,
+				1B95152E20275043002B834C /* HCNoCacheInfoModel.swift */,
+				1B951530202750C4002B834C /* HCTrackInfoModel.swift */,
+				1B951532202752A5002B834C /* HCPlayUserInfoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1100,6 +1121,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B58CA71202803F200E1BDAB /* HCPlayTitleView.xib in Resources */,
 				1BF1B4E42026F823003A6365 /* play_synopsis.html in Resources */,
 				1B4474B91FE263F200A31004 /* LaunchScreen.storyboard in Resources */,
 				1BD4C6691FE6610B00CFBF5C /* HCRecommendFooterView.xib in Resources */,
@@ -1255,23 +1277,28 @@
 				1BF1B4E12026EED6003A6365 /* HCPlaySynopsisCell.swift in Sources */,
 				1B6C1F5C200F23D0003C1F87 /* HCBoutiqueSingleHeaderView.swift in Sources */,
 				1BEB29491FE2C7F8001F7C1B /* HCNavSearchable.swift in Sources */,
+				1B95152B20274E3F002B834C /* HCAlbumInfoModel.swift in Sources */,
 				1B0C3F0B1FE53227006BD58F /* HCKeywardsModel.swift in Sources */,
 				1B0C3F1C1FE55A39006BD58F /* HCScrollBarCell.swift in Sources */,
 				1BD6536A2003185500B4BD26 /* HCCellStyleable.swift in Sources */,
+				1B95152D20274E71002B834C /* HCPlayModel.swift in Sources */,
 				1B2C66FB1FE26EAB003172BE /* Common.swift in Sources */,
 				1B0C3EEB1FE51EEA006BD58F /* JsonTemplate.txt in Sources */,
 				1BEB29471FE2C49C001F7C1B /* HCNavDownloadable.swift in Sources */,
 				1B0C3F181FE558D4006BD58F /* HCScrollBarView.swift in Sources */,
 				1B3CE4512024228000D7ABC0 /* HCPlayCellModel.swift in Sources */,
 				1B4D79AF200B1F1B00023853 /* HCBoutiqueModel.swift in Sources */,
+				1B951533202752A5002B834C /* HCPlayUserInfoModel.swift in Sources */,
 				1B6C1F60200F3539003C1F87 /* HCBoutiqueSingleIndexFlowLayout.swift in Sources */,
 				1BD653732003400500B4BD26 /* HCSettingCell.swift in Sources */,
 				1BEA0DB620049D9300A6A03F /* UINavigationBar+ChangeColor.swift in Sources */,
 				1B2C67101FE27B7A003172BE /* HCFindViewController.swift in Sources */,
 				1B8C545E1FFC81E100987481 /* HCAccountLoginResult.swift in Sources */,
+				1B951531202750C4002B834C /* HCTrackInfoModel.swift in Sources */,
 				1B2C67011FE27107003172BE /* RequestUrl.swift in Sources */,
 				1B4D79B2200B2A4D00023853 /* HCBoutiqueViewController.swift in Sources */,
 				1B0C3EFC1FE52543006BD58F /* HCSquareModel.swift in Sources */,
+				1B58CA6F2028039200E1BDAB /* HCPlayTitleView.swift in Sources */,
 				1B79F2951FE3BE9300FF3EC3 /* HCSearchController.swift in Sources */,
 				1B8C54611FFC870900987481 /* HCAccountLoginViewModel.swift in Sources */,
 				1B78FA571FE37B6400ACE9B1 /* HCHomeSearchBarable.swift in Sources */,
@@ -1299,6 +1326,7 @@
 				1B79F2931FE3BD7400FF3EC3 /* HCSearchControllerable.swift in Sources */,
 				1BEE5BAF20039DBC001B42D2 /* HCMineNavigationBar.swift in Sources */,
 				1BE4E7641FF38F7C008705CD /* HCAccountLoginable.swift in Sources */,
+				1B95152F20275043002B834C /* HCNoCacheInfoModel.swift in Sources */,
 				1BEB29451FE2C2E0001F7C1B /* HCNavHistoryable.swift in Sources */,
 				1B3341F31FF255DB008EAF43 /* String+GetSize.swift in Sources */,
 				1BE113221FF238BC0018B541 /* HCLoginViewController.swift in Sources */,

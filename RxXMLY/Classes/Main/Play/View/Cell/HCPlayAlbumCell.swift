@@ -7,7 +7,11 @@
 //  订阅专辑
 
 import UIKit
+import RxSwift
+import RxCocoa
+import RxDataSources
 import ReusableKit
+import NSObject_Rx
 
 // MARK:- 常量
 fileprivate struct Metric {
@@ -23,11 +27,14 @@ class HCPlayAlbumCell: UITableViewCell {
     @IBOutlet weak var albumView: UIView!
     @IBOutlet weak var albumLab: UILabel!
     
+    var playModel: Variable<HCPlayModel?> = Variable(nil)
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        initUI()
         initEnableMudule()
+        initUI()
+        bindUI()
     }
 }
 
@@ -44,9 +51,20 @@ extension HCPlayAlbumCell {
         
         // 初始化
         self.iconImg.image = UIImage(named: "favicon")
-        self.titleLab.text = "每天听见吴晓波·第二季"
+        self.titleLab.text = ""
         self.subTitleLab.text = "6.3万人订阅"
         self.albumLab.text = "订阅专辑"
+    }
+    
+    private func bindUI() {
+        
+        playModel.asObservable().subscribe(onNext: { [weak self] model in
+            
+            guard let `self` = self else { return }
+
+            self.titleLab.text = model?.albumInfo?.title
+            
+        }).disposed(by: rx.disposeBag)
     }
     
     static func cellHeight() -> CGFloat {
