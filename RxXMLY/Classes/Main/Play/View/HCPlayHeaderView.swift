@@ -37,6 +37,13 @@ class HCPlayHeaderView: UIView, NibLoadable {
     @IBOutlet weak var prevBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
     
+    // MARK:- 成功回调
+    typealias AddBlock = (_ isPlay: Bool)->Void
+    var playBtnClickedBlock: AddBlock? = {
+        (_) in return
+    }
+
+    var isPlay: Variable<Bool> = Variable(false)                // 播放状态
     var playModel: Variable<HCPlayModel?> = Variable(nil)
 
     private lazy var progressView = HCPlayProgressView.loadFromNib()
@@ -75,6 +82,24 @@ extension HCPlayHeaderView {
     
     private func bindUI() {
         
+        // 点击事件
+        playBtn.rx.controlEvent(.touchUpInside).subscribe(onNext: { [weak self]  _ in
+            
+            guard let `self` = self else { return }
+            self.playBtn.isSelected = !self.playBtn.isSelected
+            // 通知回调
+            self.playBtnClickedBlock?(self.playBtn.isSelected)
+            
+        }).disposed(by: rx.disposeBag)
+        
+        // 绑定事件
+        isPlay.asObservable().subscribe(onNext: { [weak self] beel in
+            
+            guard let `self` = self else { return }
+            self.playBtn.isSelected = beel
+            
+        }).disposed(by: rx.disposeBag)
+
         playModel.asObservable().subscribe(onNext: { [weak self] model in
             
             guard let `self` = self else { return }

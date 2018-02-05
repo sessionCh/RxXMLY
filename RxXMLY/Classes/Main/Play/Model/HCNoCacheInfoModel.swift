@@ -32,8 +32,10 @@ struct HCNoCacheInfoModel: Mappable {
         
         recAlbumsPanelTitle <- map["recAlbumsPanelTitle"]
         countInfo <- map["countInfo"]
+        associationAlbumsInfo <- map["associationAlbumsInfo"]
     }
     
     var recAlbumsPanelTitle = ""
     var countInfo: [String: Any]?
+    var associationAlbumsInfo: [HCAssociationAlbumsInfoModel]?
 }

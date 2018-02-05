@@ -47,6 +47,7 @@ struct HCPlayUserInfoModel: Mappable {
         ptitle <- map["ptitle"]
         
         smallLogo <- map["smallLogo"]
+        followers <- map["followers"]
     }
     
     var albums = 0
@@ -56,4 +57,5 @@ struct HCPlayUserInfoModel: Mappable {
     var ptitle = ""
     
     var smallLogo = ""
+    var followers = 0
 }

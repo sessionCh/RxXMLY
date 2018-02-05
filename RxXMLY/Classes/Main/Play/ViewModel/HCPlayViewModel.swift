@@ -76,13 +76,26 @@ extension HCPlayViewModel: HCViewModelType {
                 
                 // 订阅专辑、声音简介 部分
                 sectionArr.append((playModel, [HCPlayCellModel(),
-                                         HCPlayCellModel(),
-                                         HCPlayCellModel()]))
-                
-                // 推荐专辑 待完善...
-                sectionArr.append((playModel, [HCPlayCellModel(),
                                                HCPlayCellModel(),
                                                HCPlayCellModel()]))
+                
+                // 推荐专辑 部分
+                if let count = playModel.noCacheInfo?.associationAlbumsInfo?.count, count > 0 {
+                    sectionArr.append((playModel, [HCPlayCellModel(),
+                                                   HCPlayCellModel(),
+                                                   HCPlayCellModel(),
+                                                   HCPlayCellModel()]))
+                }
+                // 放入空用来占位
+                else {
+                    sectionArr.append((playModel, []))
+                }
+                
+                // 主播介绍 部分
+                if playModel.userInfo != nil {
+                    sectionArr.append((playModel, [HCPlayCellModel(),
+                                                   HCPlayCellModel()]))
+                }
                 
                 self.vmDatas.value = sectionArr
 

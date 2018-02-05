@@ -20,6 +20,10 @@ private enum Reusable {
     
     static let playAlbumCell = ReusableCell<HCPlayAlbumCell>(nibName: "HCPlayAlbumCell")
     static let playSynopsisCell = ReusableCell<HCPlaySynopsisCell>(nibName: "HCPlaySynopsisCell")
+    static let playRecommendHeaderCell = ReusableCell<HCPlayRecommendHeaderCell>(nibName: "HCPlayRecommendHeaderCell")
+    static let playRecommendCell = ReusableCell<HCPlayRecommendCell>(nibName: "HCPlayRecommendCell")
+    static let playRecommendFooterCell = ReusableCell<HCPlayRecommendFooterCell>(nibName: "HCPlayRecommendFooterCell")
+    static let playUserInfoCell = ReusableCell<HCPlayUserInfoCell>(nibName: "HCPlayUserInfoCell")
 }
 
 // MARK:- 常量
@@ -51,6 +55,10 @@ class HCPlayViewController: HCBaseViewController {
         initEnableMudule()
         initUI()
         bindUI()
+        // 初始化 播放状态
+        if let isPlay = mainViewController?.playView.isPlay.value {
+            updatePlayStatus(isPlay: isPlay)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,12 +77,7 @@ class HCPlayViewController: HCBaseViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-    }
-    
-    deinit {
-        tableView.delegate = nil
-        HCLog("deinit: \(type(of: self))")
-    }
+    }    
 }
 
 // MARK:- 初始化协议
@@ -106,12 +109,39 @@ extension HCPlayViewController: HCNavBackable, HCNavUniversalable {
 
 // MARK:- 初始化部分
 extension HCPlayViewController {
+    
+    // MARK:- 更新 播放状态
+    private func updatePlayStatus(isPlay: Bool) {
         
+        // 需要更新状态
+        if let beel = self.headerView?.isPlay.value, beel != isPlay {
+            // 更新 头部按钮 播放状态
+            self.headerView?.isPlay.value = isPlay
+        }
+        
+        // 需要更新状态
+        if let beel = self.titleView?.isPlay.value, beel != isPlay {
+            // 更新 标题 播放状态
+            self.titleView?.isPlay.value = isPlay
+        }
+        
+        // 需要更新状态
+        if let beel = mainViewController?.playView.isPlay.value, beel != isPlay {
+            // 更新 标题 播放状态
+            mainViewController?.playView.isPlay.value = isPlay
+        }
+    }
+    
     // MARK:- 初始化视图
     private func initUI() {
         
         // TitleView
         let titleView = HCPlayTitleView.loadFromNib()
+        titleView.playBtnClickedBlock = { [weak self] (isPlay) in
+            
+            guard let `self` = self else { return }
+            self.updatePlayStatus(isPlay: isPlay)
+        }
         titleView.isHidden = true
         self.titleView = titleView
         self.navigationController?.navigationBar.addSubview(titleView)
@@ -127,6 +157,11 @@ extension HCPlayViewController {
         tableView.separatorStyle = .none
         
         let headerView = HCPlayHeaderView.loadFromNib()
+        headerView.playBtnClickedBlock = { [weak self] (isPlay) in
+            
+            guard let `self` = self else { return }
+            self.updatePlayStatus(isPlay: isPlay)
+        }
         self.headerView = headerView
         headerView.frame = CGRect(x: 0, y: kNavibarH, width: headerView.width, height: headerView.height)
         let tableHeaderView = UIView()
@@ -153,6 +188,10 @@ extension HCPlayViewController {
         // 注册cell
         tableView.register(Reusable.playAlbumCell)
         tableView.register(Reusable.playSynopsisCell)
+        tableView.register(Reusable.playRecommendHeaderCell)
+        tableView.register(Reusable.playRecommendCell)
+        tableView.register(Reusable.playRecommendFooterCell)
+        tableView.register(Reusable.playUserInfoCell)
     }
     
     // MARK:- 绑定视图
@@ -170,13 +209,15 @@ extension HCPlayViewController {
                 placeCell.selectionStyle = .none
                 placeCell.backgroundColor = kThemeGainsboroColor
                 return placeCell
-            } else if indexPath.row == 1 {
+            }
+            else if indexPath.section == 0 &&  indexPath.row == 1 {
                 
                 let cell = tv.dequeue(Reusable.playAlbumCell, for: indexPath)
                 cell.selectionStyle = .none
                 cell.playModel.value = dsSection.playModel
                 return cell
-            } else if indexPath.row == 2 && indexPath.section == 0 {
+            }
+            else if indexPath.section == 0 && indexPath.row == 2 {
                 
                 let cell = tv.dequeue(Reusable.playSynopsisCell, for: indexPath)
                 cell.selectionStyle = .none
@@ -189,14 +230,36 @@ extension HCPlayViewController {
                 self.playSynopsisCell = cell
                 return cell
             }
-            // 待完善...
-            else {
+            else if indexPath.section == 1 && indexPath.row == 1 {
                
-                let cell = tv.dequeue(Reusable.playAlbumCell, for: indexPath)
+                let cell = tv.dequeue(Reusable.playRecommendHeaderCell, for: indexPath)
                 cell.selectionStyle = .none
                 cell.playModel.value = dsSection.playModel
                 return cell
             }
+                // 相关推荐 部分
+            else if indexPath.section == 1 && indexPath.row == 2 {
+                
+                let cell = tv.dequeue(Reusable.playRecommendCell, for: indexPath)
+                cell.selectionStyle = .none
+                cell.albumsInfoModel.value = dsSection.playModel?.noCacheInfo?.associationAlbumsInfo?.first
+                return cell
+            }
+            else if indexPath.section == 1 && indexPath.row == 3 {
+                
+                let cell = tv.dequeue(Reusable.playRecommendFooterCell, for: indexPath)
+                cell.selectionStyle = .none
+                return cell
+            }
+                // 主播介绍 部分
+            else if indexPath.section == 2 && indexPath.row == 1 {
+                
+                let cell = tv.dequeue(Reusable.playUserInfoCell, for: indexPath)
+                cell.selectionStyle = .none
+                cell.userInfoModel.value = dsSection.playModel?.userInfo
+                return cell
+            }
+
             return UITableViewCell()
             
             }, titleForHeaderInSection: { [weak self] (ds, section) -> String? in
@@ -220,15 +283,38 @@ extension HCPlayViewController: UITableViewDelegate {
         
         // 充当 SectionHeader 数据模型
         if indexPath.row == 0 {
+            
             return Metric.sectionHeight
-        } else if indexPath.row == 1 {
+        }
+        else if indexPath.section == 0 && indexPath.row == 1 {
+            
             return HCPlayAlbumCell.cellHeight()
-        } else if indexPath.row == 2 && indexPath.section == 0 {
+        }
+        else if indexPath.section == 0 &&  indexPath.row == 2 {
+            
             if let cellHeight = playSynopsisCell?.cellHeight() {
+                
                 return cellHeight
             }
             return HCPlaySynopsisCell.cellHeight()
         }
+        else if indexPath.section == 1 &&  indexPath.row == 1 {
+            
+            return HCPlayRecommendHeaderCell.defaultCellHeight()
+        }
+        else if indexPath.section == 1 &&  indexPath.row == 2 {
+            
+            return HCPlayRecommendCell.cellHeight()
+        }
+        else if indexPath.section == 1 &&  indexPath.row == 3 {
+            
+            return HCPlayRecommendFooterCell.cellHeight()
+        }
+        else if indexPath.section == 2 &&  indexPath.row == 1 {
+            
+            return HCPlayUserInfoCell.cellHeight()
+        }
+
         return HCPlayAlbumCell.cellHeight()
     }
     

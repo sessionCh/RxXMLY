@@ -1,29 +1,31 @@
 //
-//  HCRecommendHeaderView.swift
+//  HCPlayRecommendHeaderCell.swift
 //  RxXMLY
 //
-//  Created by sessionCh on 2017/12/17.
-//  Copyright © 2017年 sessionCh. All rights reserved.
-//
+//  Created by sessionCh on 2018/2/6.
+//  Copyright © 2018年 sessionCh. All rights reserved.
+//  推荐部分
 
 import UIKit
 import RxSwift
 import RxCocoa
+import RxGesture
 import RxDataSources
 import ReusableKit
 import NSObject_Rx
 
+// MARK:- 常量
 fileprivate struct Metric {
     
     static let defaultHeight : CGFloat = 90.0
     static let minHeight : CGFloat = 50.0
 }
 
-class HCRecommendHeaderView: UICollectionReusableView, NibLoadable {
+class HCPlayRecommendHeaderCell: UITableViewCell {
 
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var bottomView: UIView!
-
+    
     @IBOutlet weak var leftTitle: UILabel!
     @IBOutlet weak var leftSubView: UIView!
     @IBOutlet weak var leftSubTitle: UILabel!
@@ -35,14 +37,14 @@ class HCRecommendHeaderView: UICollectionReusableView, NibLoadable {
     @IBOutlet weak var tagView2: UIView!
     @IBOutlet weak var tagView3: UIView!
     @IBOutlet weak var tagView4: UIView!
-
+    
     @IBOutlet weak var tagLab1: UILabel!
     @IBOutlet weak var tagLab2: UILabel!
     @IBOutlet weak var tagLab3: UILabel!
     @IBOutlet weak var tagLab4: UILabel!
     
-    var categoryModel: Variable<HCCategoryModel?> = Variable(nil)
-    
+    var playModel: Variable<HCPlayModel?> = Variable(nil)
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -51,7 +53,8 @@ class HCRecommendHeaderView: UICollectionReusableView, NibLoadable {
     }
 }
 
-extension HCRecommendHeaderView {
+// MARK:- 初始化
+extension HCPlayRecommendHeaderCell {
     
     private func initUI() {
         
@@ -82,40 +85,45 @@ extension HCRecommendHeaderView {
     
     private func bindUI() {
         
-        categoryModel.asObservable().subscribe(onNext: { model in
+        playModel.asObservable().subscribe(onNext: { [weak self] model in
             
-            if let beel = model?.showInterestCard {
-                self.leftSubView.isHidden = !beel
-            }
+            guard let `self` = self else { return }
+
+            self.leftSubView.isHidden = true
+            self.rightSubView.isHidden = true
             
-            self.leftTitle.text = model?.title
+            self.leftTitle.text = model?.noCacheInfo?.recAlbumsPanelTitle
             
-            guard let keywords = model?.keywords, keywords.count > 0 else {
+            if let keywordStr = model?.albumInfo?.tags {
                 
-                self.height = Metric.minHeight
-                self.bottomView.isHidden = true
-                return
+                let keywords = keywordStr.components(separatedBy: ",")
+                
+                if keywords.count >= 4 {
+                    self.height = Metric.defaultHeight
+                    self.bottomView.isHidden = false
+                    
+                    self.tagLab1.text = keywords[0]
+                    self.tagLab2.text = keywords[1]
+                    self.tagLab3.text = keywords[2]
+                    self.tagLab4.text = keywords[3]
+                    return
+                }
             }
-            
-            self.height = Metric.defaultHeight
-            self.bottomView.isHidden = false
-            
-            self.tagLab1.text = model?.keywords![0].keywordName
-            self.tagLab2.text = model?.keywords![1].keywordName
-            self.tagLab3.text = model?.keywords![2].keywordName
-            self.tagLab4.text = model?.keywords![3].keywordName
+            self.height = Metric.minHeight
+            self.bottomView.isHidden = true
+            return
             
         }).disposed(by: rx.disposeBag)
     }
     
-    static func defaultHeaderSize() -> CGSize {
+    static func defaultCellHeight() -> CGFloat {
         
-        return CGSize(width: kScreenW, height: Metric.defaultHeight)
+        return Metric.defaultHeight
     }
     
-    static func minHeaderSize() -> CGSize {
+    static func minCellHeight() -> CGFloat {
         
-        return CGSize(width: kScreenW, height: Metric.minHeight)
+        return  Metric.minHeight
     }
 }
 
