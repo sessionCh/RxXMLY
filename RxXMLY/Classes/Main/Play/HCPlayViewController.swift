@@ -115,6 +115,8 @@ extension HCPlayViewController {
         self.titleView = titleView
         self.navigationController?.navigationBar.addSubview(titleView)
         titleView.snp.makeConstraints { (make) in
+            make.width.equalTo(titleView.width)
+            make.height.equalTo(titleView.height)
             make.center.equalToSuperview()
         }
         
